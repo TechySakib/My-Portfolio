@@ -442,7 +442,7 @@ function MergedPortrait({
             clipPath: getClip(id),
             opacity: !isAny ? 1 : hovered === id ? 1 : 0,
             scale: hovered === id ? 1.035 : 1,
-            filter: hovered === id ? "contrast(0.96) brightness(0.98)" : "contrast(1) brightness(1)",
+            filter: hovered === id ? "contrast(0.98) brightness(0.99)" : "contrast(1) brightness(1)",
           }}
           transition={{
             clipPath: { duration: 0.72, ease: EASE },
@@ -711,8 +711,8 @@ export default function HeroSection() {
             lineHeight: 0.86,
             color: "transparent",
             WebkitTextStroke: hovered
-              ? "1px rgba(255,255,255,0.04)"  // beautifully dimmed to 4% opacity (visible but low-contrast)
-              : "1px rgba(255,255,255,0.075)", // crisp and beautiful when idle (7.5% opacity)
+              ? "1px rgba(255,255,255,0.048)" // beautifully dimmed to 4.8% opacity (slightly higher contrast on hover)
+              : "1px rgba(255,255,255,0.08)",  // crisp and beautiful 8% opacity when idle
             transition: "WebkitTextStroke 0.6s ease",
             textAlign: "center",
             whiteSpace: "nowrap",
