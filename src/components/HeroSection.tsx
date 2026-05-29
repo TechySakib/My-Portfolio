@@ -91,41 +91,62 @@ const FULL = "inset(0% 0% 0% 0%)";
 const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 // ─── Particles ────────────────────────────────────────────────────────────────
+type ParticleDef = {
+  w: number; h: number; left: string; top: string;
+  bg: string; shadow: string; opacity: number;
+  dy: number[]; dx: number[]; dur: number; delay: number;
+};
+
 function Particles({ active }: { active: Zone }) {
+  const [particles, setParticles] = useState<ParticleDef[]>([]);
   const color = active ? IDENTITIES[active].color : "#8b5cf6";
+
+  // Generate on client only — avoids SSR/client Math.random() mismatch
+  useEffect(() => {
+    const list: ParticleDef[] = Array.from({ length: 32 }).map((_, i) => {
+      const isAccent = i % 5 === 0;
+      const c = isAccent ? color : "rgba(255,255,255,0.15)";
+      return {
+        w: Math.random() * 2.5 + 0.8,
+        h: Math.random() * 2.5 + 0.8,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        bg: c,
+        shadow: isAccent ? `0 0 8px ${color}` : "none",
+        opacity: Math.random() * 0.5 + 0.08,
+        dy: [0, -(28 + Math.random() * 36), 0],
+        dx: [0, (Math.random() - 0.5) * 18, 0],
+        dur: 5 + Math.random() * 5,
+        delay: Math.random() * 5,
+      };
+    });
+    setParticles(list);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // only on mount
+
+  if (particles.length === 0) return null;
+
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 1 }}>
-      {Array.from({ length: 32 }).map((_, i) => {
-        const isAccent = i % 5 === 0;
-        return (
-          <motion.div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              width: Math.random() * 2.5 + 0.8,
-              height: Math.random() * 2.5 + 0.8,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              background: isAccent ? color : "rgba(255,255,255,0.15)",
-              boxShadow: isAccent ? `0 0 8px ${color}` : "none",
-            }}
-            animate={{
-              y: [0, -(28 + Math.random() * 36), 0],
-              x: [0, (Math.random() - 0.5) * 18, 0],
-              opacity: [0.08, 0.45, 0.08],
-            }}
-            transition={{
-              duration: 5 + Math.random() * 5,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: "easeInOut",
-            }}
-          />
-        );
-      })}
+      {particles.map((p, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full"
+          style={{
+            width: p.w, height: p.h,
+            left: p.left, top: p.top,
+            background: p.bg,
+            boxShadow: p.shadow,
+            opacity: p.opacity,
+          }}
+          animate={{ y: p.dy, x: p.dx, opacity: [0.08, 0.45, 0.08] }}
+          transition={{ duration: p.dur, repeat: Infinity, delay: p.delay, ease: "easeInOut" }}
+        />
+      ))}
     </div>
   );
 }
+
 
 // ─── Side Panel (Desktop left/right) ─────────────────────────────────────────
 function SidePanel({
