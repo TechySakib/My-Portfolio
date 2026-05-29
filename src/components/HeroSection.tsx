@@ -817,7 +817,7 @@ export default function HeroSection() {
         {/* ══ PORTRAIT + SIDE PANELS ROW ══ */}
         <LayoutGroup>
           <div
-            className="flex items-center justify-center gap-8 lg:gap-14 w-full h-full px-4 md:px-10 pb-16"
+            className="flex items-center justify-center gap-8 lg:gap-14 flex-1 w-full px-4 md:px-10 min-h-0"
             style={{ paddingTop: "clamp(140px, 20vh, 180px)" }}
           >
 
@@ -880,10 +880,11 @@ export default function HeroSection() {
           </div>
         </LayoutGroup>
 
-        {/* ══ BOTTOM CARD ══ */}
-        {/* On desktop: shows for center (pro) hover */}
-        {/* On mobile: shows for all hover states */}
-        <div className="w-full pb-2 mt-4">
+        {/* ══ BOTTOM CARD — absolute so it never overflows ══ */}
+        <div
+          className="absolute left-0 right-0"
+          style={{ bottom: "clamp(48px, 8vh, 72px)", zIndex: 30, pointerEvents: "auto" }}
+        >
           {/* Desktop: only pro */}
           <div className="hidden lg:block">
             {hovered === "pro" && <BottomCard zone="pro" />}
@@ -894,13 +895,13 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Scroll + hint bar */}
+        {/* Scroll + hint bar — absolute at very bottom */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6, duration: 0.8 }}
-          className="flex items-center justify-between w-full px-8 md:px-16 pb-5"
-          style={{ pointerEvents: "none" }}
+          className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-8 md:px-16 pb-5"
+          style={{ pointerEvents: "none", zIndex: 25 }}
         >
           {/* Left hint */}
           <motion.p
