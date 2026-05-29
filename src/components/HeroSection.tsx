@@ -780,8 +780,6 @@ export default function HeroSection() {
               color: "white",
               lineHeight: 1.1,
               textShadow: "0 0 50px rgba(0,0,0,0.9)",
-              paddingLeft: "8px",
-              paddingRight: "8px",
             }}
           >
             Nazmus Sakib

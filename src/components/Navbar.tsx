@@ -47,8 +47,8 @@ export default function Navbar() {
         transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12"
         style={{
-          paddingTop: scrolled ? "12px" : "20px",
-          paddingBottom: scrolled ? "12px" : "20px",
+          paddingTop: scrolled ? "8px" : "12px",
+          paddingBottom: scrolled ? "8px" : "12px",
           transition: "padding 0.4s ease, background 0.4s ease, backdrop-filter 0.4s ease",
           background: scrolled
             ? "rgba(7, 7, 16, 0.85)"
@@ -88,11 +88,11 @@ export default function Navbar() {
           </div>
           <span
             style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontWeight: 600,
-              fontSize: "0.9rem",
+              fontFamily: "var(--font-satisfy), 'Space Grotesk', sans-serif",
+              fontWeight: 400,
+              fontSize: "1.2rem", // cursive fonts run smaller, so we upscale slightly
               color: "var(--text-primary)",
-              letterSpacing: "-0.03em",
+              letterSpacing: "0.01em",
             }}
           >
             Nazmus Sakib
