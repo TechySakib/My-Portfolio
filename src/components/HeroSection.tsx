@@ -169,7 +169,7 @@ function SidePanel({
       style={{ width: "clamp(240px, 22vw, 320px)" }}
     >
       <div
-        className="rounded-2xl p-8 h-full relative"
+        className="rounded-2xl pl-10 pr-8 py-8 h-full relative"
         style={{
           background: "rgba(4,4,16,0.82)",
           backdropFilter: "blur(28px)",
@@ -325,7 +325,7 @@ function BottomCard({ zone }: { zone: Zone }) {
           style={{ zIndex: 30 }}
         >
           <div
-            className="rounded-2xl px-8 py-6"
+            className="rounded-2xl pl-10 pr-8 py-6"
             style={{
               background: "rgba(4,4,16,0.82)",
               backdropFilter: "blur(24px)",
