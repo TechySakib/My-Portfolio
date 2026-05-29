@@ -57,9 +57,13 @@ export default function HomePage() {
       {/* Hero */}
       <HeroSection />
 
-      {/* Content sections */}
-      <ProjectsSection />
+      {/* About (with tech stack) — directly after hero */}
       <AboutSection />
+
+      {/* Projects */}
+      <ProjectsSection />
+
+      {/* Uses & Contact */}
       <UsesSection />
       <ContactSection />
     </main>
