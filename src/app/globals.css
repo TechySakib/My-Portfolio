@@ -191,6 +191,9 @@ body {
 .animate-spin-slow { animation: spin-slow 20s linear infinite; }
 
 /* Scroll offset for sections to start beautifully below the fixed navbar */
-section:not(#home) {
-  scroll-margin-top: 100px;
+#about, 
+#projects, 
+#uses, 
+#contact {
+  scroll-margin-top: 120px !important;
 }
