@@ -99,60 +99,50 @@ export default function Navbar() {
           </span>
         </motion.a>
 
-        {/* Desktop nav + CTA — all grouped on the RIGHT */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="hidden md:flex items-center"
+          className="hidden md:flex items-center gap-4"
         >
-          {/* Navigation Links Group */}
-          <div className="flex items-center gap-2">
-            {navLinks.map((link, i) => (
-              <motion.div
-                key={link.href}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + i * 0.06, duration: 0.5 }}
+          {navLinks.map((link, i) => (
+            <motion.div
+              key={link.href}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 + i * 0.06, duration: 0.5 }}
+            >
+              <a
+                href={link.href}
+                id={`nav-${link.label.toLowerCase()}`}
+                className="relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 no-underline flex items-center"
+                style={{
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  color: activeSection === link.href.slice(1)
+                    ? "var(--text-primary)"
+                    : "var(--text-secondary)",
+                  background:
+                    activeSection === link.href.slice(1)
+                      ? "rgba(255,255,255,0.08)"
+                      : "transparent",
+                }}
+                onMouseEnter={(e) => {
+                  if (activeSection !== link.href.slice(1)) {
+                    (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
+                    (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.05)";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (activeSection !== link.href.slice(1)) {
+                    (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)";
+                    (e.currentTarget as HTMLElement).style.background = "transparent";
+                  }
+                }}
               >
-                <a
-                  href={link.href}
-                  id={`nav-${link.label.toLowerCase()}`}
-                  className="relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 no-underline flex items-center"
-                  style={{
-                    fontFamily: "'Space Grotesk', sans-serif",
-                    color: activeSection === link.href.slice(1)
-                      ? "var(--text-primary)"
-                      : "var(--text-secondary)",
-                    background:
-                      activeSection === link.href.slice(1)
-                        ? "rgba(255,255,255,0.08)"
-                        : "transparent",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (activeSection !== link.href.slice(1)) {
-                      (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
-                      (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.05)";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (activeSection !== link.href.slice(1)) {
-                      (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)";
-                      (e.currentTarget as HTMLElement).style.background = "transparent";
-                    }
-                  }}
-                >
-                  {link.label}
-                </a>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Divider */}
-          <div
-            className="mx-4 h-4 w-px rounded-full"
-            style={{ background: "rgba(255,255,255,0.12)" }}
-          />
+                {link.label}
+              </a>
+            </motion.div>
+          ))}
 
           {/* CTA Button */}
           <motion.a
