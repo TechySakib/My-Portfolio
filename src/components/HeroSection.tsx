@@ -708,7 +708,13 @@ export default function HeroSection() {
             letterSpacing: "-0.07em",
             lineHeight: 0.86,
             color: "transparent",
-            WebkitTextStroke: "1px rgba(255,255,255,0.028)",
+            WebkitTextStroke: hovered
+              ? `1.5px ${IDENTITIES[hovered].color}52` // 32% opacity theme color stroke on hover
+              : "1px rgba(255,255,255,0.065)",        // 6.5% opacity clean white stroke by default
+            textShadow: hovered
+              ? `0 0 60px ${IDENTITIES[hovered].glowSoft}` // soft glow matching hovered section color
+              : "none",
+            transition: "WebkitTextStroke 0.6s ease, text-shadow 0.6s ease",
             textAlign: "center",
             whiteSpace: "nowrap",
           }}
