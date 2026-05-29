@@ -442,11 +442,13 @@ function MergedPortrait({
             clipPath: getClip(id),
             opacity: !isAny ? 1 : hovered === id ? 1 : 0,
             scale: hovered === id ? 1.035 : 1,
+            filter: hovered === id ? "contrast(0.92) brightness(0.96)" : "contrast(1) brightness(1)",
           }}
           transition={{
             clipPath: { duration: 0.72, ease: EASE },
             opacity: { duration: 0.48, ease: "easeInOut" },
             scale: { duration: 0.72, ease: EASE },
+            filter: { duration: 0.48, ease: "easeInOut" },
           }}
           style={{ transformOrigin: "center center" }}
         >
@@ -709,12 +711,9 @@ export default function HeroSection() {
             lineHeight: 0.86,
             color: "transparent",
             WebkitTextStroke: hovered
-              ? `1.5px ${IDENTITIES[hovered].color}52` // 32% opacity theme color stroke on hover
-              : "1px rgba(255,255,255,0.065)",        // 6.5% opacity clean white stroke by default
-            textShadow: hovered
-              ? `0 0 60px ${IDENTITIES[hovered].glowSoft}` // soft glow matching hovered section color
-              : "none",
-            transition: "WebkitTextStroke 0.6s ease, text-shadow 0.6s ease",
+              ? "1px rgba(255,255,255,0.015)" // extremely low contrast when active (1.5% opacity)
+              : "1px rgba(255,255,255,0.075)", // crisp and beautiful when idle (7.5% opacity)
+            transition: "WebkitTextStroke 0.6s ease",
             textAlign: "center",
             whiteSpace: "nowrap",
           }}
