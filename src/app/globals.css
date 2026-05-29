@@ -191,4 +191,15 @@ body {
 .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
 .animate-spin-slow { animation: spin-slow 20s linear infinite; }
 
+/* Each key section takes at least the full viewport height with content centered */
+#about, 
+#projects, 
+#uses, 
+#contact {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
