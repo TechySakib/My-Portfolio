@@ -5,8 +5,8 @@ import { motion, AnimatePresence, useScroll } from "framer-motion";
 
 const navLinks = [
   { href: "#home", label: "Home" },
-  { href: "#projects", label: "Projects" },
   { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
   { href: "#uses", label: "Uses" },
 ];
 
@@ -25,7 +25,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "projects", "about", "uses", "contact"];
+      const sections = ["home", "about", "projects", "uses", "contact"];
       const scrollPos = window.scrollY + 100;
       for (const id of sections.reverse()) {
         const el = document.getElementById(id);
@@ -104,7 +104,7 @@ export default function Navbar() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="hidden md:flex items-center gap-1"
+          className="hidden md:flex items-center gap-3"
         >
           {navLinks.map((link, i) => (
             <motion.div
