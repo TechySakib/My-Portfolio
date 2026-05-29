@@ -325,18 +325,19 @@ function BottomCard({ zone }: { zone: Zone }) {
           style={{ zIndex: 30 }}
         >
           <div
-            className="rounded-2xl px-5 py-4"
+            className="rounded-2xl px-6 py-5"
             style={{
-              background: "rgba(4,4,16,0.8)",
+              background: "rgba(4,4,16,0.82)",
               backdropFilter: "blur(24px)",
               WebkitBackdropFilter: "blur(24px)",
               border: `1px solid ${id.border}`,
-              boxShadow: `0 0 40px ${id.glow}, 0 8px 40px rgba(0,0,0,0.6)`,
+              boxShadow: `0 0 48px ${id.glow}, 0 8px 40px rgba(0,0,0,0.65)`,
             }}
           >
-            <div className="flex items-center gap-2 mb-2">
+            {/* Eyebrow row */}
+            <div className="flex items-center gap-2.5 mb-3">
               <div
-                className="h-px w-5 rounded-full"
+                className="h-px w-6 rounded-full"
                 style={{ background: `linear-gradient(90deg, ${id.color}, ${id.colorB})` }}
               />
               <span
@@ -352,32 +353,41 @@ function BottomCard({ zone }: { zone: Zone }) {
               </span>
             </div>
 
+            {/* Title */}
             <h3
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontWeight: 800,
-                fontSize: "1.25rem",
+                fontSize: "1.3rem",
                 letterSpacing: "-0.03em",
                 color: "white",
-                marginBottom: "0.2rem",
+                marginBottom: "0.5rem",
               }}
             >
               {id.label}
             </h3>
 
+            {/* Divider */}
+            <div
+              className="h-px w-full rounded-full mb-4"
+              style={{ background: `linear-gradient(90deg, ${id.border}, transparent)` }}
+            />
+
+            {/* Description */}
             <p
               style={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: "0.76rem",
-                color: "rgba(255,255,255,0.5)",
-                lineHeight: 1.65,
-                marginBottom: "0.7rem",
+                fontSize: "0.78rem",
+                color: "rgba(255,255,255,0.52)",
+                lineHeight: 1.75,
+                marginBottom: "1.1rem",
               }}
             >
               {id.description}
             </p>
 
-            <div className="flex flex-wrap gap-1.5">
+            {/* Keywords */}
+            <div className="flex flex-wrap gap-2">
               {id.keywords.map((kw, i) => (
                 <motion.span
                   key={kw}
@@ -386,9 +396,9 @@ function BottomCard({ zone }: { zone: Zone }) {
                   transition={{ delay: 0.18 + i * 0.04 }}
                   style={{
                     fontFamily: "'Space Grotesk', sans-serif",
-                    fontSize: "0.62rem",
+                    fontSize: "0.64rem",
                     fontWeight: 500,
-                    padding: "2px 9px",
+                    padding: "4px 12px",
                     borderRadius: "99px",
                     background: `${id.color}14`,
                     border: `1px solid ${id.border}`,
