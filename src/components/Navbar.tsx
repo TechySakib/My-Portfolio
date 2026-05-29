@@ -104,64 +104,75 @@ export default function Navbar() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="hidden md:flex items-center gap-3"
+          className="hidden md:flex items-center"
         >
-          {navLinks.map((link, i) => (
-            <motion.div
-              key={link.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + i * 0.06, duration: 0.5 }}
-            >
-              <a
-                href={link.href}
-                id={`nav-${link.label.toLowerCase()}`}
-                className="relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 no-underline flex items-center"
-                style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  color: activeSection === link.href.slice(1)
-                    ? "var(--text-primary)"
-                    : "var(--text-secondary)",
-                  background:
-                    activeSection === link.href.slice(1)
-                      ? "rgba(255,255,255,0.08)"
-                      : "transparent",
-                }}
-                onMouseEnter={(e) => {
-                  if (activeSection !== link.href.slice(1)) {
-                    (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
-                    (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.05)";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (activeSection !== link.href.slice(1)) {
-                    (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)";
-                    (e.currentTarget as HTMLElement).style.background = "transparent";
-                  }
-                }}
+          {/* Navigation Links Group */}
+          <div className="flex items-center gap-2">
+            {navLinks.map((link, i) => (
+              <motion.div
+                key={link.href}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + i * 0.06, duration: 0.5 }}
               >
-                {link.label}
-              </a>
-            </motion.div>
-          ))}
+                <a
+                  href={link.href}
+                  id={`nav-${link.label.toLowerCase()}`}
+                  className="relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 no-underline flex items-center"
+                  style={{
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    color: activeSection === link.href.slice(1)
+                      ? "var(--text-primary)"
+                      : "var(--text-secondary)",
+                    background:
+                      activeSection === link.href.slice(1)
+                        ? "rgba(255,255,255,0.08)"
+                        : "transparent",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (activeSection !== link.href.slice(1)) {
+                      (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
+                      (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.05)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeSection !== link.href.slice(1)) {
+                      (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)";
+                      (e.currentTarget as HTMLElement).style.background = "transparent";
+                    }
+                  }}
+                >
+                  {link.label}
+                </a>
+              </motion.div>
+            ))}
+          </div>
 
           {/* Divider */}
           <div
-            className="mx-2 h-4 w-px rounded-full"
+            className="mx-4 h-4 w-px rounded-full"
             style={{ background: "rgba(255,255,255,0.12)" }}
           />
 
-          {/* CTA */}
+          {/* CTA Button */}
           <motion.a
             href="#contact"
             id="nav-cta"
-            whileHover={{ scale: 1.03 }}
+            whileHover={{
+              scale: 1.05,
+              y: -1,
+              boxShadow: "0 6px 20px rgba(168, 85, 247, 0.4), 0 0 30px rgba(59, 130, 246, 0.2)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+            }}
             whileTap={{ scale: 0.97 }}
-            className="px-4 py-2 rounded-lg text-sm font-semibold no-underline"
+            className="px-5 py-2.5 rounded-full text-sm font-semibold no-underline transition-all duration-300 flex items-center justify-center relative overflow-hidden"
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
               background: "linear-gradient(135deg, #a855f7, #3b82f6)",
               color: "white",
+              boxShadow: "0 4px 15px rgba(168, 85, 247, 0.2)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              letterSpacing: "0.02em",
             }}
           >
             Let&apos;s Talk
@@ -229,12 +240,21 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 6px 20px rgba(168, 85, 247, 0.4), 0 0 30px rgba(59, 130, 246, 0.2)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+              }}
+              whileTap={{ scale: 0.97 }}
               onClick={() => setMenuOpen(false)}
-              className="mt-4 px-8 py-3 rounded-xl text-lg font-bold no-underline"
+              className="mt-6 px-8 py-3 rounded-full text-lg font-bold no-underline transition-all duration-300"
               style={{
                 background: "linear-gradient(135deg, #a855f7, #3b82f6)",
                 color: "white",
                 fontFamily: "'Space Grotesk', sans-serif",
+                boxShadow: "0 4px 15px rgba(168, 85, 247, 0.2)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                letterSpacing: "0.02em",
               }}
             >
               Let&apos;s Talk
