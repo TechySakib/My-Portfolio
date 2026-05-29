@@ -722,18 +722,19 @@ export default function HeroSection() {
         style={{ zIndex: 10 }}
       >
 
-        {/* Top name + subtitle */}
+        {/* Top name + subtitle — pinned to top of page */}
         <motion.div
           initial={{ opacity: 0, y: -14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8, ease: EASE }}
-          className="flex flex-col items-center text-center pt-[clamp(72px,10vh,96px)] pb-6 md:pb-8 px-4"
+          className="absolute top-0 left-0 right-0 flex flex-col items-center text-center px-4"
+          style={{ paddingTop: "clamp(72px, 10vh, 96px)", zIndex: 20, pointerEvents: "none" }}
         >
           {/* Eyebrow */}
           <motion.div
             animate={{ opacity: [0.4, 1, 0.4] }}
             transition={{ duration: 3.5, repeat: Infinity }}
-            className="flex items-center gap-3 mb-3"
+            className="flex items-center gap-3 mb-2"
           >
             <div
               className="h-px w-10"
@@ -787,6 +788,7 @@ export default function HeroSection() {
                     color: IDENTITIES[hovered].color,
                     letterSpacing: "0.18em",
                     textTransform: "uppercase",
+                    pointerEvents: "none",
                   }}
                 >
                   {IDENTITIES[hovered].label} · {IDENTITIES[hovered].sublabel}
@@ -814,7 +816,10 @@ export default function HeroSection() {
 
         {/* ══ PORTRAIT + SIDE PANELS ROW ══ */}
         <LayoutGroup>
-          <div className="flex items-center justify-center gap-8 lg:gap-14 flex-1 w-full px-4 md:px-10 min-h-0">
+          <div
+            className="flex items-center justify-center gap-8 lg:gap-14 w-full h-full px-4 md:px-10 pb-16"
+            style={{ paddingTop: "clamp(140px, 20vh, 180px)" }}
+          >
 
             {/* LEFT SIDE PANEL — desktop only, anime hover */}
             <AnimatePresence>
