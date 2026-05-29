@@ -88,11 +88,11 @@ export default function Navbar() {
           </div>
           <span
             style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontWeight: 600,
-              fontSize: "0.9rem",
+              fontFamily: "var(--font-satisfy), 'Space Grotesk', sans-serif",
+              fontWeight: 400,
+              fontSize: "1.2rem", // cursive fonts run smaller, so we upscale slightly
               color: "var(--text-primary)",
-              letterSpacing: "-0.03em",
+              letterSpacing: "0.01em",
             }}
           >
             Nazmus Sakib

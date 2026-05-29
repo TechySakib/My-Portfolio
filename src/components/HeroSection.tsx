@@ -773,12 +773,12 @@ export default function HeroSection() {
           {/* Name */}
           <h1
             style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontWeight: 800,
-              fontSize: "clamp(1.8rem, 4vw, 3.2rem)",
-              letterSpacing: "-0.04em",
+              fontFamily: "var(--font-satisfy), 'Space Grotesk', sans-serif",
+              fontWeight: 400,
+              fontSize: "clamp(2.4rem, 6vw, 4.5rem)", // Cursive is thin and smaller, so we upscale
+              letterSpacing: "0.02em",
               color: "white",
-              lineHeight: 1.05,
+              lineHeight: 1.1,
               textShadow: "0 0 50px rgba(0,0,0,0.9)",
             }}
           >
