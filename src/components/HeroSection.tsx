@@ -644,6 +644,9 @@ export default function HeroSection() {
   const portraitSlideX =
     hovered === "anime" ? 130 : hovered === "ai" ? -130 : 0;
 
+  // Portrait y-slide: center (pro)→shift up slightly to match card appearing below
+  const portraitSlideY = hovered === "pro" ? -28 : 0;
+
   // Show bottom card: always on mobile, also for "pro" on desktop
   // (left/right get side panels on desktop; pro gets bottom card)
   const showBottomCard = hovered !== null;
@@ -835,12 +838,12 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={{
                 opacity: 1,
-                y: 0,
+                y: portraitSlideY,
                 x: portraitSlideX,
               }}
               transition={{
                 opacity: { delay: 0.6, duration: 0.9, ease: EASE },
-                y: { delay: 0.6, duration: 0.9, ease: EASE },
+                y: { duration: 0.72, ease: EASE },
                 x: { duration: 0.72, ease: EASE },
                 layout: { duration: 0.72, ease: EASE },
               }}
