@@ -93,6 +93,8 @@ export default function Navbar() {
               fontSize: "1.2rem", // cursive fonts run smaller, so we upscale slightly
               color: "var(--text-primary)",
               letterSpacing: "0.01em",
+              marginLeft: "6px",
+              marginRight: "6px",
             }}
           >
             Nazmus Sakib
