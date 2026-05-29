@@ -100,15 +100,19 @@ export default function Navbar() {
           </span>
         </motion.a>
 
-        {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-1">
+        {/* Desktop nav + CTA — all grouped on the RIGHT */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="hidden md:flex items-center gap-1"
+        >
           {navLinks.map((link, i) => (
-            <motion.li
+            <motion.div
               key={link.href}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 + i * 0.06, duration: 0.5 }}
-              style={{ listStyle: "none" }}
             >
               <a
                 href={link.href}
@@ -126,45 +130,39 @@ export default function Navbar() {
                 }}
                 onMouseEnter={(e) => {
                   if (activeSection !== link.href.slice(1)) {
-                    (e.currentTarget as HTMLElement).style.color =
-                      "var(--text-primary)";
-                    (e.currentTarget as HTMLElement).style.background =
-                      "rgba(255,255,255,0.05)";
+                    (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
+                    (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.05)";
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (activeSection !== link.href.slice(1)) {
-                    (e.currentTarget as HTMLElement).style.color =
-                      "var(--text-secondary)";
-                    (e.currentTarget as HTMLElement).style.background =
-                      "transparent";
+                    (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)";
+                    (e.currentTarget as HTMLElement).style.background = "transparent";
                   }
                 }}
               >
                 {link.label}
               </a>
-            </motion.li>
+            </motion.div>
           ))}
-        </ul>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="hidden md:flex items-center gap-3"
-        >
+          {/* Divider */}
+          <div
+            className="mx-2 h-4 w-px rounded-full"
+            style={{ background: "rgba(255,255,255,0.12)" }}
+          />
+
+          {/* CTA */}
           <motion.a
             href="#contact"
             id="nav-cta"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="px-4 py-2 rounded-lg text-sm font-medium no-underline"
+            className="px-4 py-2 rounded-lg text-sm font-semibold no-underline"
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
               background: "linear-gradient(135deg, #a855f7, #3b82f6)",
               color: "white",
-              fontWeight: 600,
             }}
           >
             Let&apos;s Talk
