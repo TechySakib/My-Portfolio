@@ -169,13 +169,13 @@ function SidePanel({
       style={{ width: "clamp(240px, 22vw, 320px)" }}
     >
       <div
-        className="rounded-2xl p-6 h-full"
+        className="rounded-2xl p-7 h-full"
         style={{
-          background: "rgba(4,4,16,0.8)",
+          background: "rgba(4,4,16,0.82)",
           backdropFilter: "blur(28px)",
           WebkitBackdropFilter: "blur(28px)",
           border: `1px solid ${id.border}`,
-          boxShadow: `0 0 50px ${id.glow}, 0 8px 48px rgba(0,0,0,0.55)`,
+          boxShadow: `0 0 60px ${id.glow}, 0 8px 56px rgba(0,0,0,0.6)`,
         }}
       >
         {/* Eyebrow */}
@@ -183,7 +183,7 @@ function SidePanel({
           initial={{ opacity: 0, x: side === "left" ? -16 : 16 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.1, duration: 0.4, ease: EASE }}
-          className="flex items-center gap-2.5 mb-4"
+          className="flex items-center gap-2.5 mb-5"
         >
           <motion.div
             initial={{ scaleX: 0 }}
@@ -217,7 +217,7 @@ function SidePanel({
             letterSpacing: "-0.04em",
             color: "white",
             lineHeight: 1.1,
-            marginBottom: "0.3rem",
+            marginBottom: "0.5rem",
           }}
         >
           {id.label}
@@ -234,7 +234,7 @@ function SidePanel({
             color: id.color,
             fontStyle: "italic",
             opacity: 0.85,
-            marginBottom: "0.9rem",
+            marginBottom: "1.1rem",
           }}
         >
           {id.tagline}
@@ -717,7 +717,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: -14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8, ease: EASE }}
-          className="flex flex-col items-center text-center pt-[clamp(72px,10vh,96px)] pb-4 px-4"
+          className="flex flex-col items-center text-center pt-[clamp(72px,10vh,96px)] pb-6 md:pb-8 px-4"
         >
           {/* Eyebrow */}
           <motion.div
@@ -804,7 +804,7 @@ export default function HeroSection() {
 
         {/* ══ PORTRAIT + SIDE PANELS ROW ══ */}
         <LayoutGroup>
-          <div className="flex items-center justify-center gap-6 flex-1 w-full px-4 md:px-8 min-h-0">
+          <div className="flex items-center justify-center gap-8 lg:gap-14 flex-1 w-full px-4 md:px-10 min-h-0">
 
             {/* LEFT SIDE PANEL — desktop only, anime hover */}
             <AnimatePresence>
@@ -868,7 +868,7 @@ export default function HeroSection() {
         {/* ══ BOTTOM CARD ══ */}
         {/* On desktop: shows for center (pro) hover */}
         {/* On mobile: shows for all hover states */}
-        <div className="w-full pb-2">
+        <div className="w-full pb-2 mt-4">
           {/* Desktop: only pro */}
           <div className="hidden lg:block">
             {hovered === "pro" && <BottomCard zone="pro" />}
