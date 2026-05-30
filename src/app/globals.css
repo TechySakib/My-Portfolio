@@ -205,10 +205,5 @@ body {
   padding-right: clamp(2rem, 9vw, 15rem) !important;
 }
 
-/* Align Navbar with fluid section gutters */
-nav {
-  padding-left: clamp(2rem, 9vw, 15rem) !important;
-  padding-right: clamp(2rem, 9vw, 15rem) !important;
-}
 
 
