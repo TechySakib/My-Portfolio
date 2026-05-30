@@ -68,18 +68,6 @@ const socials = [
     ),
   },
   {
-    id: "youtube",
-    label: "YouTube",
-    handle: "@TechySakib",
-    href: "https://youtube.com",
-    color: "#ff0000",
-    icon: (
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-        <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-      </svg>
-    ),
-  },
-  {
     id: "github",
     label: "GitHub",
     handle: "@TechySakib",
@@ -209,18 +197,16 @@ export default function ContactSection() {
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
                   fontWeight: 800,
-                  fontSize: "clamp(2rem, 4vw, 3.2rem)",
+                  fontSize: "clamp(2.3rem, 4.5vw, 4rem)",
                   letterSpacing: "-0.04em",
                   color: "white",
-                  lineHeight: 1.15,
-                  marginBottom: "1.5rem",
+                  lineHeight: 1.1,
+                  marginBottom: "2.2rem",
                 }}
               >
-                Let&apos;s connect and
+                Let&apos;s build
                 <br />
-                create something
-                <br />
-                awesome.
+                something.
               </motion.h2>
 
               {/* Subheading text */}
@@ -230,12 +216,12 @@ export default function ContactSection() {
                 transition={{ delay: 0.3 }}
                 style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: "0.95rem",
+                  fontSize: "1rem",
                   color: "var(--text-secondary)",
                   lineHeight: 1.7,
                 }}
               >
-                Whether you&apos;re a brand looking for a creative developer, a company in need of modern web/AI expertise, or just want to chat about tech, I&apos;d love to hear from you.
+                Whether you have an upcoming project in mind, want to collaborate on AI/ML systems research, or just want to say hello — feel free to drop a message or reach out globally!
               </motion.p>
             </div>
 
