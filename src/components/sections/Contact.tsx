@@ -5,33 +5,9 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 
 const socials = [
   {
-    id: "github",
-    label: "GitHub",
-    handle: "@nazmussakib",
-    href: "https://github.com",
-    color: "#ffffff",
-    icon: (
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-      </svg>
-    ),
-  },
-  {
-    id: "twitter",
-    label: "Twitter / X",
-    handle: "@nazmussakib",
-    href: "https://x.com",
-    color: "#1da1f2",
-    icon: (
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
-  {
     id: "linkedin",
     label: "LinkedIn",
-    handle: "Nazmus Sakib",
+    handle: "@TechySakib",
     href: "https://linkedin.com",
     color: "#0a66c2",
     icon: (
@@ -41,14 +17,77 @@ const socials = [
     ),
   },
   {
-    id: "email",
-    label: "Email",
-    handle: "nazmus@example.com",
-    href: "mailto:nazmus@example.com",
-    color: "#a855f7",
+    id: "instagram",
+    label: "Instagram",
+    handle: "@TechySakib",
+    href: "https://instagram.com",
+    color: "#e1306c",
     icon: (
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+    ),
+  },
+  {
+    id: "threads",
+    label: "Threads",
+    handle: "@TechySakib",
+    href: "https://threads.net",
+    color: "#ffffff",
+    icon: (
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
+      </svg>
+    ),
+  },
+  {
+    id: "facebook",
+    label: "Facebook",
+    handle: "Nazmus Sakib",
+    href: "https://facebook.com",
+    color: "#1877f2",
+    icon: (
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+      </svg>
+    ),
+  },
+  {
+    id: "twitter",
+    label: "X (Twitter)",
+    handle: "@TechySakib",
+    href: "https://x.com",
+    color: "#1da1f2",
+    icon: (
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    ),
+  },
+  {
+    id: "youtube",
+    label: "YouTube",
+    handle: "@TechySakib",
+    href: "https://youtube.com",
+    color: "#ff0000",
+    icon: (
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+        <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+      </svg>
+    ),
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    handle: "@TechySakib",
+    href: "https://github.com/TechySakib",
+    color: "#ffffff",
+    icon: (
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
       </svg>
     ),
   },
@@ -65,6 +104,7 @@ export default function ContactSection() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
@@ -77,7 +117,7 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!firstName || !lastName || !email || !message) return;
+    if (!firstName || !lastName || !email || !subject || !message) return;
 
     setIsSubmitting(true);
     // Simulate premium API call
@@ -90,6 +130,7 @@ export default function ContactSection() {
       setFirstName("");
       setLastName("");
       setEmail("");
+      setSubject("");
       setMessage("");
       setIsSent(false);
     }, 3000);
@@ -131,10 +172,10 @@ export default function ContactSection() {
       </div>
 
       <div className="relative max-w-6xl mx-auto w-full px-4" style={{ zIndex: 1 }}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-28 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           
-          {/* ══ LEFT COLUMN: Description & Copy Email & Socials ══ */}
-          <div className="lg:col-span-5 text-left flex flex-col justify-center space-y-12">
+          {/* ══ LEFT COLUMN: Description & Copy Email & Socials Grid ══ */}
+          <div className="lg:col-span-5 text-left flex flex-col justify-center space-y-10">
             <div>
               {/* Eyebrow Label */}
               <motion.div
@@ -168,16 +209,18 @@ export default function ContactSection() {
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
                   fontWeight: 800,
-                  fontSize: "clamp(2.3rem, 4.5vw, 4rem)",
+                  fontSize: "clamp(2rem, 4vw, 3.2rem)",
                   letterSpacing: "-0.04em",
                   color: "white",
-                  lineHeight: 1.1,
-                  marginBottom: "2.2rem",
+                  lineHeight: 1.15,
+                  marginBottom: "1.5rem",
                 }}
               >
-                Let&apos;s build
+                Let&apos;s connect and
                 <br />
-                something.
+                create something
+                <br />
+                awesome.
               </motion.h2>
 
               {/* Subheading text */}
@@ -187,86 +230,82 @@ export default function ContactSection() {
                 transition={{ delay: 0.3 }}
                 style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: "1rem",
+                  fontSize: "0.95rem",
                   color: "var(--text-secondary)",
                   lineHeight: 1.7,
                 }}
               >
-                Whether you have an upcoming project in mind, want to collaborate on AI/ML systems research, or just want to say hello — feel free to drop a message or reach out globally!
+                Whether you&apos;re a brand looking for a creative developer, a company in need of modern web/AI expertise, or just want to chat about tech, I&apos;d love to hear from you.
               </motion.p>
             </div>
 
-            {/* Email Copy CTA */}
+            {/* Email Copier & Underlined Display block */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="flex items-center gap-4"
+              initial={{ opacity: 0, y: 15 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.4 }}
+              className="py-2 relative flex flex-col items-start gap-3 select-all"
             >
+              <a
+                href="mailto:nazmussakibkpc7578@gmail.com"
+                className="text-xl sm:text-2xl font-bold text-white tracking-tight relative pb-1 transition-all duration-300 hover:text-purple-400 group inline-block"
+                style={{
+                  fontFamily: "'Space Grotesk', sans-serif",
+                }}
+              >
+                nazmussakibkpc7578@gmail.com
+                {/* Underline */}
+                <span
+                  className="absolute bottom-0 left-0 w-full h-[2.5px] rounded-full origin-left transform scale-x-100 group-hover:scale-x-105 transition-transform duration-300"
+                  style={{
+                    background: "linear-gradient(90deg, #a855f7, #3b82f6)",
+                    boxShadow: "0 1px 8px rgba(168, 85, 247, 0.4)",
+                  }}
+                />
+              </a>
+
               <motion.button
                 id="contact-email-btn"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={handleCopyEmail}
-                className="px-8 py-4.5 rounded-2xl font-semibold text-base relative overflow-hidden flex items-center justify-center cursor-pointer"
+                className="px-4 py-2 rounded-xl text-[0.7rem] font-bold tracking-wider text-gray-400 bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition-all cursor-pointer flex items-center gap-1.5"
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  background: "linear-gradient(135deg, #a855f7, #3b82f6)",
-                  color: "white",
-                  border: "none",
-                  boxShadow: "0 4px 15px rgba(168, 85, 247, 0.2)",
+                  fontFamily: "'Space Mono', monospace",
                 }}
               >
                 <AnimatePresence mode="wait">
                   {copied ? (
                     <motion.span
                       key="copied"
-                      initial={{ opacity: 0, y: 8 }}
+                      initial={{ opacity: 0, y: 5 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -8 }}
-                      className="flex items-center gap-2"
+                      exit={{ opacity: 0, y: -5 }}
+                      className="flex items-center gap-1.5 text-emerald-400"
                     >
-                      ✓ Email Copied!
+                      ✓ EMAIL COPIED
                     </motion.span>
                   ) : (
                     <motion.span
-                      key="email"
-                      initial={{ opacity: 0, y: 8 }}
+                      key="copy"
+                      initial={{ opacity: 0, y: 5 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -8 }}
-                      className="flex items-center gap-2"
+                      exit={{ opacity: 0, y: -5 }}
+                      className="flex items-center gap-1.5"
                     >
-                      📋 Copy Email
+                      📋 COPY TO CLIPBOARD
                     </motion.span>
                   )}
                 </AnimatePresence>
               </motion.button>
-
-              <motion.a
-                id="contact-linkedin-btn"
-                href={socials[2].href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="px-8 py-4.5 rounded-2xl font-semibold text-base no-underline border flex items-center justify-center transition-all duration-300"
-                style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  background: "rgba(255,255,255,0.06)",
-                  color: "white",
-                  borderColor: "rgba(255,255,255,0.12)",
-                }}
-              >
-                LinkedIn →
-              </motion.a>
             </motion.div>
 
-            {/* Socials Row */}
+            {/* Socials Grid */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 0.5 }}
-              className="flex items-center gap-4 flex-wrap pt-4"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2"
             >
               {socials.map((social, i) => (
                 <motion.a
@@ -275,36 +314,78 @@ export default function ContactSection() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.5 + i * 0.08 }}
-                  whileHover={{ y: -3, scale: 1.05 }}
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl no-underline group"
+                  transition={{ delay: 0.5 + i * 0.05 }}
+                  whileHover={{ y: -3, scale: 1.02 }}
+                  className="flex items-center p-4 rounded-2xl no-underline group relative overflow-hidden transition-all duration-300 cursor-pointer"
                   style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    color: "rgba(255,255,255,0.5)",
-                    transition: "all 0.3s",
+                    background: "rgba(255, 255, 255, 0.015)",
+                    border: "1px solid rgba(255, 255, 255, 0.05)",
+                    backdropFilter: "blur(5px)",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = `${social.color}50`;
-                    (e.currentTarget as HTMLElement).style.color = social.color;
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.borderColor = `${social.color}25`;
+                    el.style.background = `rgba(255, 255, 255, 0.035)`;
+                    el.style.boxShadow = `0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px ${social.color}0a`;
+                    const label = el.querySelector(".social-label") as HTMLElement;
+                    if (label) label.style.color = "#ffffff";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)";
-                    (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.5)";
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.borderColor = "rgba(255, 255, 255, 0.05)";
+                    el.style.background = "rgba(255, 255, 255, 0.015)";
+                    el.style.boxShadow = "none";
+                    const label = el.querySelector(".social-label") as HTMLElement;
+                    if (label) label.style.color = "var(--text-secondary)";
                   }}
                 >
-                  <span style={{ color: "inherit" }}>{social.icon}</span>
-                  <span
+                  {/* Subtle hover background radial gradient based on color */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
-                      fontFamily: "'Space Grotesk', sans-serif",
-                      fontSize: "0.8rem",
-                      fontWeight: 500,
+                      background: `radial-gradient(circle at 20px 20px, ${social.color}08 0%, transparent 60%)`,
+                    }}
+                  />
+
+                  {/* Icon Block Container */}
+                  <div
+                    className="w-11 h-11 rounded-xl flex items-center justify-center border transition-all duration-300 mr-4 shrink-0"
+                    style={{
+                      background: "rgba(255, 255, 255, 0.025)",
+                      borderColor: "rgba(255, 255, 255, 0.08)",
                     }}
                   >
-                    {social.label}
-                  </span>
+                    <span 
+                      className="transition-colors duration-300"
+                      style={{ color: social.color }}
+                    >
+                      {social.icon}
+                    </span>
+                  </div>
+
+                  {/* Text details */}
+                  <div className="flex flex-col min-w-0">
+                    <span
+                      className="social-label text-[0.88rem] font-bold transition-colors duration-300"
+                      style={{
+                        fontFamily: "'Space Grotesk', sans-serif",
+                        color: "var(--text-secondary)",
+                      }}
+                    >
+                      {social.label}
+                    </span>
+                    <span
+                      className="text-[0.75rem] truncate"
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        color: "var(--text-muted)",
+                      }}
+                    >
+                      {social.handle}
+                    </span>
+                  </div>
                 </motion.a>
               ))}
             </motion.div>
@@ -316,7 +397,7 @@ export default function ContactSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.7 }}
-              className="rounded-3xl p-10 relative overflow-hidden text-left"
+              className="rounded-3xl p-8 sm:p-10 relative overflow-hidden text-left"
               style={{
                 background: "rgba(255, 255, 255, 0.022)",
                 border: "1px solid rgba(255, 255, 255, 0.06)",
@@ -335,17 +416,17 @@ export default function ContactSection() {
               />
 
               <h3
-                className="text-xl font-bold mb-8 text-white"
+                className="text-2xl font-bold mb-8 text-white"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
-                Send a Message
+                Send me a message
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-8">
-                {/* First Name & Last Name (Side by Side) */}
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Row 1: First Name & Last Name (Side by Side) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* First Name */}
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-2.5">
                     <label
                       htmlFor="form-first-name"
                       className="text-[0.68rem] font-bold text-gray-400"
@@ -381,7 +462,7 @@ export default function ContactSection() {
                   </div>
 
                   {/* Last Name */}
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-2.5">
                     <label
                       htmlFor="form-last-name"
                       className="text-[0.68rem] font-bold text-gray-400"
@@ -417,44 +498,83 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                {/* Email */}
-                <div className="flex flex-col gap-3">
-                  <label
-                    htmlFor="form-email"
-                    className="text-[0.68rem] font-bold text-gray-400"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "0.06em" }}
-                  >
-                    EMAIL ADDRESS
-                  </label>
-                  <input
-                    type="email"
-                    id="form-email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@example.com"
-                    className="px-7 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
-                    style={{
-                      background: "rgba(255, 255, 255, 0.03)",
-                      border: "1px solid rgba(255, 255, 255, 0.08)",
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: "0.9rem",
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.background = "rgba(255, 255, 255, 0.05)";
-                      e.target.style.borderColor = "#3b82f6";
-                      e.target.style.boxShadow = "0 0 10px rgba(59, 130, 246, 0.15)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.background = "rgba(255, 255, 255, 0.03)";
-                      e.target.style.borderColor = "rgba(255, 255, 255, 0.08)";
-                      e.target.style.boxShadow = "none";
-                    }}
-                  />
+                {/* Row 2: Email & Subject (Side by Side) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {/* Email */}
+                  <div className="flex flex-col gap-2.5">
+                    <label
+                      htmlFor="form-email"
+                      className="text-[0.68rem] font-bold text-gray-400"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "0.06em" }}
+                    >
+                      EMAIL ADDRESS
+                    </label>
+                    <input
+                      type="email"
+                      id="form-email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="you@example.com"
+                      className="px-7 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
+                      style={{
+                        background: "rgba(255, 255, 255, 0.03)",
+                        border: "1px solid rgba(255, 255, 255, 0.08)",
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: "0.9rem",
+                      }}
+                      onFocus={(e) => {
+                        e.target.style.background = "rgba(255, 255, 255, 0.05)";
+                        e.target.style.borderColor = "#3b82f6";
+                        e.target.style.boxShadow = "0 0 10px rgba(59, 130, 246, 0.15)";
+                      }}
+                      onBlur={(e) => {
+                        e.target.style.background = "rgba(255, 255, 255, 0.03)";
+                        e.target.style.borderColor = "rgba(255, 255, 255, 0.08)";
+                        e.target.style.boxShadow = "none";
+                      }}
+                    />
+                  </div>
+
+                  {/* Subject */}
+                  <div className="flex flex-col gap-2.5">
+                    <label
+                      htmlFor="form-subject"
+                      className="text-[0.68rem] font-bold text-gray-400"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "0.06em" }}
+                    >
+                      SUBJECT
+                    </label>
+                    <input
+                      type="text"
+                      id="form-subject"
+                      required
+                      value={subject}
+                      onChange={(e) => setSubject(e.target.value)}
+                      placeholder="What's this about?"
+                      className="px-7 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
+                      style={{
+                        background: "rgba(255, 255, 255, 0.03)",
+                        border: "1px solid rgba(255, 255, 255, 0.08)",
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: "0.9rem",
+                      }}
+                      onFocus={(e) => {
+                        e.target.style.background = "rgba(255, 255, 255, 0.05)";
+                        e.target.style.borderColor = "#a855f7";
+                        e.target.style.boxShadow = "0 0 10px rgba(168, 85, 247, 0.15)";
+                      }}
+                      onBlur={(e) => {
+                        e.target.style.background = "rgba(255, 255, 255, 0.03)";
+                        e.target.style.borderColor = "rgba(255, 255, 255, 0.08)";
+                        e.target.style.boxShadow = "none";
+                      }}
+                    />
+                  </div>
                 </div>
 
                 {/* Message */}
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2.5">
                   <label
                     htmlFor="form-message"
                     className="text-[0.68rem] font-bold text-gray-400"
@@ -465,10 +585,10 @@ export default function ContactSection() {
                   <textarea
                     id="form-message"
                     required
-                    rows={4}
+                    rows={5}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Type your message here..."
+                    placeholder="Tell me more..."
                     className="px-7 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300 resize-none"
                     style={{
                       background: "rgba(255, 255, 255, 0.03)",
@@ -539,9 +659,9 @@ export default function ContactSection() {
                         initial={{ opacity: 0, y: 5 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -5 }}
-                        className="flex items-center gap-1.5"
+                        className="flex items-center gap-2 group-hover:gap-3 transition-all duration-300"
                       >
-                        ✈ Send Message
+                        Send Message <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
                       </motion.span>
                     )}
                   </AnimatePresence>
