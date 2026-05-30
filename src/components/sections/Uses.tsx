@@ -58,7 +58,7 @@ export default function UsesSection() {
     <section
       id="uses"
       ref={ref}
-      className="relative py-32 px-6 md:px-16"
+      className="relative py-32 px-8 sm:px-16 lg:px-24 xl:px-32"
       style={{ background: "var(--bg-base)" }}
     >
       {/* Top border */}
