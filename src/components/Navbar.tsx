@@ -45,7 +45,7 @@ export default function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 sm:px-16 lg:px-24 xl:px-32"
+        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60"
         style={{
           paddingTop: scrolled ? "8px" : "12px",
           paddingBottom: scrolled ? "8px" : "12px",
