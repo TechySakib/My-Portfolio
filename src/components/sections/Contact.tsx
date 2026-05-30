@@ -97,7 +97,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={ref}
-      className="relative py-32 px-6 md:px-16"
+      className="relative py-44 md:py-52 px-6 md:px-16"
       style={{ background: "var(--bg-surface)" }}
     >
       {/* Top border line */}
@@ -129,17 +129,17 @@ export default function ContactSection() {
       </div>
 
       <div className="relative max-w-6xl mx-auto w-full px-4" style={{ zIndex: 1 }}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-28 items-center">
           
           {/* ══ LEFT COLUMN: Description & Copy Email & Socials ══ */}
-          <div className="lg:col-span-5 text-left flex flex-col justify-center space-y-8">
+          <div className="lg:col-span-5 text-left flex flex-col justify-center space-y-12">
             <div>
               {/* Eyebrow Label */}
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6 }}
-                className="flex items-center gap-3 mb-4"
+                className="flex items-center gap-3 mb-5"
               >
                 <div
                   className="w-2 h-2 rounded-full"
@@ -170,7 +170,7 @@ export default function ContactSection() {
                   letterSpacing: "-0.04em",
                   color: "white",
                   lineHeight: 1.1,
-                  marginBottom: "1.5rem",
+                  marginBottom: "2.2rem",
                 }}
               >
                 Let&apos;s build
@@ -187,7 +187,7 @@ export default function ContactSection() {
                   fontFamily: "'Inter', sans-serif",
                   fontSize: "1rem",
                   color: "var(--text-secondary)",
-                  lineHeight: 1.6,
+                  lineHeight: 1.7,
                 }}
               >
                 Whether you have an upcoming project in mind, want to collaborate on AI/ML systems research, or just want to say hello — feel free to drop a message or reach out globally!
@@ -199,14 +199,14 @@ export default function ContactSection() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="flex items-center gap-3"
+              className="flex items-center gap-4"
             >
               <motion.button
                 id="contact-email-btn"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={handleCopyEmail}
-                className="px-8 py-4 rounded-2xl font-semibold text-base relative overflow-hidden flex items-center justify-center cursor-pointer"
+                className="px-8 py-4.5 rounded-2xl font-semibold text-base relative overflow-hidden flex items-center justify-center cursor-pointer"
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
                   background: "linear-gradient(135deg, #a855f7, #3b82f6)",
@@ -247,7 +247,7 @@ export default function ContactSection() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="px-8 py-4 rounded-2xl font-semibold text-base no-underline border flex items-center justify-center transition-all duration-300"
+                className="px-8 py-4.5 rounded-2xl font-semibold text-base no-underline border flex items-center justify-center transition-all duration-300"
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
                   background: "rgba(255,255,255,0.06)",
@@ -264,7 +264,7 @@ export default function ContactSection() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 0.5 }}
-              className="flex items-center gap-3 flex-wrap pt-2"
+              className="flex items-center gap-4 flex-wrap pt-4"
             >
               {socials.map((social, i) => (
                 <motion.a
@@ -314,7 +314,7 @@ export default function ContactSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.7 }}
-              className="rounded-3xl p-8 relative overflow-hidden text-left"
+              className="rounded-3xl p-10 relative overflow-hidden text-left"
               style={{
                 background: "rgba(255, 255, 255, 0.022)",
                 border: "1px solid rgba(255, 255, 255, 0.06)",
@@ -333,15 +333,15 @@ export default function ContactSection() {
               />
 
               <h3
-                className="text-xl font-bold mb-6 text-white"
+                className="text-xl font-bold mb-8 text-white"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
                 Send a Message
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Name */}
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-3">
                   <label
                     htmlFor="form-name"
                     className="text-[0.68rem] font-bold text-gray-400"
@@ -356,7 +356,7 @@ export default function ContactSection() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Enter your name"
-                    className="px-4 py-3.5 rounded-xl text-white outline-none w-full transition-all duration-300"
+                    className="px-5 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
                     style={{
                       background: "rgba(255, 255, 255, 0.03)",
                       border: "1px solid rgba(255, 255, 255, 0.08)",
@@ -377,7 +377,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* Email */}
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-3">
                   <label
                     htmlFor="form-email"
                     className="text-[0.68rem] font-bold text-gray-400"
@@ -392,7 +392,7 @@ export default function ContactSection() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
-                    className="px-4 py-3.5 rounded-xl text-white outline-none w-full transition-all duration-300"
+                    className="px-5 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
                     style={{
                       background: "rgba(255, 255, 255, 0.03)",
                       border: "1px solid rgba(255, 255, 255, 0.08)",
@@ -413,7 +413,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* Message */}
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-3">
                   <label
                     htmlFor="form-message"
                     className="text-[0.68rem] font-bold text-gray-400"
@@ -428,7 +428,7 @@ export default function ContactSection() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Type your message here..."
-                    className="px-4 py-3.5 rounded-xl text-white outline-none w-full transition-all duration-300 resize-none"
+                    className="px-5 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300 resize-none"
                     style={{
                       background: "rgba(255, 255, 255, 0.03)",
                       border: "1px solid rgba(255, 255, 255, 0.08)",
@@ -454,7 +454,7 @@ export default function ContactSection() {
                   disabled={isSubmitting || isSent}
                   whileHover={{ scale: 1.015 }}
                   whileTap={{ scale: 0.985 }}
-                  className="w-full py-4 rounded-xl font-bold text-white relative overflow-hidden transition-all duration-300 flex items-center justify-center cursor-pointer mt-2"
+                  className="w-full py-4.5 rounded-xl font-bold text-white relative overflow-hidden transition-all duration-300 flex items-center justify-center cursor-pointer mt-4"
                   style={{
                     fontFamily: "'Space Grotesk', sans-serif",
                     background: isSent
