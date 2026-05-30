@@ -62,7 +62,8 @@ export default function ContactSection() {
   const [copied, setCopied] = useState(false);
 
   // States for the new contact message form
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -76,7 +77,7 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email || !message) return;
+    if (!firstName || !lastName || !email || !message) return;
 
     setIsSubmitting(true);
     // Simulate premium API call
@@ -86,7 +87,8 @@ export default function ContactSection() {
 
     // Reset form after display
     setTimeout(() => {
-      setName("");
+      setFirstName("");
+      setLastName("");
       setEmail("");
       setMessage("");
       setIsSent(false);
@@ -340,40 +342,79 @@ export default function ContactSection() {
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Name */}
-                <div className="flex flex-col gap-3">
-                  <label
-                    htmlFor="form-name"
-                    className="text-[0.68rem] font-bold text-gray-400"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "0.06em" }}
-                  >
-                    YOUR NAME
-                  </label>
-                  <input
-                    type="text"
-                    id="form-name"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Enter your name"
-                    className="px-5 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
-                    style={{
-                      background: "rgba(255, 255, 255, 0.03)",
-                      border: "1px solid rgba(255, 255, 255, 0.08)",
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: "0.9rem",
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.background = "rgba(255, 255, 255, 0.05)";
-                      e.target.style.borderColor = "#a855f7";
-                      e.target.style.boxShadow = "0 0 10px rgba(168, 85, 247, 0.15)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.background = "rgba(255, 255, 255, 0.03)";
-                      e.target.style.borderColor = "rgba(255, 255, 255, 0.08)";
-                      e.target.style.boxShadow = "none";
-                    }}
-                  />
+                {/* First Name & Last Name (Side by Side) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {/* First Name */}
+                  <div className="flex flex-col gap-3">
+                    <label
+                      htmlFor="form-first-name"
+                      className="text-[0.68rem] font-bold text-gray-400"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "0.06em" }}
+                    >
+                      FIRST NAME
+                    </label>
+                    <input
+                      type="text"
+                      id="form-first-name"
+                      required
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      placeholder="First name"
+                      className="px-7 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
+                      style={{
+                        background: "rgba(255, 255, 255, 0.03)",
+                        border: "1px solid rgba(255, 255, 255, 0.08)",
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: "0.9rem",
+                      }}
+                      onFocus={(e) => {
+                        e.target.style.background = "rgba(255, 255, 255, 0.05)";
+                        e.target.style.borderColor = "#a855f7";
+                        e.target.style.boxShadow = "0 0 10px rgba(168, 85, 247, 0.15)";
+                      }}
+                      onBlur={(e) => {
+                        e.target.style.background = "rgba(255, 255, 255, 0.03)";
+                        e.target.style.borderColor = "rgba(255, 255, 255, 0.08)";
+                        e.target.style.boxShadow = "none";
+                      }}
+                    />
+                  </div>
+
+                  {/* Last Name */}
+                  <div className="flex flex-col gap-3">
+                    <label
+                      htmlFor="form-last-name"
+                      className="text-[0.68rem] font-bold text-gray-400"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "0.06em" }}
+                    >
+                      LAST NAME
+                    </label>
+                    <input
+                      type="text"
+                      id="form-last-name"
+                      required
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                      placeholder="Last name"
+                      className="px-7 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
+                      style={{
+                        background: "rgba(255, 255, 255, 0.03)",
+                        border: "1px solid rgba(255, 255, 255, 0.08)",
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: "0.9rem",
+                      }}
+                      onFocus={(e) => {
+                        e.target.style.background = "rgba(255, 255, 255, 0.05)";
+                        e.target.style.borderColor = "#a855f7";
+                        e.target.style.boxShadow = "0 0 10px rgba(168, 85, 247, 0.15)";
+                      }}
+                      onBlur={(e) => {
+                        e.target.style.background = "rgba(255, 255, 255, 0.03)";
+                        e.target.style.borderColor = "rgba(255, 255, 255, 0.08)";
+                        e.target.style.boxShadow = "none";
+                      }}
+                    />
+                  </div>
                 </div>
 
                 {/* Email */}
@@ -392,7 +433,7 @@ export default function ContactSection() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
-                    className="px-5 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
+                    className="px-7 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
                     style={{
                       background: "rgba(255, 255, 255, 0.03)",
                       border: "1px solid rgba(255, 255, 255, 0.08)",
@@ -428,7 +469,7 @@ export default function ContactSection() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Type your message here..."
-                    className="px-5 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300 resize-none"
+                    className="px-7 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300 resize-none"
                     style={{
                       background: "rgba(255, 255, 255, 0.03)",
                       border: "1px solid rgba(255, 255, 255, 0.08)",
