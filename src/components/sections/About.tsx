@@ -328,7 +328,7 @@ export default function AboutSection() {
       <section
         id="about"
         ref={ref}
-        className="relative pt-0 pb-24 md:pb-32 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60"
+        className="relative min-h-screen w-full flex flex-col justify-center pt-24 pb-16 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60 overflow-hidden"
         style={{ background: "var(--bg-surface)" }}
       >
         {/* Top border accent */}

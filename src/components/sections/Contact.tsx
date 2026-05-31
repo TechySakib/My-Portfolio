@@ -128,7 +128,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={ref}
-      className="relative pt-0 pb-44 md:pb-52 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60"
+      className="relative min-h-screen w-full flex flex-col justify-center pt-24 pb-16 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60 overflow-hidden"
       style={{ background: "var(--bg-surface)" }}
     >
       {/* Top border line */}
@@ -667,7 +667,7 @@ export default function ContactSection() {
             fontFamily: "'Space Mono', monospace",
             fontSize: "0.6rem",
             color: "var(--text-muted)",
-            marginTop: "6rem",
+            marginTop: "2.5rem",
             letterSpacing: "0.1em",
           }}
         >

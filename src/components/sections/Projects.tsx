@@ -71,7 +71,7 @@ export default function ProjectsSection() {
     <section
       id="projects"
       ref={ref}
-      className="relative pt-0 pb-32 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60"
+      className="relative min-h-screen w-full flex flex-col justify-center pt-24 pb-16 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60 overflow-hidden"
       style={{ background: "var(--bg-base)" }}
     >
       {/* Section border top */}
@@ -133,7 +133,7 @@ export default function ProjectsSection() {
           fontFamily: "'Inter', sans-serif",
           fontSize: "1rem",
           color: "var(--text-secondary)",
-          marginBottom: "3rem",
+          marginBottom: "1.5rem",
           maxWidth: "480px",
         }}
       >
