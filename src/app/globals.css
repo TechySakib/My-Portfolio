@@ -41,7 +41,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px; /* Offset for fixed navbar to prevent content overlap */
+  scroll-padding-top: 56px; /* Offset matches exactly the scrolled navbar height to prevent extra visual gap */
   font-size: 16px;
 }
 
