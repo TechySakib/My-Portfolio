@@ -128,7 +128,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={ref}
-      className="relative py-44 md:py-52 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60"
+      className="relative pt-12 md:pt-16 pb-44 md:pb-52 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60"
       style={{ background: "var(--bg-surface)" }}
     >
       {/* Top border line */}

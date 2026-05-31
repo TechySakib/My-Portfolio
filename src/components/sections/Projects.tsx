@@ -71,7 +71,7 @@ export default function ProjectsSection() {
     <section
       id="projects"
       ref={ref}
-      className="relative py-32 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60"
+      className="relative pt-10 md:pt-14 pb-32 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60"
       style={{ background: "var(--bg-base)" }}
     >
       {/* Section border top */}
