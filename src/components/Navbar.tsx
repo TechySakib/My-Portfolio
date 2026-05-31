@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -14,6 +15,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const { scrollY } = useScroll();
 
   useEffect(() => {
@@ -65,23 +67,28 @@ export default function Navbar() {
           className="flex items-center gap-2 group no-underline"
           id="nav-logo"
         >
-          <div className="relative">
-            <div
-              className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold"
-              style={{
-                background: "linear-gradient(135deg, #a855f7, #3b82f6)",
-                fontFamily: "'Space Grotesk', sans-serif",
-                color: "white",
-                letterSpacing: "-0.05em",
-              }}
-            >
-              NS
+          <div 
+            className="relative cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setLightboxOpen(true);
+            }}
+          >
+            <div className="w-9 h-9 rounded-full overflow-hidden border border-white/20 relative group-hover:border-purple-500 transition-all duration-300 flex items-center justify-center">
+              <Image
+                src="/images/sakib-portrait.jpg"
+                alt="Nazmus Sakib"
+                width={36}
+                height={36}
+                className="object-cover w-full h-full scale-105"
+              />
             </div>
             <div
-              className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               style={{
                 background: "linear-gradient(135deg, #a855f7, #3b82f6)",
-                filter: "blur(8px)",
+                filter: "blur(6px)",
                 zIndex: -1,
               }}
             />
@@ -249,6 +256,73 @@ export default function Navbar() {
             >
               Let&apos;s Talk
             </motion.a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Lightbox Modal for Avatar Photo */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightboxOpen(false)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-md cursor-zoom-out p-6"
+          >
+            {/* Close Button */}
+            <motion.button
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="absolute top-6 right-6 text-white/60 hover:text-white bg-white/5 hover:bg-white/10 w-11 h-11 rounded-full flex items-center justify-center transition-all cursor-pointer border border-white/10"
+              onClick={() => setLightboxOpen(false)}
+              style={{ fontFamily: "sans-serif" }}
+            >
+              ✕
+            </motion.button>
+
+            {/* Modal Image Card */}
+            <motion.div
+              initial={{ scale: 0.9, y: 15, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.9, y: 15, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-full max-h-[85vh] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 bg-zinc-950/40 backdrop-blur-md cursor-default flex flex-col items-center"
+            >
+              <div className="relative aspect-[3/4] w-[320px] sm:w-[400px] max-w-full max-h-[65vh]">
+                <Image
+                  src="/images/sakib-portrait.jpg"
+                  alt="Nazmus Sakib Full Portrait"
+                  fill
+                  sizes="(max-w-sm) 320px, 400px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+
+              {/* Title / Info card at bottom of image */}
+              <div 
+                className="w-full p-5 text-center"
+                style={{
+                  background: "linear-gradient(180deg, transparent, rgba(7,7,16,0.95))",
+                }}
+              >
+                <h4 
+                  className="text-lg font-bold text-white mb-0.5"
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                >
+                  Nazmus Sakib
+                </h4>
+                <p 
+                  className="text-xs text-purple-300 font-mono tracking-wider uppercase"
+                  style={{ fontFamily: "'Space Mono', monospace" }}
+                >
+                  Developer · AI Researcher
+                </p>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
