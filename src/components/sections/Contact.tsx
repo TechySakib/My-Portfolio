@@ -383,7 +383,7 @@ export default function ContactSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.7 }}
-              className="rounded-[2.5rem] p-8 sm:p-10 relative overflow-hidden text-left max-w-[600px] lg:mx-auto"
+              className="rounded-[2.5rem] p-8 relative overflow-hidden text-left max-w-[600px] lg:mx-auto"
               style={{
                 background: "linear-gradient(rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0.012)) padding-box, linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(59, 130, 246, 0.25)) border-box",
                 border: "1px solid transparent",
@@ -408,11 +408,11 @@ export default function ContactSection() {
                 Send me a message
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 {/* Row 1: First Name & Last Name (Side by Side) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* First Name */}
-                  <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-6 mt-4">
                     <label
                       htmlFor="form-first-name"
                       className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
@@ -436,7 +436,7 @@ export default function ContactSection() {
                   </div>
 
                   {/* Last Name */}
-                  <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-6 mt-4">
                     <label
                       htmlFor="form-last-name"
                       className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
@@ -463,7 +463,7 @@ export default function ContactSection() {
                 {/* Row 2: Email & Subject (Side by Side) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Email */}
-                  <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-6 mt-4">
                     <label
                       htmlFor="form-email"
                       className="text-[0.65rem] font-bold tracking-widest text-blue-300/70"
@@ -487,7 +487,7 @@ export default function ContactSection() {
                   </div>
 
                   {/* Subject */}
-                  <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-6 mt-4">
                     <label
                       htmlFor="form-subject"
                       className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
@@ -512,7 +512,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* Message */}
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-6 mt-4">
                   <label
                     htmlFor="form-message"
                     className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
