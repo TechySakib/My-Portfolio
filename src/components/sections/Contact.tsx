@@ -383,7 +383,7 @@ export default function ContactSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.7 }}
-              className="rounded-[2.5rem] p-8 sm:p-10 relative overflow-hidden text-left max-w-[520px] lg:mr-auto"
+              className="rounded-[2.5rem] p-8 sm:p-10 relative overflow-hidden text-left max-w-[600px] lg:mx-auto"
               style={{
                 background: "linear-gradient(rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0.012)) padding-box, linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(59, 130, 246, 0.25)) border-box",
                 border: "1px solid transparent",
