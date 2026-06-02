@@ -402,7 +402,7 @@ export default function ContactSection() {
               />
 
               <h3
-                className="text-2xl font-bold mb-6 text-white pt-4 lg:pt-6"
+                className="text-2xl font-bold mb-10 text-white pt-4 lg:pt-6"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
                 Send me a message
