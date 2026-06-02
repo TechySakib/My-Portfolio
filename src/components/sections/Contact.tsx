@@ -160,7 +160,7 @@ export default function ContactSection() {
       </div>
 
       <div className="relative max-w-7xl mx-auto w-full px-6 lg:px-8" style={{ zIndex: 1 }}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 xl:gap-32 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 xl:gap-32 items-center">
           
           {/* ══ LEFT COLUMN: Description & Copy Email & Socials Grid ══ */}
           <div className="lg:col-span-5 text-left flex flex-col justify-center space-y-12 lg:pr-4">
@@ -378,12 +378,12 @@ export default function ContactSection() {
           </div>
 
           {/* ══ RIGHT COLUMN: Glassmorphic Message Form Box ══ */}
-          <div className="lg:col-span-7 w-full lg:pt-20">
+          <div className="lg:col-span-7 w-full">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.7 }}
-              className="rounded-[2.5rem] p-8 sm:p-12 lg:p-14 relative overflow-hidden text-left"
+              className="rounded-[2.5rem] p-8 sm:p-10 relative overflow-hidden text-left"
               style={{
                 background: "linear-gradient(rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0.012)) padding-box, linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(59, 130, 246, 0.25)) border-box",
                 border: "1px solid transparent",
@@ -408,11 +408,11 @@ export default function ContactSection() {
                 Send me a message
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Row 1: First Name & Last Name (Side by Side) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* First Name */}
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-6">
                     <label
                       htmlFor="form-first-name"
                       className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
@@ -427,7 +427,7 @@ export default function ContactSection() {
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       placeholder="First name"
-                      className="px-6 py-4.5 rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
+                      className="px-6 h-[56px] rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
                       style={{
                         fontFamily: "'Inter', sans-serif",
                         fontSize: "0.9rem",
@@ -436,7 +436,7 @@ export default function ContactSection() {
                   </div>
 
                   {/* Last Name */}
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-6">
                     <label
                       htmlFor="form-last-name"
                       className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
@@ -451,7 +451,7 @@ export default function ContactSection() {
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       placeholder="Last name"
-                      className="px-6 py-4.5 rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
+                      className="px-6 h-[56px] rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
                       style={{
                         fontFamily: "'Inter', sans-serif",
                         fontSize: "0.9rem",
@@ -461,9 +461,9 @@ export default function ContactSection() {
                 </div>
 
                 {/* Row 2: Email & Subject (Side by Side) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Email */}
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-6">
                     <label
                       htmlFor="form-email"
                       className="text-[0.65rem] font-bold tracking-widest text-blue-300/70"
@@ -478,7 +478,7 @@ export default function ContactSection() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
-                      className="px-6 py-4.5 rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-blue-500/80 focus:shadow-[0_0_15px_rgba(59,130,246,0.12)]"
+                      className="px-6 h-[56px] rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-blue-500/80 focus:shadow-[0_0_15px_rgba(59,130,246,0.12)]"
                       style={{
                         fontFamily: "'Inter', sans-serif",
                         fontSize: "0.9rem",
@@ -487,7 +487,7 @@ export default function ContactSection() {
                   </div>
 
                   {/* Subject */}
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-6">
                     <label
                       htmlFor="form-subject"
                       className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
@@ -502,7 +502,7 @@ export default function ContactSection() {
                       value={subject}
                       onChange={(e) => setSubject(e.target.value)}
                       placeholder="What's this about?"
-                      className="px-6 py-4.5 rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
+                      className="px-6 h-[56px] rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
                       style={{
                         fontFamily: "'Inter', sans-serif",
                         fontSize: "0.9rem",
@@ -512,7 +512,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* Message */}
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-6">
                   <label
                     htmlFor="form-message"
                     className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
@@ -527,7 +527,7 @@ export default function ContactSection() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Tell me more..."
-                    className="px-6 py-4.5 rounded-2xl text-white outline-none w-full transition-all duration-300 resize-none bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
+                    className="px-6 py-4.5 min-h-[200px] rounded-2xl text-white outline-none w-full transition-all duration-300 resize-none bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
                     style={{
                       fontFamily: "'Inter', sans-serif",
                       fontSize: "0.9rem",
