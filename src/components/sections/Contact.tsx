@@ -128,7 +128,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={ref}
-      className="relative min-h-screen w-full flex flex-col justify-center pt-24 pb-16 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60 overflow-hidden"
+      className="relative min-h-screen w-full flex flex-col justify-center pt-32 pb-24 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60 overflow-hidden"
       style={{ background: "var(--bg-surface)" }}
     >
       {/* Top border line */}
@@ -148,10 +148,10 @@ export default function ContactSection() {
         <div
           className="absolute"
           style={{
-            width: "600px",
-            height: "600px",
+            width: "700px",
+            height: "700px",
             background:
-              "radial-gradient(circle, rgba(168,85,247,0.05) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(168,85,247,0.06) 0%, transparent 70%)",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
@@ -159,18 +159,18 @@ export default function ContactSection() {
         />
       </div>
 
-      <div className="relative max-w-6xl mx-auto w-full px-4" style={{ zIndex: 1 }}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+      <div className="relative max-w-7xl mx-auto w-full px-6 lg:px-8" style={{ zIndex: 1 }}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 xl:gap-32 items-start">
           
           {/* ══ LEFT COLUMN: Description & Copy Email & Socials Grid ══ */}
-          <div className="lg:col-span-5 text-left flex flex-col justify-center space-y-10">
+          <div className="lg:col-span-5 text-left flex flex-col justify-center space-y-12 lg:pr-4">
             <div>
               {/* Eyebrow Label */}
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6 }}
-                className="flex items-center gap-3 mb-5"
+                className="flex items-center gap-3 mb-6"
               >
                 <div
                   className="w-2 h-2 rounded-full"
@@ -378,18 +378,18 @@ export default function ContactSection() {
           </div>
 
           {/* ══ RIGHT COLUMN: Glassmorphic Message Form Box ══ */}
-          <div className="lg:col-span-7 w-full">
+          <div className="lg:col-span-7 w-full lg:pt-20">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.7 }}
-              className="rounded-3xl p-8 sm:p-10 relative overflow-hidden text-left"
+              className="rounded-[2.5rem] p-8 sm:p-12 lg:p-14 relative overflow-hidden text-left"
               style={{
-                background: "rgba(255, 255, 255, 0.022)",
-                border: "1px solid rgba(255, 255, 255, 0.06)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                boxShadow: "0 10px 40px rgba(0, 0, 0, 0.35)",
+                background: "linear-gradient(rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0.012)) padding-box, linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(59, 130, 246, 0.25)) border-box",
+                border: "1px solid transparent",
+                backdropFilter: "blur(28px)",
+                WebkitBackdropFilter: "blur(28px)",
+                boxShadow: "0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 50px -10px rgba(168, 85, 247, 0.12)",
               }}
             >
               {/* Form border glowing line */}
@@ -402,21 +402,21 @@ export default function ContactSection() {
               />
 
               <h3
-                className="text-2xl font-bold mb-8 text-white"
+                className="text-2xl font-bold mb-10 text-white pt-4 lg:pt-6"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
                 Send me a message
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Row 1: First Name & Last Name (Side by Side) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   {/* First Name */}
-                  <div className="flex flex-col gap-2.5">
+                  <div className="flex flex-col gap-3">
                     <label
                       htmlFor="form-first-name"
-                      className="text-[0.68rem] font-bold text-gray-400"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "0.06em" }}
+                      className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
+                      style={{ fontFamily: "'Space Mono', monospace" }}
                     >
                       FIRST NAME
                     </label>
@@ -427,32 +427,20 @@ export default function ContactSection() {
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       placeholder="First name"
-                      className="px-7 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
+                      className="px-6 py-4.5 rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
                       style={{
-                        background: "rgba(255, 255, 255, 0.03)",
-                        border: "1px solid rgba(255, 255, 255, 0.08)",
                         fontFamily: "'Inter', sans-serif",
                         fontSize: "0.9rem",
-                      }}
-                      onFocus={(e) => {
-                        e.target.style.background = "rgba(255, 255, 255, 0.05)";
-                        e.target.style.borderColor = "#a855f7";
-                        e.target.style.boxShadow = "0 0 10px rgba(168, 85, 247, 0.15)";
-                      }}
-                      onBlur={(e) => {
-                        e.target.style.background = "rgba(255, 255, 255, 0.03)";
-                        e.target.style.borderColor = "rgba(255, 255, 255, 0.08)";
-                        e.target.style.boxShadow = "none";
                       }}
                     />
                   </div>
 
                   {/* Last Name */}
-                  <div className="flex flex-col gap-2.5">
+                  <div className="flex flex-col gap-3">
                     <label
                       htmlFor="form-last-name"
-                      className="text-[0.68rem] font-bold text-gray-400"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "0.06em" }}
+                      className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
+                      style={{ fontFamily: "'Space Mono', monospace" }}
                     >
                       LAST NAME
                     </label>
@@ -463,35 +451,23 @@ export default function ContactSection() {
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       placeholder="Last name"
-                      className="px-7 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
+                      className="px-6 py-4.5 rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
                       style={{
-                        background: "rgba(255, 255, 255, 0.03)",
-                        border: "1px solid rgba(255, 255, 255, 0.08)",
                         fontFamily: "'Inter', sans-serif",
                         fontSize: "0.9rem",
-                      }}
-                      onFocus={(e) => {
-                        e.target.style.background = "rgba(255, 255, 255, 0.05)";
-                        e.target.style.borderColor = "#a855f7";
-                        e.target.style.boxShadow = "0 0 10px rgba(168, 85, 247, 0.15)";
-                      }}
-                      onBlur={(e) => {
-                        e.target.style.background = "rgba(255, 255, 255, 0.03)";
-                        e.target.style.borderColor = "rgba(255, 255, 255, 0.08)";
-                        e.target.style.boxShadow = "none";
                       }}
                     />
                   </div>
                 </div>
 
                 {/* Row 2: Email & Subject (Side by Side) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   {/* Email */}
-                  <div className="flex flex-col gap-2.5">
+                  <div className="flex flex-col gap-3">
                     <label
                       htmlFor="form-email"
-                      className="text-[0.68rem] font-bold text-gray-400"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "0.06em" }}
+                      className="text-[0.65rem] font-bold tracking-widest text-blue-300/70"
+                      style={{ fontFamily: "'Space Mono', monospace" }}
                     >
                       EMAIL ADDRESS
                     </label>
@@ -502,32 +478,20 @@ export default function ContactSection() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
-                      className="px-7 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
+                      className="px-6 py-4.5 rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-blue-500/80 focus:shadow-[0_0_15px_rgba(59,130,246,0.12)]"
                       style={{
-                        background: "rgba(255, 255, 255, 0.03)",
-                        border: "1px solid rgba(255, 255, 255, 0.08)",
                         fontFamily: "'Inter', sans-serif",
                         fontSize: "0.9rem",
-                      }}
-                      onFocus={(e) => {
-                        e.target.style.background = "rgba(255, 255, 255, 0.05)";
-                        e.target.style.borderColor = "#3b82f6";
-                        e.target.style.boxShadow = "0 0 10px rgba(59, 130, 246, 0.15)";
-                      }}
-                      onBlur={(e) => {
-                        e.target.style.background = "rgba(255, 255, 255, 0.03)";
-                        e.target.style.borderColor = "rgba(255, 255, 255, 0.08)";
-                        e.target.style.boxShadow = "none";
                       }}
                     />
                   </div>
 
                   {/* Subject */}
-                  <div className="flex flex-col gap-2.5">
+                  <div className="flex flex-col gap-3">
                     <label
                       htmlFor="form-subject"
-                      className="text-[0.68rem] font-bold text-gray-400"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "0.06em" }}
+                      className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
+                      style={{ fontFamily: "'Space Mono', monospace" }}
                     >
                       SUBJECT
                     </label>
@@ -538,33 +502,21 @@ export default function ContactSection() {
                       value={subject}
                       onChange={(e) => setSubject(e.target.value)}
                       placeholder="What's this about?"
-                      className="px-7 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300"
+                      className="px-6 py-4.5 rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
                       style={{
-                        background: "rgba(255, 255, 255, 0.03)",
-                        border: "1px solid rgba(255, 255, 255, 0.08)",
                         fontFamily: "'Inter', sans-serif",
                         fontSize: "0.9rem",
-                      }}
-                      onFocus={(e) => {
-                        e.target.style.background = "rgba(255, 255, 255, 0.05)";
-                        e.target.style.borderColor = "#a855f7";
-                        e.target.style.boxShadow = "0 0 10px rgba(168, 85, 247, 0.15)";
-                      }}
-                      onBlur={(e) => {
-                        e.target.style.background = "rgba(255, 255, 255, 0.03)";
-                        e.target.style.borderColor = "rgba(255, 255, 255, 0.08)";
-                        e.target.style.boxShadow = "none";
                       }}
                     />
                   </div>
                 </div>
 
                 {/* Message */}
-                <div className="flex flex-col gap-2.5">
+                <div className="flex flex-col gap-3">
                   <label
                     htmlFor="form-message"
-                    className="text-[0.68rem] font-bold text-gray-400"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "0.06em" }}
+                    className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
+                    style={{ fontFamily: "'Space Mono', monospace" }}
                   >
                     MESSAGE
                   </label>
@@ -575,22 +527,10 @@ export default function ContactSection() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Tell me more..."
-                    className="px-7 py-4.5 rounded-xl text-white outline-none w-full transition-all duration-300 resize-none"
+                    className="px-6 py-4.5 rounded-2xl text-white outline-none w-full transition-all duration-300 resize-none bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
                     style={{
-                      background: "rgba(255, 255, 255, 0.03)",
-                      border: "1px solid rgba(255, 255, 255, 0.08)",
                       fontFamily: "'Inter', sans-serif",
                       fontSize: "0.9rem",
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.background = "rgba(255, 255, 255, 0.05)";
-                      e.target.style.borderColor = "#a855f7";
-                      e.target.style.boxShadow = "0 0 10px rgba(168, 85, 247, 0.15)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.background = "rgba(255, 255, 255, 0.03)";
-                      e.target.style.borderColor = "rgba(255, 255, 255, 0.08)";
-                      e.target.style.boxShadow = "none";
                     }}
                   />
                 </div>
@@ -599,18 +539,16 @@ export default function ContactSection() {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting || isSent}
-                  whileHover={{ scale: 1.015 }}
-                  whileTap={{ scale: 0.985 }}
-                  className="w-full py-4.5 rounded-xl font-bold text-white relative overflow-hidden transition-all duration-300 flex items-center justify-center cursor-pointer mt-4"
+                  whileHover={{ scale: 1.012 }}
+                  whileTap={{ scale: 0.988 }}
+                  className="w-full py-5 rounded-2xl font-bold text-white relative overflow-hidden flex items-center justify-center cursor-pointer mt-6 border-none transition-all duration-500 shadow-[0_8px_30px_rgba(168,85,247,0.2)] hover:shadow-[0_8px_40px_rgba(168,85,247,0.35)] hover:bg-[position:right_center]"
                   style={{
                     fontFamily: "'Space Grotesk', sans-serif",
                     background: isSent
                       ? "linear-gradient(135deg, #10b981, #059669)"
-                      : "linear-gradient(135deg, #a855f7, #3b82f6)",
-                    boxShadow: isSent
-                      ? "0 4px 20px rgba(16, 185, 129, 0.3)"
-                      : "0 4px 20px rgba(168, 85, 247, 0.25)",
-                    border: "none",
+                      : "linear-gradient(135deg, #a855f7 0%, #3b82f6 50%, #a855f7 100%)",
+                    backgroundSize: "200% auto",
+                    transition: "background-position 0.5s ease, box-shadow 0.3s ease, transform 0.2s ease",
                   }}
                 >
                   <AnimatePresence mode="wait">
