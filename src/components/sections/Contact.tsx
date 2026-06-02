@@ -378,7 +378,7 @@ export default function ContactSection() {
           </div>
 
           {/* ══ RIGHT COLUMN: Glassmorphic Message Form Box ══ */}
-          <div className="lg:col-span-7 w-full">
+          <div className="lg:col-span-7 w-full lg:pt-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
