@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, useInView, useAnimation, AnimatePresence } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 
 // ─── Tech stack with SVG logos ────────────────────────────────────────────────
 const TECH_STACK = [
@@ -141,92 +141,6 @@ function TechCard({
   );
 }
 
-// ─── Vertical scrolling column ────────────────────────────────────────────────
-function ScrollColumn({
-  items,
-  speed,
-  reverse,
-  pausedKey,
-  hoveredTech,
-  onEnter,
-  onLeave,
-}: {
-  items: typeof TECH_STACK;
-  speed: number;
-  reverse: boolean;
-  pausedKey: string | null;
-  hoveredTech: string | null;
-  onEnter: (name: string) => void;
-  onLeave: () => void;
-}) {
-  const isPaused = pausedKey !== null;
-  // Duplicate list for seamless loop
-  const doubled = [...items, ...items];
-  const totalHeight = items.length * 68; // ~68px per card
-
-  return (
-    <div className="relative overflow-hidden" style={{ height: "420px" }}>
-      {/* Top fade */}
-      <div
-        className="absolute top-0 left-0 right-0 z-10 pointer-events-none"
-        style={{
-          height: "60px",
-          background: "linear-gradient(to bottom, var(--bg-surface), transparent)",
-        }}
-      />
-      {/* Bottom fade */}
-      <div
-        className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none"
-        style={{
-          height: "60px",
-          background: "linear-gradient(to top, var(--bg-surface), transparent)",
-        }}
-      />
-
-      <motion.div
-        animate={{
-          y: reverse
-            ? [0, -totalHeight]
-            : [-totalHeight, 0],
-        }}
-        transition={{
-          duration: speed,
-          repeat: Infinity,
-          ease: "linear",
-          repeatType: "loop",
-        }}
-        style={{
-          animationPlayState: isPaused ? "paused" : "running",
-          willChange: "transform",
-        }}
-        // Pause via css when hovered
-        className={isPaused ? "[animation-play-state:paused]" : ""}
-      >
-        <motion.div
-          animate={{ y: isPaused ? 0 : 0 }}
-          transition={{ duration: 0 }}
-          style={{
-            // Framer Motion respects paused state via transition stall
-            animationPlayState: isPaused ? "paused" : "running",
-          }}
-        >
-          <div className="flex flex-col gap-2.5 pr-2">
-            {doubled.map((tech, i) => (
-              <TechCard
-                key={`${tech.name}-${i}`}
-                tech={tech}
-                isHovered={hoveredTech === tech.name}
-                anyHovered={hoveredTech !== null}
-                onEnter={() => onEnter(tech.name)}
-                onLeave={onLeave}
-              />
-            ))}
-          </div>
-        </motion.div>
-      </motion.div>
-    </div>
-  );
-}
 
 // ─── Better vertical ticker using CSS animation for pause support ─────────────
 function TickerColumn({
@@ -307,7 +221,12 @@ export default function AboutSection() {
 
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    const handle = requestAnimationFrame(() => {
+      setMounted(true);
+    });
+    return () => cancelAnimationFrame(handle);
+  }, []);
 
   const isPaused = hoveredTech !== null;
 

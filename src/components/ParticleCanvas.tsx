@@ -17,6 +17,12 @@ export default function ParticleCanvas({ mouseX = 0, mouseY = 0 }: ParticleCanva
     particles: THREE.Points;
     animId: number;
   } | null>(null);
+  const mouseRef = useRef({ x: mouseX, y: mouseY });
+
+  useEffect(() => {
+    mouseRef.current.x = mouseX;
+    mouseRef.current.y = mouseY;
+  }, [mouseX, mouseY]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -114,9 +120,8 @@ export default function ParticleCanvas({ mouseX = 0, mouseY = 0 }: ParticleCanva
       particles.rotation.y = elapsed * 0.02;
       particles.rotation.x = Math.sin(elapsed * 0.01) * 0.05;
 
-      // Mouse parallax
-      targetRotX = (mouseY / window.innerHeight - 0.5) * 0.3;
-      targetRotY = (mouseX / window.innerWidth - 0.5) * 0.3;
+      targetRotX = (mouseRef.current.y / window.innerHeight - 0.5) * 0.3;
+      targetRotY = (mouseRef.current.x / window.innerWidth - 0.5) * 0.3;
       currentRotX += (targetRotX - currentRotX) * 0.05;
       currentRotY += (targetRotY - currentRotY) * 0.05;
 
@@ -148,10 +153,7 @@ export default function ParticleCanvas({ mouseX = 0, mouseY = 0 }: ParticleCanva
     };
   }, []);
 
-  // Update mouse effect reactively
-  useEffect(() => {
-    // mouseX/mouseY are passed and used in the animation loop via closure
-  }, [mouseX, mouseY]);
+
 
   return (
     <canvas

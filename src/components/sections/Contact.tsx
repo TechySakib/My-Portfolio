@@ -8,7 +8,7 @@ const socials = [
     id: "linkedin",
     label: "LinkedIn",
     handle: "@TechySakib",
-    href: "https://linkedin.com",
+    href: "https://linkedin.com/in/TechySakib",
     color: "#0a66c2",
     icon: (
       <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -20,7 +20,7 @@ const socials = [
     id: "instagram",
     label: "Instagram",
     handle: "@TechySakib",
-    href: "https://instagram.com",
+    href: "https://instagram.com/TechySakib",
     color: "#e1306c",
     icon: (
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -34,7 +34,7 @@ const socials = [
     id: "threads",
     label: "Threads",
     handle: "@TechySakib",
-    href: "https://threads.net",
+    href: "https://threads.net/@TechySakib",
     color: "#ffffff",
     icon: (
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -47,7 +47,7 @@ const socials = [
     id: "facebook",
     label: "Facebook",
     handle: "Nazmus Sakib",
-    href: "https://facebook.com",
+    href: "https://facebook.com/TechySakib",
     color: "#1877f2",
     icon: (
       <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -59,7 +59,7 @@ const socials = [
     id: "twitter",
     label: "X (Twitter)",
     handle: "@TechySakib",
-    href: "https://x.com",
+    href: "https://x.com/TechySakib",
     color: "#1da1f2",
     icon: (
       <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">

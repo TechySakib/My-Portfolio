@@ -120,7 +120,10 @@ function Particles({ active }: { active: Zone }) {
         delay: Math.random() * 5,
       };
     });
-    setParticles(list);
+    const handle = requestAnimationFrame(() => {
+      setParticles(list);
+    });
+    return () => cancelAnimationFrame(handle);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // only on mount
 
@@ -456,7 +459,7 @@ function MergedPortrait({
             src={IDENTITIES[id].image}
             alt={IDENTITIES[id].label}
             fill
-            priority={id === "pro"}
+            priority={true}
             sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 460px"
             className="object-cover"
             style={{ objectPosition: "center 10%" }}
@@ -649,9 +652,7 @@ export default function HeroSection() {
   // Portrait y-slide: center (pro)→shift up to make room for card below
   const portraitSlideY = hovered === "pro" ? -48 : 0;
 
-  // Show bottom card: always on mobile, also for "pro" on desktop
-  // (left/right get side panels on desktop; pro gets bottom card)
-  const showBottomCard = hovered !== null;
+
 
   return (
     <section
