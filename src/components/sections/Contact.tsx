@@ -7,8 +7,8 @@ const socials = [
   {
     id: "linkedin",
     label: "LinkedIn",
-    handle: "@TechySakib",
-    href: "https://linkedin.com/in/TechySakib",
+    handle: "@Nazmus Sakib",
+    href: "https://www.linkedin.com/in/nazmus-sakib-5a0869306/",
     color: "#0a66c2",
     icon: (
       <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -19,8 +19,8 @@ const socials = [
   {
     id: "instagram",
     label: "Instagram",
-    handle: "@TechySakib",
-    href: "https://instagram.com/TechySakib",
+    handle: "@nazmus_5akib",
+    href: "https://www.instagram.com/nazmus_5akib/",
     color: "#e1306c",
     icon: (
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -33,8 +33,8 @@ const socials = [
   {
     id: "threads",
     label: "Threads",
-    handle: "@TechySakib",
-    href: "https://threads.net/@TechySakib",
+    handle: "@Nazmus Sakib",
+    href: "https://www.threads.com/@nazmus_5akib",
     color: "#ffffff",
     icon: (
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -46,8 +46,8 @@ const socials = [
   {
     id: "facebook",
     label: "Facebook",
-    handle: "Nazmus Sakib",
-    href: "https://facebook.com/TechySakib",
+    handle: "@Nazmus Sakib",
+    href: "https://www.facebook.com/nazmus.sakib.456/",
     color: "#1877f2",
     icon: (
       <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -58,8 +58,8 @@ const socials = [
   {
     id: "twitter",
     label: "X (Twitter)",
-    handle: "@TechySakib",
-    href: "https://x.com/TechySakib",
+    handle: "@Nazmu Sakib",
+    href: "https://x.com/Nazmus_5akib",
     color: "#1da1f2",
     icon: (
       <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -84,7 +84,7 @@ const socials = [
 export default function ContactSection() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  
+
   // State for email copying
   const [copied, setCopied] = useState(false);
 
@@ -161,7 +161,7 @@ export default function ContactSection() {
 
       <div className="relative max-w-7xl mx-auto w-full px-6 lg:px-8" style={{ zIndex: 1 }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 xl:gap-32 items-center">
-          
+
           {/* ══ LEFT COLUMN: Description & Copy Email & Socials Grid ══ */}
           <div className="lg:col-span-5 text-left flex flex-col justify-center space-y-12 lg:pr-4">
             <div>
@@ -343,7 +343,7 @@ export default function ContactSection() {
                       borderColor: "rgba(255, 255, 255, 0.08)",
                     }}
                   >
-                    <span 
+                    <span
                       className="transition-colors duration-300"
                       style={{ color: social.color }}
                     >
