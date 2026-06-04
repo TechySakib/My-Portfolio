@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView, type Variants } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useInView, type Variants, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const projects = [
   {
@@ -13,6 +14,7 @@ const projects = [
     color: "#a855f7",
     year: "2024",
     status: "Live",
+    image: "/images/proj-1.png",
   },
   {
     id: "proj-2",
@@ -23,6 +25,7 @@ const projects = [
     color: "#3b82f6",
     year: "2024",
     status: "Open Source",
+    image: "/images/proj-2.png",
   },
   {
     id: "proj-3",
@@ -33,6 +36,7 @@ const projects = [
     color: "#f59e0b",
     year: "2023",
     status: "Live",
+    image: "/images/proj-3.png",
   },
   {
     id: "proj-4",
@@ -43,6 +47,7 @@ const projects = [
     color: "#06b6d4",
     year: "2025",
     status: "Research",
+    image: "/images/proj-4.png",
   },
 ];
 
@@ -67,10 +72,25 @@ export default function ProjectsSection() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { stiffness: 150, damping: 15, mass: 0.1 };
+  const x = useSpring(mouseX, springConfig);
+  const y = useSpring(mouseY, springConfig);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    mouseX.set(e.clientX);
+    mouseY.set(e.clientY);
+  };
+
   return (
     <section
       id="projects"
       ref={ref}
+      onMouseMove={handleMouseMove}
       className="relative min-h-screen w-full flex flex-col justify-center pt-24 pb-16 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60 overflow-hidden"
       style={{ background: "var(--bg-base)" }}
     >
@@ -153,6 +173,8 @@ export default function ProjectsSection() {
             id={project.id}
             variants={cardVariants}
             whileHover={{ y: -4, transition: { duration: 0.3 } }}
+            onMouseEnter={() => setHoveredProject(project.id)}
+            onMouseLeave={() => setHoveredProject(null)}
             className="group relative rounded-2xl p-6 cursor-pointer overflow-hidden"
             style={{
               background: "rgba(255,255,255,0.03)",
@@ -270,6 +292,47 @@ export default function ProjectsSection() {
           </motion.div>
         ))}
       </motion.div>
+
+      {/* Floating screenshot preview */}
+      <AnimatePresence>
+        {hoveredProject && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.75, filter: "blur(6px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            exit={{ opacity: 0, scale: 0.75, filter: "blur(6px)" }}
+            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed pointer-events-none z-50 rounded-xl overflow-hidden border bg-zinc-950/80 shadow-[0_20px_50px_rgba(0,0,0,0.6)] backdrop-blur-md hidden md:block"
+            style={{
+              x,
+              y,
+              translateX: "18px",
+              translateY: "18px",
+              width: "280px",
+              aspectRatio: "1.6 / 1",
+              borderColor: `${projects.find((p) => p.id === hoveredProject)?.color}35` || "rgba(255,255,255,0.15)",
+              boxShadow: `0 20px 50px rgba(0,0,0,0.6), 0 0 30px ${projects.find((p) => p.id === hoveredProject)?.color}10`,
+            }}
+          >
+            <div className="relative w-full h-full">
+              <Image
+                src={projects.find((p) => p.id === hoveredProject)?.image || ""}
+                alt="Project screenshot"
+                fill
+                sizes="280px"
+                className="object-cover"
+                priority
+              />
+              {/* Subtle top/bottom shadow gradients */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(135deg, ${projects.find((p) => p.id === hoveredProject)?.color}12, transparent 60%)`,
+                }}
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
