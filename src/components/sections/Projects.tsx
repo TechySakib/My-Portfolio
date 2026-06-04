@@ -199,7 +199,7 @@ export default function ProjectsSection() {
             <div className="flex items-start justify-between mb-4">
               <div>
                 <span
-                  className="text-xs font-mono"
+                  className="block text-xs font-mono"
                   style={{
                     color: project.color,
                     fontFamily: "'Space Mono', monospace",
@@ -301,12 +301,12 @@ export default function ProjectsSection() {
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             exit={{ opacity: 0, scale: 0.75, filter: "blur(6px)" }}
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed pointer-events-none z-50 rounded-xl overflow-hidden border bg-zinc-950/80 shadow-[0_20px_50px_rgba(0,0,0,0.6)] backdrop-blur-md hidden md:block"
+            className="fixed top-0 left-0 pointer-events-none z-50 rounded-xl overflow-hidden border bg-zinc-950/80 shadow-[0_20px_50px_rgba(0,0,0,0.6)] backdrop-blur-md hidden md:block"
             style={{
               x,
               y,
-              translateX: "18px",
-              translateY: "18px",
+              left: 18,
+              top: 18,
               width: "280px",
               aspectRatio: "1.6 / 1",
               borderColor: `${projects.find((p) => p.id === hoveredProject)?.color}35` || "rgba(255,255,255,0.15)",
