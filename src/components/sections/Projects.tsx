@@ -173,8 +173,6 @@ export default function ProjectsSection() {
             id={project.id}
             variants={cardVariants}
             whileHover={{ y: -4, transition: { duration: 0.3 } }}
-            onMouseEnter={() => setHoveredProject(project.id)}
-            onMouseLeave={() => setHoveredProject(null)}
             className="group relative rounded-2xl p-6 cursor-pointer overflow-hidden"
             style={{
               background: "rgba(255,255,255,0.03)",
@@ -212,12 +210,14 @@ export default function ProjectsSection() {
                   {project.year}
                 </span>
                 <h3
-                  className="mt-1"
+                  className="mt-1 transition-colors duration-300 inline-block"
+                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseLeave={() => setHoveredProject(null)}
                   style={{
                     fontFamily: "'Space Grotesk', sans-serif",
                     fontWeight: 700,
                     fontSize: "1.2rem",
-                    color: "white",
+                    color: hoveredProject === project.id ? project.color : "white",
                     letterSpacing: "-0.02em",
                   }}
                 >
