@@ -383,30 +383,60 @@ export default function ContactSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.7 }}
-              className="rounded-[2.5rem] p-12 sm:p-16 relative overflow-hidden text-left w-full max-w-[620px] my-10 lg:my-16 mx-auto lg:mr-0 lg:ml-auto"
+              className="rounded-[2.5rem] relative overflow-hidden w-full max-w-[620px] my-10 lg:my-16 mx-auto lg:mr-0 lg:ml-auto group"
               style={{
-                background: "linear-gradient(rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.015)) padding-box, linear-gradient(135deg, rgba(168, 85, 247, 0.18), rgba(59, 130, 246, 0.18)) border-box",
-                border: "1px solid transparent",
-                backdropFilter: "blur(32px)",
-                WebkitBackdropFilter: "blur(32px)",
-                boxShadow: "0 30px 70px -20px rgba(0, 0, 0, 0.75), 0 0 60px -15px rgba(168, 85, 247, 0.12), 0 0 40px -20px rgba(59, 130, 246, 0.12)",
+                padding: "1px",
+                background: "transparent",
+                boxShadow: "0 30px 70px -20px rgba(0, 0, 0, 0.75), 0 0 50px -15px rgba(168, 85, 247, 0.08), 0 0 35px -20px rgba(59, 130, 246, 0.08)",
+                transition: "box-shadow 0.5s ease",
+              }}
+              whileHover={{
+                boxShadow: "0 30px 85px -15px rgba(0, 0, 0, 0.8), 0 0 60px -5px rgba(168, 85, 247, 0.18), 0 0 40px -10px rgba(6, 182, 212, 0.18)",
               }}
             >
-              {/* Form border glowing line */}
-              <div
-                className="absolute top-0 left-0 right-0 h-[1.5px]"
+              {/* Shifting Gradient Border Layer */}
+              <motion.div
+                className="absolute inset-0 rounded-[2.5rem]"
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{
+                  duration: 12,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
                 style={{
-                  background:
-                    "linear-gradient(90deg, transparent, rgba(168,85,247,0.3), rgba(59,130,246,0.3), transparent)",
+                  zIndex: 0,
+                  background: "linear-gradient(135deg, rgba(168, 85, 247, 0.38), rgba(59, 130, 246, 0.38), rgba(6, 182, 212, 0.38), rgba(168, 85, 247, 0.38))",
+                  backgroundSize: "200% 200%",
                 }}
               />
 
-              <h3
-                className="text-2xl font-bold mb-10 text-white pt-4 lg:pt-6"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              {/* Form Card Content Inner */}
+              <div
+                className="rounded-[calc(2.5rem-1px)] p-12 sm:p-16 relative overflow-hidden text-left w-full h-full"
+                style={{
+                  background: "rgba(7, 7, 16, 0.95)",
+                  backdropFilter: "blur(32px)",
+                  WebkitBackdropFilter: "blur(32px)",
+                  zIndex: 1,
+                }}
               >
-                Send me a message
-              </h3>
+                {/* Form border glowing line */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-[1.5px]"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent, rgba(168,85,247,0.3), rgba(59,130,246,0.3), transparent)",
+                  }}
+                />
+
+                <h3
+                  className="text-2xl font-bold mb-10 text-white pt-4 lg:pt-6"
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                >
+                  Send me a message
+                </h3>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-6 sm:gap-8">
                 {/* Row 1: First Name & Last Name (Side by Side) */}
@@ -591,6 +621,7 @@ export default function ContactSection() {
                   </AnimatePresence>
                 </motion.button>
               </form>
+              </div>
             </motion.div>
           </div>
 
