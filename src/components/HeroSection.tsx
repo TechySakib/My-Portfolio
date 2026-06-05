@@ -155,9 +155,11 @@ function Particles({ active }: { active: Zone }) {
 function SidePanel({
   zone,
   side,
+  onOpenResume,
 }: {
   zone: keyof typeof IDENTITIES;
   side: "left" | "right";
+  onOpenResume?: () => void;
 }) {
   const id = IDENTITIES[zone];
   return (
@@ -292,6 +294,32 @@ function SidePanel({
           ))}
         </div>
 
+        {/* View Resume CTA */}
+        {zone === "ai" && (
+          <motion.button
+            onClick={onOpenResume}
+            whileHover={{
+              scale: 1.03,
+              backgroundColor: `${id.color}22`,
+              borderColor: id.color,
+              boxShadow: `0 0 15px ${id.color}35`,
+            }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full mt-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase border transition-all cursor-pointer flex items-center justify-center gap-2"
+            style={{
+              fontFamily: "'Space Mono', monospace",
+              color: "white",
+              backgroundColor: "rgba(255, 255, 255, 0.02)",
+              borderColor: "rgba(255, 255, 255, 0.08)",
+            }}
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.754 18 18.168 18.5 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            Interactive Resume
+          </motion.button>
+        )}
+
         {/* Neon edge line */}
         <motion.div
           initial={{ scaleY: 0 }}
@@ -310,7 +338,7 @@ function SidePanel({
 }
 
 // ─── Bottom card (center panel + mobile fallback) ─────────────────────────────
-function BottomCard({ zone }: { zone: Zone }) {
+function BottomCard({ zone, onOpenResume }: { zone: Zone; onOpenResume?: () => void }) {
   if (!zone) return null;
   const id = IDENTITIES[zone];
 
@@ -412,6 +440,32 @@ function BottomCard({ zone }: { zone: Zone }) {
                 </motion.span>
               ))}
             </div>
+
+            {/* View Resume CTA */}
+            {(zone === "pro" || zone === "ai") && (
+              <motion.button
+                onClick={onOpenResume}
+                whileHover={{
+                  scale: 1.03,
+                  backgroundColor: `${id.color}22`,
+                  borderColor: id.color,
+                  boxShadow: `0 0 15px ${id.color}35`,
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full mt-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase border transition-all cursor-pointer flex items-center justify-center gap-2"
+                style={{
+                  fontFamily: "'Space Mono', monospace",
+                  color: "white",
+                  backgroundColor: "rgba(255, 255, 255, 0.02)",
+                  borderColor: "rgba(255, 255, 255, 0.08)",
+                }}
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.754 18 18.168 18.5 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+                Interactive Resume
+              </motion.button>
+            )}
           </div>
         </motion.div>
       )}
@@ -612,8 +666,12 @@ function MergedPortrait({
   );
 }
 
+interface HeroSectionProps {
+  onOpenResume?: () => void;
+}
+
 // ─── Main HeroSection ─────────────────────────────────────────────────────────
-export default function HeroSection() {
+export default function HeroSection({ onOpenResume }: HeroSectionProps) {
   const [hovered, setHovered] = useState<Zone>(null);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -838,7 +896,7 @@ export default function HeroSection() {
             {/* LEFT SIDE PANEL — desktop only, anime hover */}
             <AnimatePresence>
               {hovered === "anime" && (
-                <SidePanel key="left-panel" zone="anime" side="left" />
+                <SidePanel key="left-panel" zone="anime" side="left" onOpenResume={onOpenResume} />
               )}
             </AnimatePresence>
 
@@ -887,7 +945,7 @@ export default function HeroSection() {
             {/* RIGHT SIDE PANEL — desktop only, ai hover */}
             <AnimatePresence>
               {hovered === "ai" && (
-                <SidePanel key="right-panel" zone="ai" side="right" />
+                <SidePanel key="right-panel" zone="ai" side="right" onOpenResume={onOpenResume} />
               )}
             </AnimatePresence>
 
@@ -901,11 +959,11 @@ export default function HeroSection() {
         >
           {/* Desktop: only pro */}
           <div className="hidden lg:block">
-            {hovered === "pro" && <BottomCard zone="pro" />}
+            {hovered === "pro" && <BottomCard zone="pro" onOpenResume={onOpenResume} />}
           </div>
           {/* Mobile: all hover states */}
           <div className="lg:hidden">
-            <BottomCard zone={hovered} />
+            <BottomCard zone={hovered} onOpenResume={onOpenResume} />
           </div>
         </div>
 

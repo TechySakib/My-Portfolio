@@ -11,7 +11,12 @@ const navLinks = [
   { href: "#uses", label: "Uses" },
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  onOpenResume?: () => void;
+  isResumeOpen?: boolean;
+}
+
+export default function Navbar({ onOpenResume, isResumeOpen }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -149,6 +154,38 @@ export default function Navbar() {
             </motion.div>
           ))}
 
+          {/* Resume Button */}
+          <motion.button
+            onClick={onOpenResume}
+            id="nav-resume"
+            whileHover={{
+              scale: 1.05,
+              y: -1,
+              borderColor: "rgba(168, 85, 247, 0.6)",
+              boxShadow: "0 0 20px rgba(168, 85, 247, 0.45), 0 0 35px rgba(59, 130, 246, 0.2)",
+              background: "rgba(168, 85, 247, 0.15)",
+            }}
+            whileTap={{ scale: 0.97 }}
+            className="px-4.5 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center justify-center relative overflow-hidden cursor-pointer"
+            style={{
+              fontFamily: "'Space Grotesk', sans-serif",
+              letterSpacing: "0.02em",
+              color: "white",
+              background: isResumeOpen ? "rgba(168, 85, 247, 0.15)" : "rgba(255, 255, 255, 0.04)",
+              border: isResumeOpen ? "1px solid rgba(168, 85, 247, 0.6)" : "1px solid rgba(168, 85, 247, 0.25)",
+              boxShadow: isResumeOpen ? "0 0 15px rgba(168, 85, 247, 0.35)" : "0 0 8px rgba(168, 85, 247, 0.15)",
+            }}
+          >
+            Resume
+            {isResumeOpen && (
+              <motion.div
+                layoutId="active-nav-dot"
+                className="w-1.5 h-1.5 rounded-full bg-purple-400 ml-2 animate-pulse"
+                style={{ boxShadow: "0 0 6px #a855f7" }}
+              />
+            )}
+          </motion.button>
+
           {/* CTA Button */}
           <motion.a
             href="#contact"
@@ -230,6 +267,33 @@ export default function Navbar() {
                 {link.label}
               </motion.a>
             ))}
+            <motion.button
+              onClick={() => {
+                setMenuOpen(false);
+                onOpenResume?.();
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.35 }}
+              whileHover={{
+                scale: 1.05,
+                background: "rgba(168, 85, 247, 0.15)",
+                borderColor: "rgba(168, 85, 247, 0.6)",
+                boxShadow: "0 0 15px rgba(168, 85, 247, 0.3)",
+              }}
+              whileTap={{ scale: 0.97 }}
+              className="mt-4 px-8 py-3 rounded-full text-lg font-bold transition-all duration-300 cursor-pointer"
+              style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                letterSpacing: "0.02em",
+                color: "white",
+                background: isResumeOpen ? "rgba(168, 85, 247, 0.15)" : "rgba(255, 255, 255, 0.04)",
+                border: isResumeOpen ? "1px solid rgba(168, 85, 247, 0.6)" : "1px solid rgba(168, 85, 247, 0.25)",
+              }}
+            >
+              Resume
+            </motion.button>
+
             <motion.a
               href="#contact"
               initial={{ opacity: 0 }}

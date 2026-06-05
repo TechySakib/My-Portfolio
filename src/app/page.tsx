@@ -9,6 +9,7 @@ import AboutSection from "@/components/sections/About";
 import UsesSection from "@/components/sections/Uses";
 import ContactSection from "@/components/sections/Contact";
 import MouseTracker from "@/components/MouseTracker";
+import ResumeModal from "@/components/ResumeModal";
 
 // Load Three.js canvas only on client — avoids SSR WebGL issues
 const ParticleCanvas = dynamic(() => import("@/components/ParticleCanvas"), {
@@ -18,6 +19,7 @@ const ParticleCanvas = dynamic(() => import("@/components/ParticleCanvas"), {
 export default function HomePage() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   useEffect(() => {
     // Trigger entrance animation after brief delay
@@ -52,10 +54,10 @@ export default function HomePage() {
       <MouseTracker />
 
       {/* Navigation */}
-      <Navbar />
+      <Navbar onOpenResume={() => setIsResumeOpen(true)} isResumeOpen={isResumeOpen} />
 
       {/* Hero */}
-      <HeroSection />
+      <HeroSection onOpenResume={() => setIsResumeOpen(true)} />
 
       {/* About (with tech stack) — directly after hero */}
       <AboutSection />
@@ -66,6 +68,9 @@ export default function HomePage() {
       {/* Uses & Contact */}
       <UsesSection />
       <ContactSection />
+
+      {/* Premium Resume Modal */}
+      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </main>
   );
 }
