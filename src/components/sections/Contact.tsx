@@ -128,7 +128,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={ref}
-      className="relative min-h-screen w-full flex flex-col justify-center pt-32 pb-24 px-12 sm:px-24 md:px-36 lg:px-48 xl:px-60 overflow-hidden"
+      className="relative min-h-screen w-full flex flex-col justify-center py-28 px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 overflow-hidden"
       style={{ background: "var(--bg-surface)" }}
     >
       {/* Top border line */}
@@ -163,7 +163,7 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 xl:gap-32 items-center">
 
           {/* ══ LEFT COLUMN: Description & Copy Email & Socials Grid ══ */}
-          <div className="lg:col-span-5 text-left flex flex-col justify-center space-y-12 lg:pr-4">
+          <div className="lg:col-span-6 text-left flex flex-col justify-center space-y-12 lg:pr-8">
             <div>
               {/* Eyebrow Label */}
               <motion.div
@@ -378,18 +378,18 @@ export default function ContactSection() {
           </div>
 
           {/* ══ RIGHT COLUMN: Glassmorphic Message Form Box ══ */}
-          <div className="lg:col-span-7 w-full lg:pt-8 p-4 lg:p-8">
+          <div className="lg:col-span-6 w-full flex items-center justify-center lg:justify-end p-4 sm:p-6 lg:p-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.7 }}
-              className="rounded-[2.5rem] p-8 relative overflow-hidden text-left max-w-[600px] lg:mx-auto"
+              className="rounded-[2.5rem] p-12 sm:p-16 relative overflow-hidden text-left w-full max-w-[620px] my-10 lg:my-16 mx-auto lg:mr-0 lg:ml-auto"
               style={{
-                background: "linear-gradient(rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0.012)) padding-box, linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(59, 130, 246, 0.25)) border-box",
+                background: "linear-gradient(rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.015)) padding-box, linear-gradient(135deg, rgba(168, 85, 247, 0.18), rgba(59, 130, 246, 0.18)) border-box",
                 border: "1px solid transparent",
-                backdropFilter: "blur(28px)",
-                WebkitBackdropFilter: "blur(28px)",
-                boxShadow: "0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 50px -10px rgba(168, 85, 247, 0.12)",
+                backdropFilter: "blur(32px)",
+                WebkitBackdropFilter: "blur(32px)",
+                boxShadow: "0 30px 70px -20px rgba(0, 0, 0, 0.75), 0 0 60px -15px rgba(168, 85, 247, 0.12), 0 0 40px -20px rgba(59, 130, 246, 0.12)",
               }}
             >
               {/* Form border glowing line */}
@@ -408,7 +408,7 @@ export default function ContactSection() {
                 Send me a message
               </h3>
 
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-6 sm:gap-8">
                 {/* Row 1: First Name & Last Name (Side by Side) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* First Name */}
@@ -463,7 +463,7 @@ export default function ContactSection() {
                 {/* Row 2: Email & Subject (Side by Side) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Email */}
-                  <div className="flex flex-col gap-1.5 mt-4">
+                  <div className="flex flex-col gap-1.5">
                     <label
                       htmlFor="form-email"
                       className="text-[0.65rem] font-bold tracking-widest text-blue-300/70"
@@ -487,7 +487,7 @@ export default function ContactSection() {
                   </div>
 
                   {/* Subject */}
-                  <div className="flex flex-col gap-1.5 mt-4">
+                  <div className="flex flex-col gap-1.5">
                     <label
                       htmlFor="form-subject"
                       className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
@@ -512,7 +512,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* Message */}
-                <div className="flex flex-col gap-1.5 mt-4">
+                <div className="flex flex-col gap-1.5">
                   <label
                     htmlFor="form-message"
                     className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
@@ -541,7 +541,7 @@ export default function ContactSection() {
                   disabled={isSubmitting || isSent}
                   whileHover={{ scale: 1.012 }}
                   whileTap={{ scale: 0.988 }}
-                  className="w-full py-5 rounded-2xl font-bold text-white relative overflow-hidden flex items-center justify-center cursor-pointer mt-6 border-none transition-all duration-500 shadow-[0_8px_30px_rgba(168,85,247,0.2)] hover:shadow-[0_8px_40px_rgba(168,85,247,0.35)] hover:bg-[position:right_center]"
+                  className="w-full py-5 rounded-2xl font-bold text-white relative overflow-hidden flex items-center justify-center cursor-pointer border-none transition-all duration-500 shadow-[0_8px_30px_rgba(168,85,247,0.2)] hover:shadow-[0_8px_40px_rgba(168,85,247,0.35)] hover:bg-[position:right_center]"
                   style={{
                     fontFamily: "'Space Grotesk', sans-serif",
                     background: isSent
