@@ -10,6 +10,7 @@ import UsesSection from "@/components/sections/Uses";
 import ContactSection from "@/components/sections/Contact";
 import MouseTracker from "@/components/MouseTracker";
 import ResumeModal from "@/components/ResumeModal";
+import ResumeSection from "@/components/sections/Resume";
 
 // Load Three.js canvas only on client — avoids SSR WebGL issues
 const ParticleCanvas = dynamic(() => import("@/components/ParticleCanvas"), {
@@ -61,6 +62,9 @@ export default function HomePage() {
 
       {/* About (with tech stack) — directly after hero */}
       <AboutSection />
+
+      {/* Resume Section */}
+      <ResumeSection />
 
       {/* Projects */}
       <ProjectsSection />
