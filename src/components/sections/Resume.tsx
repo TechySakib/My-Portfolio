@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 interface StatCounterProps {
   value: number;
@@ -39,7 +39,7 @@ function StatCounter({ value, suffix = "", label }: StatCounterProps) {
   return (
     <div 
       ref={ref}
-      className="p-6 rounded-2xl bg-white/[0.015] border border-white/5 flex flex-col items-center justify-center text-center backdrop-blur-md transition-all duration-300 hover:border-purple-500/30 hover:bg-white/[0.03]"
+      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex flex-col items-center justify-center text-center backdrop-blur-md transition-all duration-300 hover:border-purple-500/30 hover:bg-white/[0.03]"
       style={{
         boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
       }}
@@ -51,59 +51,76 @@ function StatCounter({ value, suffix = "", label }: StatCounterProps) {
         {count}
         {suffix}
       </span>
-      <span className="text-[0.68rem] font-bold text-gray-500 uppercase tracking-widest mt-2 font-mono" style={{ fontFamily: "'Space Mono', monospace" }}>
+      <span className="text-[0.62rem] font-bold text-gray-500 uppercase tracking-widest mt-2 font-mono" style={{ fontFamily: "'Space Mono', monospace" }}>
         {label}
       </span>
     </div>
   );
 }
 
-const educationData = [
+const timelineData = [
   {
-    institution: "North South University",
-    degree: "B.S. in Computer Science & Engineering",
-    period: "2022 - Present",
-    grade: "GPA: 3.75 / 4.00",
-    desc: "Specialize in Artificial Intelligence and Machine Learning. Active in research and programming societies.",
-    color: "#3b82f6",
-  },
-  {
-    institution: "Notre Dame College, Dhaka",
-    degree: "Higher Secondary Certificate (Science)",
-    period: "2019 - 2021",
-    grade: "GPA: 5.00 / 5.00",
-    desc: "Rigorous science curriculum with standard focus on mathematics, physics, and algorithm basics.",
-    color: "#f59e0b",
-  },
-];
-
-const experienceData = [
-  {
-    role: "Undergraduate ML Researcher",
-    org: "North South University AI Lab",
-    period: "2024 - Present",
-    desc: "Benchmarked VLMs for scene understanding, optimized model parameters, and refactored attention memory arrays to reduce GPU latency by 14%.",
+    title: "B.Sc. In Computer Science & Engineering",
+    date: "2021 — 2025",
+    subtitle: "North South University · Dhaka, Bangladesh · CGPA 3.10",
+    desc: "Focused on AI/ML, algorithms, software engineering, and systems. Completed three production-grade capstone projects spanning computer vision, RAG systems, and web platforms.",
+    badges: ["Algorithms", "AI & ML", "Software Engineering", "Databases"],
     color: "#a855f7",
   },
   {
-    role: "Full Stack AI Builder",
-    org: "Open Source Projects",
-    period: "2023 - Present",
-    desc: "Designed and deployed neural creative tools, recommendation engines serving substantial scales, and production-ready RAG assistants.",
-    color: "#06b6d4",
+    title: "AinSathi — AI Legal Assistant (Production)",
+    date: "2024",
+    subtitle: "Capstone Project · RAG · NLP · 3D UI",
+    desc: "Built a bilingual (Bengali/English) legal assistant for Bangladesh law using a hybrid FAISS + BM25 RAG pipeline. Shipped with an immersive Three.js 3D UI, Supabase backend, JWT auth, and encrypted session privacy mode.",
+    badges: ["RAG", "FAISS", "BM25", "Next.js", "FastAPI", "Three.js"],
+    color: "#a855f7",
+  },
+  {
+    title: "Ratatouille AI — Recipe Discovery Platform",
+    date: "2023",
+    subtitle: "Full-Stack Project · Computer Vision · PWA",
+    desc: "Deployed YOLOv8 object detection in production to identify ingredients from images and suggest recipe matches. Built as an installable PWA with React 18, Vite, TypeScript, and FastAPI — production-ready with error handling and security.",
+    badges: ["YOLOv8", "React 18", "TypeScript", "FastAPI", "PWA"],
+    color: "#a855f7",
+  },
+  {
+    title: "EasyRide — Bus Ticket Management System",
+    date: "2023",
+    subtitle: "Web Platform · PHP · MySQL · QR & OTP",
+    desc: "Designed an end-to-end digital ticketing platform replacing manual processes. Features QR-based verification, OTP booking confirmation, admin dashboards, route management, and chatbot support.",
+    badges: ["PHP", "MySQL", "QR Code", "OTP Auth"],
+    color: "#a855f7",
+  },
+  {
+    title: "HSC — Science",
+    date: "2020",
+    subtitle: "Higher Secondary Certificate · Bangladesh",
+    desc: "Completed higher secondary studies with a focus on Physics, Chemistry, and Mathematics — laying the analytical foundation for engineering studies.",
+    badges: [],
+    color: "#a855f7",
   },
 ];
 
 const skillsCategories = [
   {
-    title: "AI/ML & Core Engineering",
-    skills: ["AI/ML", "Deep Learning", "Computer Vision", "NLP", "Python", "PyTorch", "Transformers", "CUDA"],
+    title: "AI · ML · DATA",
+    skills: ["Machine Learning", "Deep Learning", "Computer Vision", "NLP", "RAG", "YOLOv8", "FAISS · BM25", "Python"],
     color: "#a855f7",
   },
   {
-    title: "Full Stack Development",
-    skills: ["JavaScript", "TypeScript", "React", "Next.js", "FastAPI", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    title: "FRONTEND",
+    skills: ["React", "Next.js", "TypeScript", "JavaScript", "Three.js", "Vite", "HTML · CSS"],
+    color: "#06b6d4",
+  },
+  {
+    title: "BACKEND · DATABASES",
+    skills: ["FastAPI", "PHP", "Java", "PostgreSQL", "MySQL", "Supabase"],
     color: "#3b82f6",
+  },
+  {
+    title: "TOOLS · INFRA",
+    skills: ["Git · GitHub", "Docker", "JWT Auth", "PWA", "REST APIs", "Linux"],
+    color: "#f59e0b",
   },
 ];
 
@@ -134,7 +151,7 @@ export default function ResumeSection() {
       <div className="max-w-7xl mx-auto w-full relative z-10">
         
         {/* Label & Title */}
-        <div className="flex flex-col items-start mb-16 text-left">
+        <div className="flex flex-col items-start mb-14 text-left">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -155,7 +172,7 @@ export default function ResumeSection() {
                 textTransform: "uppercase",
               }}
             >
-              Resume
+              My Resume
             </span>
           </motion.div>
 
@@ -171,7 +188,7 @@ export default function ResumeSection() {
               letterSpacing: "-0.04em",
               color: "white",
               lineHeight: 1.05,
-              marginBottom: "1rem",
+              marginBottom: "1.2rem",
             }}
           >
             Experience & Education
@@ -181,29 +198,26 @@ export default function ResumeSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-xs sm:text-sm text-gray-400 font-mono tracking-wider"
+            className="text-xs sm:text-sm text-gray-400 font-mono tracking-wider max-w-2xl"
             style={{ fontFamily: "'Space Mono', monospace" }}
           >
-            Interactive timeline and credentials portfolio
+            A glimpse into my journey building intelligent systems, full-stack platforms, and AI-powered products.
           </motion.p>
         </div>
 
         {/* Two-Column Intro */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center mb-20 text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center mb-16 text-left">
           {/* Left summary */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-7 space-y-6 text-gray-300 text-sm leading-relaxed"
+            className="lg:col-span-8 space-y-6 text-gray-300 text-sm leading-relaxed"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             <p>
-              I am an AI Engineer and Full Stack Developer focused on building high-performance systems at the intersection of machine intelligence and user applications. My toolkit includes training, optimizing, and evaluating large language models (LLMs) and vision-language architectures (VLMs), as well as architecting clean, secure web backends and responsive user interfaces.
-            </p>
-            <p>
-              Leveraging rigorous training in computer science and active research collaborations, I design solutions that bridge theory and practice—empowering users through vector search pipelines, neural canvases, and automated agent frameworks.
+              Final-year <span className="text-white font-semibold">CSE student at North South University</span> passionate about building production-grade AI systems. Experienced in <span className="text-purple-300 font-semibold">Machine Learning, Deep Learning, RAG pipelines</span>, and <span className="text-purple-300 font-semibold">Computer Vision</span> with real-world deployments. Full-stack proficiency spanning <span className="text-blue-300 font-semibold">React, Next.js, FastAPI</span>, and cloud infrastructure — with a strong focus on elegant UX, clean architecture, and practical problem-solving.
             </p>
           </motion.div>
 
@@ -213,24 +227,24 @@ export default function ResumeSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="lg:col-span-5 flex justify-center lg:justify-end"
+            className="lg:col-span-4 flex justify-center lg:justify-end"
           >
             <motion.div
               style={{
                 padding: "1px",
                 background: "transparent",
-                boxShadow: "0 20px 50px rgba(0, 0, 0, 0.4), 0 0 40px rgba(168, 85, 247, 0.05)",
+                boxShadow: "0 20px 50px rgba(0, 0, 0, 0.45), 0 0 40px rgba(168, 85, 247, 0.05)",
                 transition: "box-shadow 0.4s ease",
               }}
               whileHover={{
                 scale: 1.02,
-                boxShadow: "0 25px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(168, 85, 247, 0.15), 0 0 20px rgba(59, 130, 246, 0.15)",
+                boxShadow: "0 25px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(168, 85, 247, 0.18), 0 0 20px rgba(59, 130, 246, 0.18)",
               }}
-              className="rounded-[2rem] w-full max-w-[340px] relative overflow-hidden group"
+              className="rounded-2xl w-full max-w-[260px] relative overflow-hidden group"
             >
               {/* Border animation shifting glow */}
               <motion.div
-                className="absolute inset-0 rounded-[2rem]"
+                className="absolute inset-0 rounded-2xl"
                 animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                 }}
@@ -248,20 +262,13 @@ export default function ResumeSection() {
 
               <button
                 onClick={downloadPDF}
-                className="relative z-10 w-full px-8 py-8 rounded-[calc(2rem-1px)] bg-[#070710]/95 hover:bg-[#070710]/90 text-white flex flex-col items-center justify-center gap-4 transition-colors cursor-pointer border-none"
+                className="relative z-10 w-full px-6 py-4 rounded-[calc(1rem-1px)] bg-[#070710]/95 hover:bg-[#070710]/90 text-white flex items-center justify-center gap-3 transition-colors cursor-pointer border-none"
               >
-                {/* PDF Icon container */}
-                <div className="w-14 h-14 rounded-full bg-purple-500/10 border border-purple-500/25 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <div className="text-center">
-                  <span className="block text-sm font-bold tracking-wide font-sans">Download Resume</span>
-                  <span className="block text-[0.65rem] text-gray-500 font-mono mt-1" style={{ fontFamily: "'Space Mono', monospace" }}>
-                    PDF FORMAT · PORTABLE DOCUMENT
-                  </span>
-                </div>
+                {/* PDF Icon */}
+                <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span className="text-xs font-bold font-sans tracking-wide">Download CV</span>
               </button>
             </motion.div>
           </motion.div>
@@ -269,137 +276,96 @@ export default function ResumeSection() {
 
         {/* Stat Counters Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-24">
-          <StatCounter value={15} suffix="+" label="Projects Completed" />
-          <StatCounter value={2} label="Research Works" />
-          <StatCounter value={20} suffix="+" label="Technologies Used" />
-          <StatCounter value={500} suffix="+" label="GitHub Contributions" />
+          <StatCounter value={12} suffix="+" label="Projects Completed" />
+          <StatCounter value={3} label="Research Works" />
+          <StatCounter value={18} suffix="+" label="Technologies Used" />
+          <StatCounter value={340} suffix="+" label="GitHub Contributions" />
         </div>
 
-        {/* Timeline & Skills Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          
-          {/* Vertical Timeline Left Column */}
-          <div className="lg:col-span-7 text-left">
-            <h3 
-              className="text-lg font-bold text-white mb-10 flex items-center gap-2"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              <span className="w-1.5 h-3 rounded-full bg-purple-500" />
-              Career & Education Timeline
-            </h3>
+        {/* Timeline Grid */}
+        <div className="text-left mb-24">
+          <h3 
+            className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-10 font-mono"
+            style={{ fontFamily: "'Space Mono', monospace" }}
+          >
+            Timeline
+          </h3>
 
-            <div className="relative border-l border-white/5 pl-8 ml-4 space-y-12">
-              
-              {/* Experience items */}
-              {experienceData.map((exp, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="relative group"
+          <div className="relative border-l border-purple-500/20 pl-8 ml-4 space-y-8">
+            
+            {/* Timeline items */}
+            {timelineData.map((item, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="relative group"
+              >
+                {/* Dot */}
+                <div 
+                  className="absolute -left-[40px] top-2.5 w-4 h-4 rounded-full border-2 border-purple-500 bg-[#030308] flex items-center justify-center transition-all duration-300"
                 >
-                  <div 
-                    className="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300"
-                    style={{
-                      borderColor: exp.color,
-                      background: "#030308",
-                      boxShadow: `0 0 10px ${exp.color}35`,
-                    }}
-                  >
-                    <div className="w-2.5 h-2.5 rounded-full" style={{ background: exp.color }} />
-                  </div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+                </div>
 
-                  <div 
-                    className="p-6 rounded-2xl bg-white/[0.015] border border-white/5 transition-all duration-300 hover:bg-white/[0.025] hover:border-white/10 hover:-translate-y-1"
-                    style={{
-                      boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
-                    }}
-                  >
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                      <h4 className="text-sm font-bold text-white font-sans">{exp.role}</h4>
-                      <span 
-                        className="px-2 py-0.5 rounded text-[0.62rem] font-mono tracking-wider shrink-0 w-fit"
-                        style={{
-                          background: `${exp.color}14`,
-                          color: exp.color,
-                          border: `1px solid ${exp.color}25`,
-                          fontFamily: "'Space Mono', monospace",
-                        }}
-                      >
-                        {exp.period}
-                      </span>
-                    </div>
-                    <span className="text-xs text-gray-400 block mb-3 font-mono">{exp.org}</span>
-                    <p className="text-xs text-gray-400 leading-relaxed font-sans">{exp.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-
-              {/* Education items */}
-              {educationData.map((edu, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: (idx + experienceData.length) * 0.1 }}
-                  className="relative group"
+                {/* Card */}
+                <div 
+                  className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 transition-all duration-300 hover:bg-[#0f0f1c]/60 hover:border-purple-500/30 hover:-translate-y-1"
+                  style={{
+                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+                  }}
                 >
-                  <div 
-                    className="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300"
-                    style={{
-                      borderColor: edu.color,
-                      background: "#030308",
-                      boxShadow: `0 0 10px ${edu.color}35`,
-                    }}
-                  >
-                    <div className="w-2.5 h-2.5 rounded-full" style={{ background: edu.color }} />
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                    <h4 
+                      className="text-md font-bold text-white font-sans"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                      {item.title}
+                    </h4>
+                    <span 
+                      className="px-2.5 py-0.5 rounded text-[0.62rem] font-mono tracking-wider bg-purple-500/10 text-purple-300 border border-purple-500/20 shrink-0 w-fit"
+                      style={{
+                        fontFamily: "'Space Mono', monospace",
+                      }}
+                    >
+                      {item.date}
+                    </span>
                   </div>
-
-                  <div 
-                    className="p-6 rounded-2xl bg-white/[0.015] border border-white/5 transition-all duration-300 hover:bg-white/[0.025] hover:border-white/10 hover:-translate-y-1"
-                    style={{
-                      boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
-                    }}
-                  >
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                      <h4 className="text-sm font-bold text-white font-sans">{edu.degree}</h4>
-                      <span 
-                        className="px-2 py-0.5 rounded text-[0.62rem] font-mono tracking-wider shrink-0 w-fit"
-                        style={{
-                          background: `${edu.color}14`,
-                          color: edu.color,
-                          border: `1px solid ${edu.color}25`,
-                          fontFamily: "'Space Mono', monospace",
-                        }}
-                      >
-                        {edu.period}
-                      </span>
+                  <span className="text-[0.68rem] text-purple-400 block mb-3 font-mono" style={{ fontFamily: "'Space Mono', monospace" }}>{item.subtitle}</span>
+                  <p className="text-xs text-gray-400 leading-relaxed mb-4 font-sans">{item.desc}</p>
+                  
+                  {item.badges.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5">
+                      {item.badges.map((b) => (
+                        <span 
+                          key={b}
+                          className="text-[0.58rem] px-2 py-0.5 rounded-md bg-white/5 text-gray-400 border border-white/10 font-mono"
+                          style={{ fontFamily: "'Space Mono', monospace" }}
+                        >
+                          {b}
+                        </span>
+                      ))}
                     </div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs text-gray-400 font-mono">{edu.institution}</span>
-                      <span className="text-[0.68rem] text-gray-500 font-mono">({edu.grade})</span>
-                    </div>
-                    <p className="text-xs text-gray-400 leading-relaxed font-sans">{edu.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
+                  )}
+                </div>
+              </motion.div>
+            ))}
 
-            </div>
           </div>
+        </div>
 
-          {/* Categorized Skills Right Column */}
-          <div className="lg:col-span-5 text-left space-y-10">
-            <h3 
-              className="text-lg font-bold text-white mb-10 flex items-center gap-2"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              <span className="w-1.5 h-3 rounded-full bg-blue-500" />
-              Core Competencies
-            </h3>
+        {/* Skills & Technologies Grid */}
+        <div className="text-left">
+          <h3 
+            className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-10 font-mono"
+            style={{ fontFamily: "'Space Mono', monospace" }}
+          >
+            Skills & Technologies
+          </h3>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {skillsCategories.map((cat, idx) => (
               <motion.div 
                 key={idx}
@@ -407,32 +373,38 @@ export default function ResumeSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.15 }}
-                className="p-6 rounded-2xl bg-white/[0.015] border border-white/5 space-y-4"
+                className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 space-y-4 backdrop-blur-md"
                 style={{
                   boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)",
                 }}
               >
-                <h4 className="text-xs font-mono font-bold text-gray-400 uppercase tracking-wider">{cat.title}</h4>
+                <h4 
+                  className="text-xs font-mono font-bold text-gray-500 uppercase tracking-widest"
+                  style={{ fontFamily: "'Space Mono', monospace" }}
+                >
+                  {cat.title}
+                </h4>
                 <div className="flex flex-wrap gap-2">
                   {cat.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-[0.68rem] font-medium font-sans px-3.5 py-1.5 rounded-lg border transition-all duration-300 hover:-translate-y-0.5 cursor-default"
+                      className="text-[0.68rem] font-mono px-3 py-1.5 rounded-lg border transition-all duration-300 hover:-translate-y-0.5 cursor-default"
                       style={{
-                        background: `${cat.color}10`,
-                        borderColor: `${cat.color}25`,
+                        fontFamily: "'Space Mono', monospace",
+                        background: `${cat.color}0a`,
+                        borderColor: `${cat.color}20`,
                         color: cat.color,
                       }}
                       onMouseEnter={(e) => {
                         const el = e.currentTarget;
-                        el.style.background = `${cat.color}22`;
+                        el.style.background = `${cat.color}18`;
                         el.style.borderColor = cat.color;
                         el.style.boxShadow = `0 0 10px ${cat.color}35`;
                       }}
                       onMouseLeave={(e) => {
                         const el = e.currentTarget;
-                        el.style.background = `${cat.color}10`;
-                        el.style.borderColor = `${cat.color}25`;
+                        el.style.background = `${cat.color}0a`;
+                        el.style.borderColor = `${cat.color}20`;
                         el.style.boxShadow = "none";
                       }}
                     >
@@ -443,7 +415,6 @@ export default function ResumeSection() {
               </motion.div>
             ))}
           </div>
-
         </div>
 
       </div>
