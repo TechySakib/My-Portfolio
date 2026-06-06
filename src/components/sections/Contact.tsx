@@ -178,7 +178,7 @@ export default function ContactSection() {
                 />
                 <span
                   style={{
-                    fontFamily: "'Space Mono', monospace",
+                    fontFamily: "var(--font-space-mono)",
                     fontSize: "0.65rem",
                     color: "#a855f7",
                     letterSpacing: "0.25em",
@@ -195,7 +195,7 @@ export default function ContactSection() {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-space-grotesk)",
                   fontWeight: 800,
                   fontSize: "clamp(2.3rem, 4.5vw, 4rem)",
                   letterSpacing: "-0.04em",
@@ -215,7 +215,7 @@ export default function ContactSection() {
                 animate={inView ? { opacity: 1 } : {}}
                 transition={{ delay: 0.3 }}
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: "var(--font-inter)",
                   fontSize: "1rem",
                   color: "var(--text-secondary)",
                   lineHeight: 1.7,
@@ -236,7 +236,7 @@ export default function ContactSection() {
                 href="mailto:nazmussakibkpc7578@gmail.com"
                 className="text-xl sm:text-2xl font-bold text-white tracking-tight relative pb-1 transition-all duration-300 hover:text-purple-400 group inline-block"
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-space-grotesk)",
                 }}
               >
                 nazmussakibkpc7578@gmail.com
@@ -257,7 +257,7 @@ export default function ContactSection() {
                 onClick={handleCopyEmail}
                 className="px-4 py-2 rounded-xl text-[0.7rem] font-bold tracking-wider text-gray-400 bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition-all cursor-pointer flex items-center gap-1.5"
                 style={{
-                  fontFamily: "'Space Mono', monospace",
+                  fontFamily: "var(--font-space-mono)",
                 }}
               >
                 <AnimatePresence mode="wait">
@@ -356,7 +356,7 @@ export default function ContactSection() {
                     <span
                       className="social-label text-[0.88rem] font-bold transition-colors duration-300"
                       style={{
-                        fontFamily: "'Space Grotesk', sans-serif",
+                        fontFamily: "var(--font-space-grotesk)",
                         color: "var(--text-secondary)",
                       }}
                     >
@@ -365,7 +365,7 @@ export default function ContactSection() {
                     <span
                       className="text-[0.75rem] truncate"
                       style={{
-                        fontFamily: "'Inter', sans-serif",
+                        fontFamily: "var(--font-inter)",
                         color: "var(--text-muted)",
                       }}
                     >
@@ -433,7 +433,7 @@ export default function ContactSection() {
 
                 <h3
                   className="text-2xl font-bold mb-10 text-white pt-4 lg:pt-6"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  style={{ fontFamily: "var(--font-space-grotesk)" }}
                 >
                   Send me a message
                 </h3>
@@ -446,7 +446,7 @@ export default function ContactSection() {
                     <label
                       htmlFor="form-first-name"
                       className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
-                      style={{ fontFamily: "'Space Mono', monospace" }}
+                      style={{ fontFamily: "var(--font-space-mono)" }}
                     >
                       FIRST NAME
                     </label>
@@ -459,7 +459,7 @@ export default function ContactSection() {
                       placeholder="First name"
                       className="px-5 py-4 h-[56px] rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
                       style={{
-                        fontFamily: "'Inter', sans-serif",
+                        fontFamily: "var(--font-inter)",
                         fontSize: "0.9rem",
                       }}
                     />
@@ -470,7 +470,7 @@ export default function ContactSection() {
                     <label
                       htmlFor="form-last-name"
                       className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
-                      style={{ fontFamily: "'Space Mono', monospace" }}
+                      style={{ fontFamily: "var(--font-space-mono)" }}
                     >
                       LAST NAME
                     </label>
@@ -483,7 +483,7 @@ export default function ContactSection() {
                       placeholder="Last name"
                       className="px-5 py-4 h-[56px] rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
                       style={{
-                        fontFamily: "'Inter', sans-serif",
+                        fontFamily: "var(--font-inter)",
                         fontSize: "0.9rem",
                       }}
                     />
@@ -497,7 +497,7 @@ export default function ContactSection() {
                     <label
                       htmlFor="form-email"
                       className="text-[0.65rem] font-bold tracking-widest text-blue-300/70"
-                      style={{ fontFamily: "'Space Mono', monospace" }}
+                      style={{ fontFamily: "var(--font-space-mono)" }}
                     >
                       EMAIL ADDRESS
                     </label>
@@ -510,7 +510,7 @@ export default function ContactSection() {
                       placeholder="you@example.com"
                       className="px-5 py-4 h-[56px] rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-blue-500/80 focus:shadow-[0_0_15px_rgba(59,130,246,0.12)]"
                       style={{
-                        fontFamily: "'Inter', sans-serif",
+                        fontFamily: "var(--font-inter)",
                         fontSize: "0.9rem",
                       }}
                     />
@@ -521,7 +521,7 @@ export default function ContactSection() {
                     <label
                       htmlFor="form-subject"
                       className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
-                      style={{ fontFamily: "'Space Mono', monospace" }}
+                      style={{ fontFamily: "var(--font-space-mono)" }}
                     >
                       SUBJECT
                     </label>
@@ -534,7 +534,7 @@ export default function ContactSection() {
                       placeholder="What's this about?"
                       className="px-5 py-4 h-[56px] rounded-2xl text-white outline-none w-full transition-all duration-300 bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
                       style={{
-                        fontFamily: "'Inter', sans-serif",
+                        fontFamily: "var(--font-inter)",
                         fontSize: "0.9rem",
                       }}
                     />
@@ -546,7 +546,7 @@ export default function ContactSection() {
                   <label
                     htmlFor="form-message"
                     className="text-[0.65rem] font-bold tracking-widest text-purple-300/70"
-                    style={{ fontFamily: "'Space Mono', monospace" }}
+                    style={{ fontFamily: "var(--font-space-mono)" }}
                   >
                     MESSAGE
                   </label>
@@ -559,7 +559,7 @@ export default function ContactSection() {
                     placeholder="Tell me more..."
                     className="px-5 py-4 min-h-[200px] rounded-2xl text-white outline-none w-full transition-all duration-300 resize-none bg-white/[0.02] border border-white/[0.08] hover:bg-white/[0.05] hover:border-white/[0.15] focus:bg-white/[0.06] focus:border-purple-500/80 focus:shadow-[0_0_15px_rgba(168,85,247,0.12)]"
                     style={{
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "var(--font-inter)",
                       fontSize: "0.9rem",
                     }}
                   />
@@ -573,7 +573,7 @@ export default function ContactSection() {
                   whileTap={{ scale: 0.988 }}
                   className="w-full py-5 rounded-2xl font-bold text-white relative overflow-hidden flex items-center justify-center cursor-pointer border-none transition-all duration-500 shadow-[0_8px_30px_rgba(168,85,247,0.2)] hover:shadow-[0_8px_40px_rgba(168,85,247,0.35)] hover:bg-[position:right_center]"
                   style={{
-                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontFamily: "var(--font-space-grotesk)",
                     background: isSent
                       ? "linear-gradient(135deg, #10b981, #059669)"
                       : "linear-gradient(135deg, #a855f7 0%, #3b82f6 50%, #a855f7 100%)",
@@ -633,7 +633,7 @@ export default function ContactSection() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.8 }}
           style={{
-            fontFamily: "'Space Mono', monospace",
+            fontFamily: "var(--font-space-mono)",
             fontSize: "0.6rem",
             color: "var(--text-muted)",
             marginTop: "2.5rem",

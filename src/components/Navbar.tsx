@@ -98,7 +98,7 @@ export default function Navbar({ onOpenResume, isResumeOpen }: NavbarProps) {
           </div>
           <span
             style={{
-              fontFamily: "var(--font-satisfy), 'Space Grotesk', sans-serif",
+              fontFamily: "var(--font-satisfy), var(--font-space-grotesk)",
               fontWeight: 400,
               fontSize: "1.2rem", // cursive fonts run smaller, so we upscale slightly
               color: "var(--text-primary)",
@@ -127,7 +127,7 @@ export default function Navbar({ onOpenResume, isResumeOpen }: NavbarProps) {
                 id={`nav-${link.label.toLowerCase()}`}
                 className="relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 no-underline flex items-center"
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-space-grotesk)",
                   color: activeSection === link.href.slice(1)
                     ? "var(--text-primary)"
                     : "var(--text-secondary)",
@@ -168,7 +168,7 @@ export default function Navbar({ onOpenResume, isResumeOpen }: NavbarProps) {
             whileTap={{ scale: 0.97 }}
             className="px-4.5 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center justify-center relative overflow-hidden cursor-pointer"
             style={{
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "var(--font-space-grotesk)",
               letterSpacing: "0.02em",
               color: "white",
               background: isResumeOpen ? "rgba(168, 85, 247, 0.15)" : "rgba(255, 255, 255, 0.04)",
@@ -199,7 +199,7 @@ export default function Navbar({ onOpenResume, isResumeOpen }: NavbarProps) {
             whileTap={{ scale: 0.97 }}
             className="px-5 py-2.5 rounded-full text-sm font-semibold no-underline transition-all duration-300 flex items-center justify-center relative overflow-hidden"
             style={{
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "var(--font-space-grotesk)",
               background: "linear-gradient(135deg, #a855f7, #3b82f6)",
               color: "white",
               boxShadow: "0 4px 15px rgba(168, 85, 247, 0.2)",
@@ -260,7 +260,7 @@ export default function Navbar({ onOpenResume, isResumeOpen }: NavbarProps) {
                 onClick={() => setMenuOpen(false)}
                 className="text-2xl font-semibold no-underline"
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-space-grotesk)",
                   color: "var(--text-primary)",
                 }}
               >
@@ -284,7 +284,7 @@ export default function Navbar({ onOpenResume, isResumeOpen }: NavbarProps) {
               whileTap={{ scale: 0.97 }}
               className="mt-4 px-8 py-3 rounded-full text-lg font-bold transition-all duration-300 cursor-pointer"
               style={{
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "var(--font-space-grotesk)",
                 letterSpacing: "0.02em",
                 color: "white",
                 background: isResumeOpen ? "rgba(168, 85, 247, 0.15)" : "rgba(255, 255, 255, 0.04)",
@@ -310,7 +310,7 @@ export default function Navbar({ onOpenResume, isResumeOpen }: NavbarProps) {
               style={{
                 background: "linear-gradient(135deg, #a855f7, #3b82f6)",
                 color: "white",
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "var(--font-space-grotesk)",
                 boxShadow: "0 4px 15px rgba(168, 85, 247, 0.2)",
                 border: "1px solid rgba(255, 255, 255, 0.1)",
                 letterSpacing: "0.02em",
@@ -373,13 +373,13 @@ export default function Navbar({ onOpenResume, isResumeOpen }: NavbarProps) {
               >
                 <h4 
                   className="text-lg font-bold text-white mb-0.5"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  style={{ fontFamily: "var(--font-space-grotesk)" }}
                 >
                   Nazmus Sakib
                 </h4>
                 <p 
                   className="text-xs text-purple-300 font-mono tracking-wider uppercase"
-                  style={{ fontFamily: "'Space Mono', monospace" }}
+                  style={{ fontFamily: "var(--font-space-mono)" }}
                 >
                   Developer · AI Researcher
                 </p>

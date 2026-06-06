@@ -199,7 +199,7 @@ function SidePanel({
           />
           <span
             style={{
-              fontFamily: "'Space Mono', monospace",
+              fontFamily: "var(--font-space-mono)",
               fontSize: "0.56rem",
               color: id.color,
               letterSpacing: "0.22em",
@@ -216,7 +216,7 @@ function SidePanel({
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.14, duration: 0.45, ease: EASE }}
           style={{
-            fontFamily: "'Space Grotesk', sans-serif",
+            fontFamily: "var(--font-space-grotesk)",
             fontWeight: 800,
             fontSize: "clamp(1.4rem, 2.2vw, 1.9rem)",
             letterSpacing: "-0.04em",
@@ -234,7 +234,7 @@ function SidePanel({
           animate={{ opacity: 1 }}
           transition={{ delay: 0.18, duration: 0.4 }}
           style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "var(--font-inter)",
             fontSize: "0.76rem",
             color: id.color,
             fontStyle: "italic",
@@ -260,7 +260,7 @@ function SidePanel({
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.22, duration: 0.45 }}
           style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "var(--font-inter)",
             fontSize: "0.8rem",
             color: "rgba(255,255,255,0.58)",
             lineHeight: 1.75,
@@ -279,7 +279,7 @@ function SidePanel({
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.26 + i * 0.05, duration: 0.3 }}
               style={{
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "var(--font-space-grotesk)",
                 fontSize: "0.64rem",
                 fontWeight: 500,
                 padding: "3px 10px",
@@ -307,7 +307,7 @@ function SidePanel({
             whileTap={{ scale: 0.98 }}
             className="w-full mt-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase border transition-all cursor-pointer flex items-center justify-center gap-2"
             style={{
-              fontFamily: "'Space Mono', monospace",
+              fontFamily: "var(--font-space-mono)",
               color: "white",
               backgroundColor: "rgba(255, 255, 255, 0.02)",
               borderColor: "rgba(255, 255, 255, 0.08)",
@@ -373,7 +373,7 @@ function BottomCard({ zone, onOpenResume }: { zone: Zone; onOpenResume?: () => v
               />
               <span
                 style={{
-                  fontFamily: "'Space Mono', monospace",
+                  fontFamily: "var(--font-space-mono)",
                   fontSize: "0.54rem",
                   color: id.color,
                   letterSpacing: "0.2em",
@@ -387,7 +387,7 @@ function BottomCard({ zone, onOpenResume }: { zone: Zone; onOpenResume?: () => v
             {/* Title */}
             <h3
               style={{
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "var(--font-space-grotesk)",
                 fontWeight: 800,
                 fontSize: "1.3rem",
                 letterSpacing: "-0.03em",
@@ -407,7 +407,7 @@ function BottomCard({ zone, onOpenResume }: { zone: Zone; onOpenResume?: () => v
             {/* Description */}
             <p
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "var(--font-inter)",
                 fontSize: "0.78rem",
                 color: "rgba(255,255,255,0.52)",
                 lineHeight: 1.75,
@@ -426,7 +426,7 @@ function BottomCard({ zone, onOpenResume }: { zone: Zone; onOpenResume?: () => v
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.18 + i * 0.04 }}
                   style={{
-                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontFamily: "var(--font-space-grotesk)",
                     fontSize: "0.64rem",
                     fontWeight: 500,
                     padding: "4px 12px",
@@ -454,7 +454,7 @@ function BottomCard({ zone, onOpenResume }: { zone: Zone; onOpenResume?: () => v
                 whileTap={{ scale: 0.98 }}
                 className="w-full mt-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase border transition-all cursor-pointer flex items-center justify-center gap-2"
                 style={{
-                  fontFamily: "'Space Mono', monospace",
+                  fontFamily: "var(--font-space-mono)",
                   color: "white",
                   backgroundColor: "rgba(255, 255, 255, 0.02)",
                   borderColor: "rgba(255, 255, 255, 0.08)",
@@ -632,7 +632,7 @@ function MergedPortrait({
             >
               <span
                 style={{
-                  fontFamily: "'Space Mono', monospace",
+                  fontFamily: "var(--font-space-mono)",
                   fontSize: "0.5rem",
                   color: IDENTITIES[id].color,
                   letterSpacing: "0.16em",
@@ -763,7 +763,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
       >
         <div
           style={{
-            fontFamily: "'Space Grotesk', sans-serif",
+            fontFamily: "var(--font-space-grotesk)",
             fontWeight: 900,
             fontSize: "clamp(5rem, 18vw, 18rem)",
             letterSpacing: "-0.07em",
@@ -814,7 +814,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
             />
             <span
               style={{
-                fontFamily: "'Space Mono', monospace",
+                fontFamily: "var(--font-space-mono)",
                 fontSize: "0.55rem",
                 color: "rgba(168,85,247,0.85)",
                 letterSpacing: "0.32em",
@@ -832,7 +832,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
           {/* Name */}
           <h1
             style={{
-              fontFamily: "var(--font-satisfy), 'Space Grotesk', sans-serif",
+              fontFamily: "var(--font-satisfy), var(--font-space-grotesk)",
               fontWeight: 400,
               fontSize: "clamp(2.4rem, 6vw, 4.5rem)", // Cursive is thin and smaller, so we upscale
               letterSpacing: "0.02em",
@@ -855,7 +855,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
                   exit={{ opacity: 0, y: -4, filter: "blur(4px)" }}
                   transition={{ duration: 0.3 }}
                   style={{
-                    fontFamily: "'Space Mono', monospace",
+                    fontFamily: "var(--font-space-mono)",
                     fontSize: "0.62rem",
                     color: IDENTITIES[hovered].color,
                     letterSpacing: "0.18em",
@@ -873,7 +873,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
                   style={{
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "var(--font-inter)",
                     fontSize: "0.82rem",
                     color: "rgba(255,255,255,0.36)",
                     letterSpacing: "0.04em",
@@ -980,7 +980,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
             animate={{ opacity: hovered ? 0 : 1 }}
             transition={{ duration: 0.35 }}
             style={{
-              fontFamily: "'Space Mono', monospace",
+              fontFamily: "var(--font-space-mono)",
               fontSize: "0.52rem",
               color: "rgba(255,255,255,0.22)",
               letterSpacing: "0.16em",
@@ -994,7 +994,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
           <div className="flex flex-col items-center gap-1.5">
             <span
               style={{
-                fontFamily: "'Space Mono', monospace",
+                fontFamily: "var(--font-space-mono)",
                 fontSize: "0.48rem",
                 color: "rgba(255,255,255,0.18)",
                 letterSpacing: "0.2em",
@@ -1030,7 +1030,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
             animate={{ opacity: hovered ? 0 : 1 }}
             transition={{ duration: 0.35 }}
             style={{
-              fontFamily: "'Space Mono', monospace",
+              fontFamily: "var(--font-space-mono)",
               fontSize: "0.52rem",
               color: "rgba(255,255,255,0.22)",
               letterSpacing: "0.16em",

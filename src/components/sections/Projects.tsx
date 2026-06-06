@@ -116,7 +116,7 @@ export default function ProjectsSection() {
         />
         <span
           style={{
-            fontFamily: "'Space Mono', monospace",
+            fontFamily: "var(--font-space-mono)",
             fontSize: "0.65rem",
             color: "#a855f7",
             letterSpacing: "0.25em",
@@ -133,7 +133,7 @@ export default function ProjectsSection() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         style={{
-          fontFamily: "'Space Grotesk', sans-serif",
+          fontFamily: "var(--font-space-grotesk)",
           fontWeight: 800,
           fontSize: "clamp(2rem, 5vw, 4rem)",
           letterSpacing: "-0.04em",
@@ -150,7 +150,7 @@ export default function ProjectsSection() {
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.2 }}
         style={{
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: "var(--font-inter)",
           fontSize: "1rem",
           color: "var(--text-secondary)",
           marginBottom: "1.5rem",
@@ -202,7 +202,7 @@ export default function ProjectsSection() {
                   className="block text-xs font-mono"
                   style={{
                     color: project.color,
-                    fontFamily: "'Space Mono', monospace",
+                    fontFamily: "var(--font-space-mono)",
                     letterSpacing: "0.1em",
                     opacity: 0.8,
                   }}
@@ -214,7 +214,7 @@ export default function ProjectsSection() {
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
                   style={{
-                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontFamily: "var(--font-space-grotesk)",
                     fontWeight: 700,
                     fontSize: "1.2rem",
                     color: hoveredProject === project.id ? project.color : "white",
@@ -227,7 +227,7 @@ export default function ProjectsSection() {
               <span
                 className="px-2.5 py-1 rounded-full text-xs font-medium shrink-0 ml-3"
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-space-grotesk)",
                   background: `${project.color}18`,
                   color: project.color,
                   border: `1px solid ${project.color}40`,
@@ -240,7 +240,7 @@ export default function ProjectsSection() {
             {/* Description */}
             <p
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "var(--font-inter)",
                 fontSize: "0.875rem",
                 color: "var(--text-secondary)",
                 lineHeight: 1.7,
@@ -257,7 +257,7 @@ export default function ProjectsSection() {
                   key={t}
                   className="px-2 py-0.5 rounded-md text-xs"
                   style={{
-                    fontFamily: "'Space Mono', monospace",
+                    fontFamily: "var(--font-space-mono)",
                     background: "rgba(255,255,255,0.05)",
                     color: "rgba(255,255,255,0.45)",
                     border: "1px solid rgba(255,255,255,0.08)",

@@ -90,7 +90,7 @@ function TechCard({
           background: isHovered ? `${tech.color}20` : "rgba(255,255,255,0.06)",
           border: isHovered ? `1px solid ${tech.color}40` : "1px solid rgba(255,255,255,0.08)",
           fontSize: tech.icon.length <= 2 ? "0.85rem" : "1.1rem",
-          fontFamily: "'Space Mono', monospace",
+          fontFamily: "var(--font-space-mono)",
           color: isHovered ? tech.color : "rgba(255,255,255,0.6)",
           fontWeight: 700,
           transition: "all 0.25s",
@@ -103,7 +103,7 @@ function TechCard({
       <div className="flex flex-col min-w-0">
         <span
           style={{
-            fontFamily: "'Space Grotesk', sans-serif",
+            fontFamily: "var(--font-space-grotesk)",
             fontWeight: 600,
             fontSize: "0.88rem",
             color: isHovered ? "white" : "rgba(255,255,255,0.75)",
@@ -116,7 +116,7 @@ function TechCard({
         </span>
         <span
           style={{
-            fontFamily: "'Space Mono', monospace",
+            fontFamily: "var(--font-space-mono)",
             fontSize: "0.52rem",
             color: isHovered ? CAT_COLOR[tech.category] : "rgba(255,255,255,0.28)",
             letterSpacing: "0.14em",
@@ -274,7 +274,7 @@ export default function AboutSection() {
             />
             <span
               style={{
-                fontFamily: "'Space Mono', monospace",
+                fontFamily: "var(--font-space-mono)",
                 fontSize: "0.62rem",
                 color: "#3b82f6",
                 letterSpacing: "0.25em",
@@ -291,7 +291,7 @@ export default function AboutSection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
             style={{
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "var(--font-space-grotesk)",
               fontWeight: 800,
               fontSize: "clamp(2rem, 4.5vw, 3.8rem)",
               letterSpacing: "-0.04em",
@@ -321,7 +321,7 @@ export default function AboutSection() {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.18 + i * 0.1 }}
                   style={{
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "var(--font-inter)",
                     fontSize: "0.95rem",
                     color: "var(--text-secondary)",
                     lineHeight: 1.85,
@@ -341,7 +341,7 @@ export default function AboutSection() {
               >
                 <p
                   style={{
-                    fontFamily: "'Space Mono', monospace",
+                    fontFamily: "var(--font-space-mono)",
                     fontSize: "0.58rem",
                     color: "rgba(255,255,255,0.25)",
                     letterSpacing: "0.2em",
@@ -361,7 +361,7 @@ export default function AboutSection() {
                   >
                     <span
                       style={{
-                        fontFamily: "'Space Mono', monospace",
+                        fontFamily: "var(--font-space-mono)",
                         fontSize: "0.68rem",
                         color: item.color,
                         letterSpacing: "0.08em",
@@ -376,7 +376,7 @@ export default function AboutSection() {
                     />
                     <span
                       style={{
-                        fontFamily: "'Inter', sans-serif",
+                        fontFamily: "var(--font-inter)",
                         fontSize: "0.85rem",
                         color: "rgba(255,255,255,0.52)",
                         lineHeight: 1.5,
@@ -400,7 +400,7 @@ export default function AboutSection() {
                 <div>
                   <p
                     style={{
-                      fontFamily: "'Space Mono', monospace",
+                      fontFamily: "var(--font-space-mono)",
                       fontSize: "0.58rem",
                       color: "rgba(255,255,255,0.25)",
                       letterSpacing: "0.2em",
@@ -412,7 +412,7 @@ export default function AboutSection() {
                   </p>
                   <p
                     style={{
-                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontFamily: "var(--font-space-grotesk)",
                       fontWeight: 700,
                       fontSize: "1.3rem",
                       letterSpacing: "-0.03em",
@@ -455,7 +455,7 @@ export default function AboutSection() {
                       />
                       <span
                         style={{
-                          fontFamily: "'Space Mono', monospace",
+                          fontFamily: "var(--font-space-mono)",
                           fontSize: "0.52rem",
                           color: hoveredTech
                             ? TECH_STACK.find(t => t.name === hoveredTech)?.color
@@ -475,7 +475,7 @@ export default function AboutSection() {
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.2 }}
                       style={{
-                        fontFamily: "'Space Mono', monospace",
+                        fontFamily: "var(--font-space-mono)",
                         fontSize: "0.5rem",
                         color: "rgba(255,255,255,0.2)",
                         letterSpacing: "0.12em",
@@ -522,7 +522,7 @@ export default function AboutSection() {
                     />
                     <span
                       style={{
-                        fontFamily: "'Space Mono', monospace",
+                        fontFamily: "var(--font-space-mono)",
                         fontSize: "0.5rem",
                         color: "rgba(255,255,255,0.35)",
                         letterSpacing: "0.12em",

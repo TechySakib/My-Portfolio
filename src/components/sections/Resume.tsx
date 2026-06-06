@@ -45,13 +45,16 @@ function StatCounter({ value, suffix = "", label }: StatCounterProps) {
       }}
     >
       <span 
-        className="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent font-mono"
-        style={{ fontFamily: "'Space Mono', monospace" }}
+        className="text-3xl sm:text-4xl font-extrabold tracking-tight text-purple-400"
+        style={{ fontFamily: "var(--font-space-mono)" }}
       >
         {count}
         {suffix}
       </span>
-      <span className="text-[0.62rem] font-bold text-gray-500 uppercase tracking-widest mt-2 font-mono" style={{ fontFamily: "'Space Mono', monospace" }}>
+      <span 
+        className="text-[0.75rem] sm:text-xs font-semibold text-gray-400 mt-2"
+        style={{ fontFamily: "var(--font-inter)" }}
+      >
         {label}
       </span>
     </div>
@@ -62,7 +65,7 @@ const timelineData = [
   {
     title: "B.Sc. In Computer Science & Engineering",
     date: "2021 — 2025",
-    subtitle: "North South University · Dhaka, Bangladesh · CGPA 3.10",
+    subtitle: "North South University - Dhaka, Bangladesh - CGPA 3.10",
     desc: "Focused on AI/ML, algorithms, software engineering, and systems. Completed three production-grade capstone projects spanning computer vision, RAG systems, and web platforms.",
     badges: ["Algorithms", "AI & ML", "Software Engineering", "Databases"],
     color: "#a855f7",
@@ -70,15 +73,15 @@ const timelineData = [
   {
     title: "AinSathi — AI Legal Assistant (Production)",
     date: "2024",
-    subtitle: "Capstone Project · RAG · NLP · 3D UI",
-    desc: "Built a bilingual (Bengali/English) legal assistant for Bangladesh law using a hybrid FAISS + BM25 RAG pipeline. Shipped with an immersive Three.js 3D UI, Supabase backend, JWT auth, and encrypted session privacy mode.",
+    subtitle: "Capstone Project - RAG - NLP - 3D UI",
+    desc: "Built a bilingual (Bengali/English) legal assistant for Bangladeshi law using a hybrid FAISS + BM25 RAG pipeline. Shipped with an immersive Three.js 3D UI, Supabase backend, JWT auth, and encrypted session privacy mode.",
     badges: ["RAG", "FAISS", "BM25", "Next.js", "FastAPI", "Three.js"],
     color: "#a855f7",
   },
   {
     title: "Ratatouille AI — Recipe Discovery Platform",
-    date: "2023",
-    subtitle: "Full-Stack Project · Computer Vision · PWA",
+    date: "PWA",
+    subtitle: "Full-Stack Project - Computer Vision - PWA",
     desc: "Deployed YOLOv8 object detection in production to identify ingredients from images and suggest recipe matches. Built as an installable PWA with React 18, Vite, TypeScript, and FastAPI — production-ready with error handling and security.",
     badges: ["YOLOv8", "React 18", "TypeScript", "FastAPI", "PWA"],
     color: "#a855f7",
@@ -86,7 +89,7 @@ const timelineData = [
   {
     title: "EasyRide — Bus Ticket Management System",
     date: "2023",
-    subtitle: "Web Platform · PHP · MySQL · QR & OTP",
+    subtitle: "Web Platform - PHP - MySQL - QR & OTP",
     desc: "Designed an end-to-end digital ticketing platform replacing manual processes. Features QR-based verification, OTP booking confirmation, admin dashboards, route management, and chatbot support.",
     badges: ["PHP", "MySQL", "QR Code", "OTP Auth"],
     color: "#a855f7",
@@ -94,7 +97,7 @@ const timelineData = [
   {
     title: "HSC — Science",
     date: "2020",
-    subtitle: "Higher Secondary Certificate · Bangladesh",
+    subtitle: "Higher Secondary Certificate - Bangladesh",
     desc: "Completed higher secondary studies with a focus on Physics, Chemistry, and Mathematics — laying the analytical foundation for engineering studies.",
     badges: [],
     color: "#a855f7",
@@ -104,7 +107,7 @@ const timelineData = [
 const skillsCategories = [
   {
     title: "AI · ML · DATA",
-    skills: ["Machine Learning", "Deep Learning", "Computer Vision", "NLP", "RAG", "YOLOv8", "FAISS · BM25", "Python"],
+    skills: ["Machine Learning", "Deep Learning", "Computer Vision", "NLP", "RAG", "YOLOv8", "FAISS - BM25", "Python"],
     color: "#a855f7",
   },
   {
@@ -115,11 +118,11 @@ const skillsCategories = [
   {
     title: "BACKEND · DATABASES",
     skills: ["FastAPI", "PHP", "Java", "PostgreSQL", "MySQL", "Supabase"],
-    color: "#3b82f6",
+    color: "#10b981",
   },
   {
     title: "TOOLS · INFRA",
-    skills: ["Git · GitHub", "Docker", "JWT Auth", "PWA", "REST APIs", "Linux"],
+    skills: ["Git - GitHub", "Docker", "JWT Auth", "PWA", "REST APIs", "Linux"],
     color: "#f59e0b",
   },
 ];
@@ -165,7 +168,7 @@ export default function ResumeSection() {
             />
             <span
               style={{
-                fontFamily: "'Space Mono', monospace",
+                fontFamily: "var(--font-space-mono)",
                 fontSize: "0.65rem",
                 color: "#a855f7",
                 letterSpacing: "0.25em",
@@ -182,7 +185,7 @@ export default function ResumeSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
             style={{
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "var(--font-space-grotesk)",
               fontWeight: 800,
               fontSize: "clamp(2rem, 4.5vw, 3.8rem)",
               letterSpacing: "-0.04em",
@@ -198,8 +201,8 @@ export default function ResumeSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-xs sm:text-sm text-gray-400 font-mono tracking-wider max-w-2xl"
-            style={{ fontFamily: "'Space Mono', monospace" }}
+            className="text-xs sm:text-sm text-gray-400 tracking-wider max-w-2xl"
+            style={{ fontFamily: "var(--font-space-mono)" }}
           >
             A glimpse into my journey building intelligent systems, full-stack platforms, and AI-powered products.
           </motion.p>
@@ -214,10 +217,10 @@ export default function ResumeSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-8 space-y-6 text-gray-300 text-sm leading-relaxed"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: "var(--font-inter)" }}
           >
             <p>
-              Final-year <span className="text-white font-semibold">CSE student at North South University</span> passionate about building production-grade AI systems. Experienced in <span className="text-purple-300 font-semibold">Machine Learning, Deep Learning, RAG pipelines</span>, and <span className="text-purple-300 font-semibold">Computer Vision</span> with real-world deployments. Full-stack proficiency spanning <span className="text-blue-300 font-semibold">React, Next.js, FastAPI</span>, and cloud infrastructure — with a strong focus on elegant UX, clean architecture, and practical problem-solving.
+              Final-year <span className="text-purple-400 font-semibold">CSE student at North South University</span> passionate about building production-grade AI systems. Experienced in <span className="text-purple-400 font-semibold">Machine Learning, Deep Learning, RAG pipelines</span>, and <span className="text-purple-400 font-semibold">Computer Vision</span> with real-world deployments. Full-stack proficiency spanning <span className="text-purple-400 font-semibold">React, Next.js, FastAPI</span>, and cloud infrastructure — with a strong focus on elegant UX, clean architecture, and practical problem-solving.
             </p>
           </motion.div>
 
@@ -229,48 +232,33 @@ export default function ResumeSection() {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="lg:col-span-4 flex justify-center lg:justify-end"
           >
-            <motion.div
+            <motion.button
+              onClick={downloadPDF}
+              whileHover={{ scale: 1.02, boxShadow: "0 0 25px rgba(168, 85, 247, 0.25)" }}
+              whileTap={{ scale: 0.98 }}
+              className="group w-full max-w-[240px] px-6 py-4 rounded-xl border border-purple-500/30 hover:border-purple-500/70 bg-purple-500/5 hover:bg-purple-500/10 text-white flex items-center justify-center gap-3 transition-all duration-300 cursor-pointer"
               style={{
-                padding: "1px",
-                background: "transparent",
-                boxShadow: "0 20px 50px rgba(0, 0, 0, 0.45), 0 0 40px rgba(168, 85, 247, 0.05)",
-                transition: "box-shadow 0.4s ease",
+                fontFamily: "var(--font-space-grotesk)",
               }}
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 25px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(168, 85, 247, 0.18), 0 0 20px rgba(59, 130, 246, 0.18)",
-              }}
-              className="rounded-2xl w-full max-w-[260px] relative overflow-hidden group"
             >
-              {/* Border animation shifting glow */}
-              <motion.div
-                className="absolute inset-0 rounded-2xl"
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                style={{
-                  zIndex: 0,
-                  background: "linear-gradient(135deg, rgba(168, 85, 247, 0.35), rgba(59, 130, 246, 0.35), rgba(6, 182, 212, 0.35), rgba(168, 85, 247, 0.35))",
-                  backgroundSize: "200% 200%",
-                }}
-              />
-
-              <button
-                onClick={downloadPDF}
-                className="relative z-10 w-full px-6 py-4 rounded-[calc(1rem-1px)] bg-[#070710]/95 hover:bg-[#070710]/90 text-white flex items-center justify-center gap-3 transition-colors cursor-pointer border-none"
+              {/* Custom SVG Document Icon */}
+              <svg 
+                className="w-5 h-5 text-purple-400 transition-transform duration-300 group-hover:scale-110" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
               >
-                {/* PDF Icon */}
-                <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                <span className="text-xs font-bold font-sans tracking-wide">Download CV</span>
-              </button>
-            </motion.div>
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <line x1="10" y1="9" x2="8" y2="9" />
+              </svg>
+              <span className="text-xs font-bold tracking-wide">Download CV</span>
+            </motion.button>
           </motion.div>
         </div>
 
@@ -285,8 +273,8 @@ export default function ResumeSection() {
         {/* Timeline Grid */}
         <div className="text-left mb-24">
           <h3 
-            className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-10 font-mono"
-            style={{ fontFamily: "'Space Mono', monospace" }}
+            className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-10"
+            style={{ fontFamily: "var(--font-space-mono)" }}
           >
             Timeline
           </h3>
@@ -320,20 +308,20 @@ export default function ResumeSection() {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                     <h4 
                       className="text-md font-bold text-white font-sans"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      style={{ fontFamily: "var(--font-space-grotesk)" }}
                     >
                       {item.title}
                     </h4>
                     <span 
-                      className="px-2.5 py-0.5 rounded text-[0.62rem] font-mono tracking-wider bg-purple-500/10 text-purple-300 border border-purple-500/20 shrink-0 w-fit"
+                      className="px-2.5 py-0.5 rounded text-[0.62rem] tracking-wider bg-transparent text-purple-300 border border-purple-500/30 shrink-0 w-fit"
                       style={{
-                        fontFamily: "'Space Mono', monospace",
+                        fontFamily: "var(--font-space-mono)",
                       }}
                     >
                       {item.date}
                     </span>
                   </div>
-                  <span className="text-[0.68rem] text-purple-400 block mb-3 font-mono" style={{ fontFamily: "'Space Mono', monospace" }}>{item.subtitle}</span>
+                  <span className="text-[0.68rem] text-purple-400 block mb-3" style={{ fontFamily: "var(--font-space-mono)" }}>{item.subtitle}</span>
                   <p className="text-xs text-gray-400 leading-relaxed mb-4 font-sans">{item.desc}</p>
                   
                   {item.badges.length > 0 && (
@@ -341,8 +329,8 @@ export default function ResumeSection() {
                       {item.badges.map((b) => (
                         <span 
                           key={b}
-                          className="text-[0.58rem] px-2 py-0.5 rounded-md bg-white/5 text-gray-400 border border-white/10 font-mono"
-                          style={{ fontFamily: "'Space Mono', monospace" }}
+                          className="text-[0.58rem] px-2 py-0.5 rounded-md bg-white/5 text-gray-400 border border-white/10"
+                          style={{ fontFamily: "var(--font-space-mono)" }}
                         >
                           {b}
                         </span>
@@ -359,8 +347,8 @@ export default function ResumeSection() {
         {/* Skills & Technologies Grid */}
         <div className="text-left">
           <h3 
-            className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-10 font-mono"
-            style={{ fontFamily: "'Space Mono', monospace" }}
+            className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-10"
+            style={{ fontFamily: "var(--font-space-mono)" }}
           >
             Skills & Technologies
           </h3>
@@ -379,8 +367,11 @@ export default function ResumeSection() {
                 }}
               >
                 <h4 
-                  className="text-xs font-mono font-bold text-gray-500 uppercase tracking-widest"
-                  style={{ fontFamily: "'Space Mono', monospace" }}
+                  className="text-xs font-mono font-bold uppercase tracking-widest"
+                  style={{ 
+                    fontFamily: "var(--font-space-mono)",
+                    color: cat.color
+                  }}
                 >
                   {cat.title}
                 </h4>
@@ -388,23 +379,23 @@ export default function ResumeSection() {
                   {cat.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-[0.68rem] font-mono px-3 py-1.5 rounded-lg border transition-all duration-300 hover:-translate-y-0.5 cursor-default"
+                      className="text-[0.68rem] px-3.5 py-1.5 rounded-full border transition-all duration-300 hover:-translate-y-0.5 cursor-default"
                       style={{
-                        fontFamily: "'Space Mono', monospace",
-                        background: `${cat.color}0a`,
-                        borderColor: `${cat.color}20`,
+                        fontFamily: "var(--font-space-mono)",
+                        background: "rgba(7, 7, 16, 0.4)",
+                        borderColor: `${cat.color}30`,
                         color: cat.color,
                       }}
                       onMouseEnter={(e) => {
                         const el = e.currentTarget;
-                        el.style.background = `${cat.color}18`;
+                        el.style.background = `${cat.color}15`;
                         el.style.borderColor = cat.color;
-                        el.style.boxShadow = `0 0 10px ${cat.color}35`;
+                        el.style.boxShadow = `0 0 12px ${cat.color}45`;
                       }}
                       onMouseLeave={(e) => {
                         const el = e.currentTarget;
-                        el.style.background = `${cat.color}0a`;
-                        el.style.borderColor = `${cat.color}20`;
+                        el.style.background = "rgba(7, 7, 16, 0.4)";
+                        el.style.borderColor = `${cat.color}30`;
                         el.style.boxShadow = "none";
                       }}
                     >

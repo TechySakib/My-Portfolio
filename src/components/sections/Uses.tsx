@@ -83,7 +83,7 @@ export default function UsesSection() {
         />
         <span
           style={{
-            fontFamily: "'Space Mono', monospace",
+            fontFamily: "var(--font-space-mono)",
             fontSize: "0.65rem",
             color: "#06b6d4",
             letterSpacing: "0.25em",
@@ -99,7 +99,7 @@ export default function UsesSection() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         style={{
-          fontFamily: "'Space Grotesk', sans-serif",
+          fontFamily: "var(--font-space-grotesk)",
           fontWeight: 800,
           fontSize: "clamp(2rem, 5vw, 4rem)",
           letterSpacing: "-0.04em",
@@ -116,7 +116,7 @@ export default function UsesSection() {
         animate={inView ? { opacity: 1 } : {}}
         transition={{ delay: 0.2 }}
         style={{
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: "var(--font-inter)",
           fontSize: "1rem",
           color: "var(--text-secondary)",
           marginBottom: "1.5rem",
@@ -160,7 +160,7 @@ export default function UsesSection() {
               <span className="text-xl">{cat.icon}</span>
               <h3
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-space-grotesk)",
                   fontWeight: 700,
                   fontSize: "1rem",
                   color: "white",
@@ -182,7 +182,7 @@ export default function UsesSection() {
                 >
                   <span
                     style={{
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "var(--font-inter)",
                       fontSize: "0.8rem",
                       color: "var(--text-muted)",
                       textTransform: "uppercase",
@@ -194,7 +194,7 @@ export default function UsesSection() {
                   <span
                     className="px-2.5 py-1 rounded-lg text-xs font-medium"
                     style={{
-                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontFamily: "var(--font-space-grotesk)",
                       background: `${cat.color}12`,
                       color: cat.color,
                       border: `1px solid ${cat.color}30`,
