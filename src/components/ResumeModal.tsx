@@ -186,8 +186,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
   };
 
   const downloadPDF = () => {
-    // Simulated print or direct PDF path
-    window.open("https://github.com/TechySakib", "_blank");
+    window.open("/resume.pdf", "_blank");
   };
 
   if (!isOpen) return null;
