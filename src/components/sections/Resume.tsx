@@ -139,7 +139,7 @@ export default function ResumeSection() {
     <section
       id="resume"
       ref={ref}
-      className="relative w-full py-32 px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 overflow-hidden"
+      className="relative w-full py-32 overflow-hidden"
       style={{ background: "var(--bg-deep)" }}
     >
       {/* Top divider */}
@@ -154,7 +154,7 @@ export default function ResumeSection() {
       <div className="max-w-7xl mx-auto w-full relative z-10">
         
         {/* Label & Title */}
-        <div className="flex flex-col items-start mb-14 text-left">
+        <div className="flex flex-col items-start mb-12 text-left">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -209,7 +209,7 @@ export default function ResumeSection() {
         </div>
 
         {/* Two-Column Intro */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center mb-16 text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-12 text-left">
           {/* Left summary */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -263,7 +263,7 @@ export default function ResumeSection() {
         </div>
 
         {/* Stat Counters Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-24">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-16">
           <StatCounter value={12} suffix="+" label="Projects Completed" />
           <StatCounter value={3} label="Research Works" />
           <StatCounter value={18} suffix="+" label="Technologies Used" />
@@ -271,9 +271,9 @@ export default function ResumeSection() {
         </div>
 
         {/* Timeline Grid */}
-        <div className="text-left mb-24">
+        <div className="text-left mb-20">
           <h3 
-            className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-10"
+            className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-8"
             style={{ fontFamily: "var(--font-space-mono)" }}
           >
             Timeline
@@ -347,7 +347,7 @@ export default function ResumeSection() {
         {/* Skills & Technologies Grid */}
         <div className="text-left">
           <h3 
-            className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-10"
+            className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-8"
             style={{ fontFamily: "var(--font-space-mono)" }}
           >
             Skills & Technologies

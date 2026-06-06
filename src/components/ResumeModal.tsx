@@ -211,10 +211,10 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           {/* Modal Content Scroll Area */}
           <div 
             ref={contentRef}
-            className="flex-1 overflow-y-auto p-8 sm:p-12 space-y-16 scrollbar-thin scroll-smooth"
+            className="flex-1 overflow-y-auto p-8 sm:p-12 scrollbar-thin scroll-smooth"
           >
             {/* Two-Column Intro */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center text-left">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-12 text-left">
               {/* Left summary */}
               <div 
                 className="lg:col-span-8 space-y-6 text-gray-300 text-sm leading-relaxed"
@@ -257,7 +257,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </div>
 
             {/* Stat Counters Row */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-16">
               <StatCounter value={12} suffix="+" label="Projects Completed" />
               <StatCounter value={3} label="Research Works" />
               <StatCounter value={18} suffix="+" label="Technologies Used" />
@@ -265,9 +265,9 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </div>
 
             {/* Timeline Area */}
-            <div className="text-left">
+            <div className="text-left mb-20">
               <h3 
-                className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-10"
+                className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-8"
                 style={{ fontFamily: "var(--font-space-mono)" }}
               >
                 Timeline
@@ -331,7 +331,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             {/* Skills Area */}
             <div className="text-left">
               <h3 
-                className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-10"
+                className="text-[0.68rem] font-bold text-purple-400 tracking-[0.25em] uppercase mb-8"
                 style={{ fontFamily: "var(--font-space-mono)" }}
               >
                 Skills & Technologies
