@@ -6,6 +6,39 @@ import Image from "next/image";
 
 const projects = [
   {
+    id: "proj-ainsathi",
+    title: "AinSathi — AI Legal Assistant",
+    description:
+      "Bilingual legal assistant for Bangladeshi law using a hybrid FAISS + BM25 RAG pipeline. Shipped with an immersive Three.js 3D UI, Supabase backend, JWT auth, and encrypted session privacy mode.",
+    tech: ["RAG", "FAISS", "BM25", "Next.js", "FastAPI", "Three.js"],
+    color: "#a855f7",
+    year: "2024",
+    status: "Production",
+    image: "/images/proj-2.png",
+  },
+  {
+    id: "proj-ratatouille",
+    title: "Ratatouille AI",
+    description:
+      "Recipe discovery platform deploying YOLOv8 object detection to identify ingredients from images and suggest matches. Installable PWA built with React 18, Vite, TypeScript, and FastAPI.",
+    tech: ["YOLOv8", "React 18", "TypeScript", "FastAPI", "PWA"],
+    color: "#10b981",
+    year: "2024",
+    status: "Production",
+    image: "/images/proj-1.png",
+  },
+  {
+    id: "proj-easyride",
+    title: "EasyRide Ticketing Platform",
+    description:
+      "End-to-end digital bus ticket management system replacing manual booking. Features QR-based seat verification, OTP booking confirmation, chatbot support, and admin dashboard.",
+    tech: ["PHP", "MySQL", "QR Code", "OTP Auth"],
+    color: "#3b82f6",
+    year: "2023",
+    status: "Live",
+    image: "/images/proj-3.png",
+  },
+  {
     id: "proj-1",
     title: "Neural Canvas",
     description:
