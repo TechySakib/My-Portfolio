@@ -14,7 +14,7 @@ const projects = [
     color: "#a855f7",
     year: "2024",
     status: "Production",
-    image: "/images/proj-2.png",
+    image: "/images/ainsathi.png",
   },
   {
     id: "proj-ratatouille",
