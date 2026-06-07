@@ -352,7 +352,7 @@ export default function ProjectsSection() {
                 alt="Project screenshot"
                 fill
                 sizes="280px"
-                className="object-cover"
+                className="object-contain"
                 priority
               />
               {/* Subtle top/bottom shadow gradients */}
