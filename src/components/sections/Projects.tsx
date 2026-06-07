@@ -6,6 +6,17 @@ import Image from "next/image";
 
 const projects = [
   {
+    id: "proj-moodmirror",
+    title: "MoodMirror — Spiritual Reflection App",
+    description:
+      "A serene spiritual reflection platform combining sacred Qur'anic verses with AI-powered insights. Designed with modern web technologies for introspective mindfulness, emotional self-awareness, and daily practice.",
+    tech: ["Next.js", "React 19", "Gemini AI", "Tailwind CSS", "Framer Motion"],
+    color: "#14b8a6",
+    year: "2025",
+    status: "Live",
+    image: "/images/moodmirror.png",
+  },
+  {
     id: "proj-ainsathi",
     title: "AinSathi — AI Legal Assistant",
     description:
