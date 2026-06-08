@@ -49,50 +49,6 @@ const projects = [
     status: "Live",
     image: "/images/easyride.png",
   },
-  {
-    id: "proj-1",
-    title: "Neural Canvas",
-    description:
-      "AI-powered creative tool using diffusion models to generate artwork from text descriptions. Real-time inference with a custom React canvas.",
-    tech: ["Python", "React", "FastAPI", "Stable Diffusion"],
-    color: "#a855f7",
-    year: "2024",
-    status: "Live",
-    image: "/images/proj-1.png",
-  },
-  {
-    id: "proj-2",
-    title: "RAG Research Assistant",
-    description:
-      "Retrieval-Augmented Generation pipeline for academic research. Processes PDFs and answers complex questions with cited sources.",
-    tech: ["LangChain", "ChromaDB", "Next.js", "OpenAI"],
-    color: "#3b82f6",
-    year: "2024",
-    status: "Open Source",
-    image: "/images/proj-2.png",
-  },
-  {
-    id: "proj-3",
-    title: "Anime Recommender",
-    description:
-      "Personalized anime recommendation engine using collaborative filtering and NLP-based synopsis embeddings. 50K+ users.",
-    tech: ["PyTorch", "FastAPI", "PostgreSQL", "React"],
-    color: "#f59e0b",
-    year: "2023",
-    status: "Live",
-    image: "/images/proj-3.png",
-  },
-  {
-    id: "proj-4",
-    title: "VLM Vision Pipeline",
-    description:
-      "End-to-end Visual Language Model pipeline for scene understanding and captioning. Benchmarked on COCO and VQA datasets.",
-    tech: ["PyTorch", "Transformers", "CUDA", "Python"],
-    color: "#06b6d4",
-    year: "2025",
-    status: "Research",
-    image: "/images/proj-4.png",
-  },
 ];
 
 const containerVariants: Variants = {
