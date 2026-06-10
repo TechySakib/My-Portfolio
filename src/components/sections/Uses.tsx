@@ -163,9 +163,9 @@ export default function UsesSection() {
           >
             {/* 1. Workstation */}
             {(activeCategory === "all" || activeCategory === "workstation") && (
-              <div className="text-left">
+              <div className="text-center">
                 <h3 
-                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
+                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
                   style={{ fontFamily: "var(--font-space-mono)" }}
                 >
                   Workstation
@@ -179,18 +179,18 @@ export default function UsesSection() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: idx * 0.08 }}
-                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex gap-4 transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
+                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex flex-col items-center text-center transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
                       style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}
                     >
-                      <span className="text-2xl mt-1 shrink-0">{item.icon}</span>
-                      <div>
+                      <span className="text-2xl mb-3 shrink-0">{item.icon}</span>
+                      <div className="flex flex-col items-center">
                         <h4 className="text-sm font-bold text-white mb-1" style={{ fontFamily: "var(--font-space-grotesk)" }}>
                           {item.name}
                         </h4>
                         <p className="text-[0.62rem] font-mono text-purple-300 mb-2" style={{ fontFamily: "var(--font-space-mono)" }}>
                           {item.spec}
                         </p>
-                        <p className="text-xs text-gray-400 leading-relaxed font-sans">
+                        <p className="text-xs text-gray-400 leading-relaxed font-sans max-w-md">
                           {item.desc}
                         </p>
                       </div>
@@ -202,9 +202,9 @@ export default function UsesSection() {
 
             {/* 2. Accessories */}
             {(activeCategory === "all" || activeCategory === "accessories") && (
-              <div className="text-left">
+              <div className="text-center">
                 <h3 
-                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
+                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
                   style={{ fontFamily: "var(--font-space-mono)" }}
                 >
                   Accessories
@@ -218,18 +218,18 @@ export default function UsesSection() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: idx * 0.08 }}
-                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex gap-4 transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
+                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex flex-col items-center text-center transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
                       style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}
                     >
-                      <span className="text-2xl mt-1 shrink-0">{item.icon}</span>
-                      <div>
+                      <span className="text-2xl mb-3 shrink-0">{item.icon}</span>
+                      <div className="flex flex-col items-center">
                         <h4 className="text-sm font-bold text-white mb-1" style={{ fontFamily: "var(--font-space-grotesk)" }}>
                           {item.name}
                         </h4>
                         <p className="text-[0.62rem] font-mono text-purple-300 mb-2" style={{ fontFamily: "var(--font-space-mono)" }}>
                           {item.spec}
                         </p>
-                        <p className="text-xs text-gray-400 leading-relaxed font-sans">
+                        <p className="text-xs text-gray-400 leading-relaxed font-sans max-w-md">
                           {item.desc}
                         </p>
                       </div>
@@ -241,9 +241,9 @@ export default function UsesSection() {
 
             {/* 3. Figures & Desk Items */}
             {(activeCategory === "all" || activeCategory === "desk") && (
-              <div className="text-left">
+              <div className="text-center">
                 <h3 
-                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
+                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
                   style={{ fontFamily: "var(--font-space-mono)" }}
                 >
                   Figures & Desk Items
@@ -257,27 +257,26 @@ export default function UsesSection() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: idx * 0.1 }}
-                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex flex-col justify-between transition-all duration-300 hover:bg-[#0f0f1c]/40 hover:-translate-y-1 group"
+                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex flex-col items-center text-center justify-between transition-all duration-300 hover:bg-[#0f0f1c]/40 hover:-translate-y-1 group relative overflow-hidden"
                       style={{
                         boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-                        borderLeft: `2px solid ${item.color.replace('0.15', '0.4')}`
+                        borderTop: `2px solid ${item.color.replace('0.15', '0.4')}`
                       }}
                     >
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-xl">{item.icon}</span>
+                      <div className="flex flex-col items-center mb-4">
+                        <span className="text-xl mb-3">{item.icon}</span>
                         <div 
-                          className="absolute top-0 right-0 w-20 h-20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                           style={{
-                            background: `radial-gradient(circle, ${item.color} 0%, transparent 70%)`,
-                            transform: "translate(20%, -20%)"
+                            background: `radial-gradient(circle at center, ${item.color} 0%, transparent 70%)`
                           }}
                         />
                       </div>
-                      <div>
+                      <div className="flex flex-col items-center">
                         <h4 className="text-sm font-bold text-white mb-2" style={{ fontFamily: "var(--font-space-grotesk)" }}>
                           {item.name}
                         </h4>
-                        <p className="text-xs text-gray-400 leading-relaxed font-sans">
+                        <p className="text-xs text-gray-400 leading-relaxed font-sans max-w-xs">
                           {item.desc}
                         </p>
                       </div>
@@ -289,9 +288,9 @@ export default function UsesSection() {
 
             {/* 4. Applications */}
             {(activeCategory === "all" || activeCategory === "apps") && (
-              <div className="text-left">
+              <div className="text-center">
                 <h3 
-                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
+                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
                   style={{ fontFamily: "var(--font-space-mono)" }}
                 >
                   Applications
@@ -305,12 +304,12 @@ export default function UsesSection() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: idx * 0.1 }}
-                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex gap-4 transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
+                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex flex-col items-center text-center transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
                       style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}
                     >
-                      <span className="text-3xl mt-1 shrink-0">{app.icon}</span>
-                      <div>
-                        <div className="flex items-center gap-3 mb-1">
+                      <span className="text-3xl mb-3 shrink-0">{app.icon}</span>
+                      <div className="flex flex-col items-center">
+                        <div className="flex flex-col items-center gap-2 mb-2">
                           <h4 className="text-sm font-bold text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>
                             {app.name}
                           </h4>
@@ -318,7 +317,7 @@ export default function UsesSection() {
                             {app.purpose}
                           </span>
                         </div>
-                        <p className="text-xs text-gray-400 leading-relaxed mb-3 font-sans">
+                        <p className="text-xs text-gray-400 leading-relaxed mb-3 font-sans max-w-md">
                           {app.desc}
                         </p>
                         <p className="text-[0.68rem] text-purple-300/90 font-mono italic" style={{ fontFamily: "var(--font-space-mono)" }}>
@@ -333,9 +332,9 @@ export default function UsesSection() {
 
             {/* 5. Subscriptions */}
             {(activeCategory === "all" || activeCategory === "subs") && (
-              <div className="text-left">
+              <div className="text-center">
                 <h3 
-                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
+                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
                   style={{ fontFamily: "var(--font-space-mono)" }}
                 >
                   Subscriptions
@@ -349,20 +348,20 @@ export default function UsesSection() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: idx * 0.1 }}
-                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex flex-col justify-between transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
+                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex flex-col items-center text-center justify-between transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
                       style={{
                         boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
                         borderTop: `2px solid ${sub.color}60`
                       }}
                     >
-                      <div>
-                        <div className="flex items-center justify-between mb-3">
+                      <div className="flex flex-col items-center w-full">
+                        <div className="flex items-center justify-center gap-2 mb-3">
                           <h4 className="text-sm font-bold text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>
                             {sub.name}
                           </h4>
                           <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: sub.color, boxShadow: `0 0 8px ${sub.color}` }} />
                         </div>
-                        <p className="text-xs text-gray-400 leading-relaxed mb-4 font-sans">
+                        <p className="text-xs text-gray-400 leading-relaxed mb-4 font-sans max-w-md">
                           {sub.desc}
                         </p>
                       </div>
