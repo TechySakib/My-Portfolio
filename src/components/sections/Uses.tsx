@@ -16,8 +16,7 @@ const workstationItems = [
   { name: "MacBook Pro M1 Pro", spec: "Apple M1 Pro · 16GB RAM", desc: "My primary development machine. High performance, silent, and handles all local web deployments, scripting, and research prototyping.", icon: "💻" },
   { name: "PC Power Gaming Monitor", spec: "27\" · QHD · IPS 144Hz", desc: "The central monitor. High refresh rate and crisp resolution provide comfortable real estate for terminal panes and gaming sessions.", icon: "🖥️" },
   { name: "Royal Kludge RK71", spec: "70% Layout · Brown Switches", desc: "A tactile mechanical keyboard that is quiet, reliable, and compact enough to keep my desk clean.", icon: "⌨️" },
-  { name: "Corsair M75 Air", spec: "Ultra-Lightweight · 26K DPI · Wireless", desc: "Ultra-lightweight gaming mouse designed for seamless navigation and precision tracking.", icon: "🖱️" },
-  { name: "Fenda Speakers", spec: "2.1 Channel · Bluetooth 5.0", desc: "Provides deep acoustic backdrops and soundscapes for long focus runs.", icon: "🔊" }
+  { name: "Corsair M75 Air", spec: "Ultra-Lightweight · 26K DPI · Wireless", desc: "Ultra-lightweight gaming mouse designed for seamless navigation and precision tracking.", icon: "🖱️" }
 ];
 
 const accessories = [
