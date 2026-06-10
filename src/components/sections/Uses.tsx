@@ -1,7 +1,16 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+
+const categories = [
+  { id: "all", label: "All Setup", icon: "✨" },
+  { id: "workstation", label: "Workstation", icon: "💻" },
+  { id: "accessories", label: "Accessories", icon: "🎧" },
+  { id: "desk", label: "Desk Mascot", icon: "⚔️" },
+  { id: "apps", label: "Applications", icon: "🤖" },
+  { id: "subs", label: "Subscriptions", icon: "💳" }
+];
 
 const workstationItems = [
   { name: "MacBook Air M1", spec: "Apple M1 · 8-Core CPU · 8GB RAM", desc: "My primary machine. Silent, fast, and handles all local web deployments, scripting, and research prototyping.", icon: "💻" },
@@ -42,6 +51,7 @@ const subscriptions = [
 export default function UsesSection() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const [activeCategory, setActiveCategory] = useState("all");
 
   return (
     <section
@@ -59,10 +69,10 @@ export default function UsesSection() {
         }}
       />
 
-      <div className="max-w-5xl mx-auto w-full relative z-10">
+      <div className="max-w-5xl mx-auto w-full relative z-10 px-4 sm:px-6">
         
         {/* Centered Hero Section */}
-        <div className="flex flex-col items-center text-center mb-24">
+        <div className="flex flex-col items-center text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -112,214 +122,260 @@ export default function UsesSection() {
           </motion.p>
         </div>
 
-        {/* Categories Stack */}
-        <div className="space-y-24">
-          
-          {/* 1. Workstation */}
-          <div className="text-left">
-            <h3 
-              className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
-              style={{ fontFamily: "var(--font-space-mono)" }}
-            >
-              Workstation
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {workstationItems.map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex gap-4 transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
-                  style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}
-                >
-                  <span className="text-2xl mt-1 shrink-0">{item.icon}</span>
-                  <div>
-                    <h4 className="text-sm font-bold text-white mb-1" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                      {item.name}
-                    </h4>
-                    <p className="text-[0.62rem] font-mono text-purple-300 mb-2" style={{ fontFamily: "var(--font-space-mono)" }}>
-                      {item.spec}
-                    </p>
-                    <p className="text-xs text-gray-400 leading-relaxed font-sans">
-                      {item.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* 2. Accessories */}
-          <div className="text-left">
-            <h3 
-              className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
-              style={{ fontFamily: "var(--font-space-mono)" }}
-            >
-              Accessories
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {accessories.map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex gap-4 transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
-                  style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}
-                >
-                  <span className="text-2xl mt-1 shrink-0">{item.icon}</span>
-                  <div>
-                    <h4 className="text-sm font-bold text-white mb-1" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                      {item.name}
-                    </h4>
-                    <p className="text-[0.62rem] font-mono text-purple-300 mb-2" style={{ fontFamily: "var(--font-space-mono)" }}>
-                      {item.spec}
-                    </p>
-                    <p className="text-xs text-gray-400 leading-relaxed font-sans">
-                      {item.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* 3. Figures & Desk Items */}
-          <div className="text-left">
-            <h3 
-              className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
-              style={{ fontFamily: "var(--font-space-mono)" }}
-            >
-              Figures & Desk Items
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {deskItems.map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex flex-col justify-between transition-all duration-300 hover:bg-[#0f0f1c]/40 hover:-translate-y-1 group"
-                  style={{
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-                    borderLeft: `2px solid ${item.color.replace('0.15', '0.4')}`
-                  }}
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xl">{item.icon}</span>
-                    <div 
-                      className="absolute top-0 right-0 w-20 h-20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                      style={{
-                        background: `radial-gradient(circle, ${item.color} 0%, transparent 70%)`,
-                        transform: "translate(20%, -20%)"
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white mb-2" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                      {item.name}
-                    </h4>
-                    <p className="text-xs text-gray-400 leading-relaxed font-sans">
-                      {item.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* 4. Applications */}
-          <div className="text-left">
-            <h3 
-              className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
-              style={{ fontFamily: "var(--font-space-mono)" }}
-            >
-              Applications
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {applications.map((app, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex gap-4 transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
-                  style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}
-                >
-                  <span className="text-3xl mt-1 shrink-0">{app.icon}</span>
-                  <div>
-                    <div className="flex items-center gap-3 mb-1">
-                      <h4 className="text-sm font-bold text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                        {app.name}
-                      </h4>
-                      <span className="text-[0.58rem] font-mono px-2 py-0.5 rounded bg-white/5 text-gray-400 border border-white/10 uppercase tracking-wider">
-                        {app.purpose}
-                      </span>
-                    </div>
-                    <p className="text-xs text-gray-400 leading-relaxed mb-3 font-sans">
-                      {app.desc}
-                    </p>
-                    <p className="text-[0.68rem] text-purple-300/90 font-mono italic" style={{ fontFamily: "var(--font-space-mono)" }}>
-                      &ldquo;{app.opinion}&rdquo;
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* 5. Subscriptions */}
-          <div className="text-left">
-            <h3 
-              className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
-              style={{ fontFamily: "var(--font-space-mono)" }}
-            >
-              Subscriptions
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {subscriptions.map((sub, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex flex-col justify-between transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
-                  style={{
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-                    borderTop: `2px solid ${sub.color}60`
-                  }}
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <h4 className="text-sm font-bold text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-                        {sub.name}
-                      </h4>
-                      <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: sub.color, boxShadow: `0 0 8px ${sub.color}` }} />
-                    </div>
-                    <p className="text-xs text-gray-400 leading-relaxed mb-4 font-sans">
-                      {sub.desc}
-                    </p>
-                  </div>
-                  <p className="text-[0.68rem] text-purple-300/90 font-mono italic" style={{ fontFamily: "var(--font-space-mono)" }}>
-                    &ldquo;{sub.opinion}&rdquo;
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
+        {/* Category Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mb-16 px-4">
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`relative px-4.5 py-2 rounded-full text-xs font-semibold font-mono tracking-wider transition-all duration-300 flex items-center gap-2 cursor-pointer border ${
+                  isActive
+                    ? "text-white border-purple-500/30 bg-purple-500/10 shadow-[0_0_15px_rgba(168,85,247,0.15)]"
+                    : "text-gray-400 border-white/5 bg-white/2 hover:text-white hover:border-white/10 hover:bg-white/5"
+                }`}
+                style={{ fontFamily: "var(--font-space-mono)" }}
+              >
+                <span>{cat.icon}</span>
+                <span>{cat.label}</span>
+                {isActive && (
+                  <motion.div
+                    layoutId="activeCategoryGlow"
+                    className="absolute inset-0 rounded-full border border-purple-500/50 pointer-events-none"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </button>
+            );
+          })}
         </div>
+
+        {/* Categories Stack with Framer Motion AnimatePresence */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className={activeCategory === "all" ? "space-y-24" : "space-y-0"}
+          >
+            {/* 1. Workstation */}
+            {(activeCategory === "all" || activeCategory === "workstation") && (
+              <div className="text-left">
+                <h3 
+                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
+                  style={{ fontFamily: "var(--font-space-mono)" }}
+                >
+                  Workstation
+                </h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {workstationItems.map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: idx * 0.08 }}
+                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex gap-4 transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
+                      style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}
+                    >
+                      <span className="text-2xl mt-1 shrink-0">{item.icon}</span>
+                      <div>
+                        <h4 className="text-sm font-bold text-white mb-1" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                          {item.name}
+                        </h4>
+                        <p className="text-[0.62rem] font-mono text-purple-300 mb-2" style={{ fontFamily: "var(--font-space-mono)" }}>
+                          {item.spec}
+                        </p>
+                        <p className="text-xs text-gray-400 leading-relaxed font-sans">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* 2. Accessories */}
+            {(activeCategory === "all" || activeCategory === "accessories") && (
+              <div className="text-left">
+                <h3 
+                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
+                  style={{ fontFamily: "var(--font-space-mono)" }}
+                >
+                  Accessories
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {accessories.map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: idx * 0.08 }}
+                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex gap-4 transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
+                      style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}
+                    >
+                      <span className="text-2xl mt-1 shrink-0">{item.icon}</span>
+                      <div>
+                        <h4 className="text-sm font-bold text-white mb-1" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                          {item.name}
+                        </h4>
+                        <p className="text-[0.62rem] font-mono text-purple-300 mb-2" style={{ fontFamily: "var(--font-space-mono)" }}>
+                          {item.spec}
+                        </p>
+                        <p className="text-xs text-gray-400 leading-relaxed font-sans">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* 3. Figures & Desk Items */}
+            {(activeCategory === "all" || activeCategory === "desk") && (
+              <div className="text-left">
+                <h3 
+                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
+                  style={{ fontFamily: "var(--font-space-mono)" }}
+                >
+                  Figures & Desk Items
+                </h3>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {deskItems.map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: idx * 0.1 }}
+                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex flex-col justify-between transition-all duration-300 hover:bg-[#0f0f1c]/40 hover:-translate-y-1 group"
+                      style={{
+                        boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                        borderLeft: `2px solid ${item.color.replace('0.15', '0.4')}`
+                      }}
+                    >
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="text-xl">{item.icon}</span>
+                        <div 
+                          className="absolute top-0 right-0 w-20 h-20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                          style={{
+                            background: `radial-gradient(circle, ${item.color} 0%, transparent 70%)`,
+                            transform: "translate(20%, -20%)"
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-white mb-2" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                          {item.name}
+                        </h4>
+                        <p className="text-xs text-gray-400 leading-relaxed font-sans">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* 4. Applications */}
+            {(activeCategory === "all" || activeCategory === "apps") && (
+              <div className="text-left">
+                <h3 
+                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
+                  style={{ fontFamily: "var(--font-space-mono)" }}
+                >
+                  Applications
+                </h3>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {applications.map((app, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: idx * 0.1 }}
+                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex gap-4 transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
+                      style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}
+                    >
+                      <span className="text-3xl mt-1 shrink-0">{app.icon}</span>
+                      <div>
+                        <div className="flex items-center gap-3 mb-1">
+                          <h4 className="text-sm font-bold text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                            {app.name}
+                          </h4>
+                          <span className="text-[0.58rem] font-mono px-2 py-0.5 rounded bg-white/5 text-gray-400 border border-white/10 uppercase tracking-wider">
+                            {app.purpose}
+                          </span>
+                        </div>
+                        <p className="text-xs text-gray-400 leading-relaxed mb-3 font-sans">
+                          {app.desc}
+                        </p>
+                        <p className="text-[0.68rem] text-purple-300/90 font-mono italic" style={{ fontFamily: "var(--font-space-mono)" }}>
+                          &ldquo;{app.opinion}&rdquo;
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* 5. Subscriptions */}
+            {(activeCategory === "all" || activeCategory === "subs") && (
+              <div className="text-left">
+                <h3 
+                  className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8"
+                  style={{ fontFamily: "var(--font-space-mono)" }}
+                >
+                  Subscriptions
+                </h3>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {subscriptions.map((sub, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: idx * 0.1 }}
+                      className="p-6 rounded-2xl bg-[#0b0b14]/50 border border-white/5 flex flex-col justify-between transition-all duration-300 hover:bg-[#0f0f1c]/50 hover:border-purple-500/20 hover:-translate-y-1"
+                      style={{
+                        boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                        borderTop: `2px solid ${sub.color}60`
+                      }}
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-3">
+                          <h4 className="text-sm font-bold text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                            {sub.name}
+                          </h4>
+                          <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: sub.color, boxShadow: `0 0 8px ${sub.color}` }} />
+                        </div>
+                        <p className="text-xs text-gray-400 leading-relaxed mb-4 font-sans">
+                          {sub.desc}
+                        </p>
+                      </div>
+                      <p className="text-[0.68rem] text-purple-300/90 font-mono italic" style={{ fontFamily: "var(--font-space-mono)" }}>
+                        &ldquo;{sub.opinion}&rdquo;
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
 
       </div>
     </section>
