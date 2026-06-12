@@ -3,15 +3,6 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 
-const categories = [
-  { id: "all", label: "All Setup", icon: "✨" },
-  { id: "workstation", label: "Workstation", icon: "💻" },
-  { id: "accessories", label: "Accessories", icon: "🎧" },
-  { id: "desk", label: "Desk Mascot", icon: "⚔️" },
-  { id: "apps", label: "Applications", icon: "🤖" },
-  { id: "subs", label: "Subscriptions", icon: "💳" }
-];
-
 const workstationItems = [
   { name: "MacBook Pro M1 Pro", spec: "Apple M1 Pro · 16GB RAM", desc: "My primary development machine. High performance, silent, and handles all local web deployments, scripting, and research prototyping.", icon: "💻" },
   { name: "PC Power Gaming Monitor", spec: "27\" · QHD · IPS 144Hz", desc: "The central monitor. High refresh rate and crisp resolution provide comfortable real estate for terminal panes and gaming sessions.", icon: "🖥️" },
@@ -34,16 +25,19 @@ const deskItems = [
   { name: "Portgas D. Ace", desc: "Ace's burning passion represents active creativity and drive.", color: "rgba(249, 115, 22, 0.15)", icon: "🔥" }
 ];
 
-const applications = [
-  { name: "Arc Browser", purpose: "Web Browser", desc: "Spaces and clean split layouts simplify switching developer and personal profiles.", opinion: "My primary browser. Keeps my workspace organized.", icon: "🌐", color: "#3b82f6" },
-  { name: "Cursor", purpose: "AI Code Editor", desc: "Tab autocompletions and codebase indexes save hours of boilerplate integration.", opinion: "Absolutely essential for coding speed.", icon: "🤖", color: "#a855f7" },
-  { name: "iTerm2", purpose: "Terminal", desc: "Custom color profiles and split panes replace the default terminal.", opinion: "A highly customizable and powerful terminal environment.", icon: "🐚", color: "#10b981" },
-  { name: "Raycast", purpose: "Productivity Launcher", desc: "Spotlight replacement with keyboard macros, extensions, and window management.", opinion: "Speeds up daily computer navigation significantly.", icon: "⚡", color: "#f59e0b" }
-];
+const applications: Array<{ name: string; purpose: string; desc: string; opinion: string; icon: string; color: string }> = [];
 
 const subscriptions = [
-  { name: "ChatGPT Plus", desc: "Provides access to GPT-4o for system architecture planning, debugging assistance, and brainstorming.", opinion: "Worth every penny for documentation drafting and debugging.", color: "#10b981" },
-  { name: "Cursor Pro", desc: "Enables unlimited fast AI code generation, codebase chat indexing, and inline corrections.", opinion: "The productivity return is massive; saves hours of boilerplate coding.", color: "#a855f7" }
+  { name: "ChatGPT Plus", desc: "Provides access to GPT-4o for system architecture planning, debugging assistance, and brainstorming.", opinion: "Worth every penny for documentation drafting and debugging.", color: "#10b981" }
+];
+
+const categories = [
+  { id: "all", label: "All Setup", icon: "✨" },
+  ...(workstationItems.length > 0 ? [{ id: "workstation", label: "Workstation", icon: "💻" }] : []),
+  ...(accessories.length > 0 ? [{ id: "accessories", label: "Accessories", icon: "🎧" }] : []),
+  ...(deskItems.length > 0 ? [{ id: "desk", label: "Desk Mascot", icon: "⚔️" }] : []),
+  ...(applications.length > 0 ? [{ id: "apps", label: "Applications", icon: "🤖" }] : []),
+  ...(subscriptions.length > 0 ? [{ id: "subs", label: "Subscriptions", icon: "💳" }] : [])
 ];
 
 export default function UsesSection() {
@@ -55,7 +49,7 @@ export default function UsesSection() {
     <section
       id="uses"
       ref={ref}
-      className="relative min-h-screen w-full flex flex-col justify-center py-32 overflow-hidden"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center py-32 overflow-hidden"
       style={{ background: "var(--bg-deep)" }}
     >
       {/* Top divider */}
@@ -160,7 +154,7 @@ export default function UsesSection() {
             className={activeCategory === "all" ? "space-y-24" : "space-y-0"}
           >
             {/* 1. Workstation */}
-            {(activeCategory === "all" || activeCategory === "workstation") && (
+            {workstationItems.length > 0 && (activeCategory === "all" || activeCategory === "workstation") && (
               <div className="text-center">
                 <h3 
                   className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
@@ -199,7 +193,7 @@ export default function UsesSection() {
             )}
 
             {/* 2. Accessories */}
-            {(activeCategory === "all" || activeCategory === "accessories") && (
+            {accessories.length > 0 && (activeCategory === "all" || activeCategory === "accessories") && (
               <div className="text-center">
                 <h3 
                   className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
@@ -238,7 +232,7 @@ export default function UsesSection() {
             )}
 
             {/* 3. Figures & Desk Items */}
-            {(activeCategory === "all" || activeCategory === "desk") && (
+            {deskItems.length > 0 && (activeCategory === "all" || activeCategory === "desk") && (
               <div className="text-center">
                 <h3 
                   className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
@@ -285,7 +279,7 @@ export default function UsesSection() {
             )}
 
             {/* 4. Applications */}
-            {(activeCategory === "all" || activeCategory === "apps") && (
+            {applications.length > 0 && (activeCategory === "all" || activeCategory === "apps") && (
               <div className="text-center">
                 <h3 
                   className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
@@ -329,7 +323,7 @@ export default function UsesSection() {
             )}
 
             {/* 5. Subscriptions */}
-            {(activeCategory === "all" || activeCategory === "subs") && (
+            {subscriptions.length > 0 && (activeCategory === "all" || activeCategory === "subs") && (
               <div className="text-center">
                 <h3 
                   className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
