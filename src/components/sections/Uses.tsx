@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const workstationItems = [
   { name: "MacBook Pro M1 Pro", spec: "Apple M1 Pro · 16GB RAM", desc: "My primary development machine. High performance, silent, and handles all local web deployments, scripting, and research prototyping.", icon: "💻" },
@@ -28,19 +28,9 @@ const subscriptions = [
   { name: "ChatGPT Plus", desc: "Provides access to GPT-4o for system architecture planning, debugging assistance, and brainstorming.", opinion: "Worth every penny for documentation drafting and debugging.", color: "#10b981" }
 ];
 
-const categories = [
-  { id: "all", label: "All Setup", icon: "✨" },
-  ...(workstationItems.length > 0 ? [{ id: "workstation", label: "Workstation", icon: "💻" }] : []),
-  ...(accessories.length > 0 ? [{ id: "accessories", label: "Accessories", icon: "🎧" }] : []),
-  ...(deskItems.length > 0 ? [{ id: "desk", label: "Desk Mascot", icon: "⚔️" }] : []),
-  ...(applications.length > 0 ? [{ id: "apps", label: "Applications", icon: "🤖" }] : []),
-  ...(subscriptions.length > 0 ? [{ id: "subs", label: "Subscriptions", icon: "💳" }] : [])
-];
-
 export default function UsesSection() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  const [activeCategory, setActiveCategory] = useState("all");
 
   return (
     <section
@@ -111,47 +101,15 @@ export default function UsesSection() {
           </motion.p>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-16 px-4">
-          {categories.map((cat) => {
-            const isActive = activeCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`relative px-4.5 py-2 rounded-full text-xs font-semibold font-mono tracking-wider transition-all duration-300 flex items-center gap-2 cursor-pointer border ${
-                  isActive
-                    ? "text-white border-purple-500/30 bg-purple-500/10 shadow-[0_0_15px_rgba(168,85,247,0.15)]"
-                    : "text-gray-400 border-white/5 bg-white/2 hover:text-white hover:border-white/10 hover:bg-white/5"
-                }`}
-                style={{ fontFamily: "var(--font-space-mono)" }}
-              >
-                <span>{cat.icon}</span>
-                <span>{cat.label}</span>
-                {isActive && (
-                  <motion.div
-                    layoutId="activeCategoryGlow"
-                    className="absolute inset-0 rounded-full border border-purple-500/50 pointer-events-none"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Categories Stack with Framer Motion AnimatePresence */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeCategory}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-            className={activeCategory === "all" ? "space-y-24" : "space-y-0"}
-          >
+        {/* Categories Stack */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="space-y-24"
+        >
             {/* 1. Workstation */}
-            {workstationItems.length > 0 && (activeCategory === "all" || activeCategory === "workstation") && (
+            {workstationItems.length > 0 && (
               <div className="text-center">
                 <h3 
                   className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
@@ -190,7 +148,7 @@ export default function UsesSection() {
             )}
 
             {/* 2. Accessories */}
-            {accessories.length > 0 && (activeCategory === "all" || activeCategory === "accessories") && (
+            {accessories.length > 0 && (
               <div className="text-center">
                 <h3 
                   className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
@@ -229,7 +187,7 @@ export default function UsesSection() {
             )}
 
             {/* 3. Figures & Desk Items */}
-            {deskItems.length > 0 && (activeCategory === "all" || activeCategory === "desk") && (
+            {deskItems.length > 0 && (
               <div className="text-center">
                 <h3 
                   className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
@@ -276,7 +234,7 @@ export default function UsesSection() {
             )}
 
             {/* 4. Applications */}
-            {applications.length > 0 && (activeCategory === "all" || activeCategory === "apps") && (
+            {applications.length > 0 && (
               <div className="text-center">
                 <h3 
                   className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
@@ -320,7 +278,7 @@ export default function UsesSection() {
             )}
 
             {/* 5. Subscriptions */}
-            {subscriptions.length > 0 && (activeCategory === "all" || activeCategory === "subs") && (
+            {subscriptions.length > 0 && (
               <div className="text-center">
                 <h3 
                   className="text-xs font-mono font-bold text-purple-400 tracking-[0.2em] uppercase mb-8 text-center"
@@ -363,7 +321,6 @@ export default function UsesSection() {
               </div>
             )}
           </motion.div>
-        </AnimatePresence>
 
       </div>
     </section>
