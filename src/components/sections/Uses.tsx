@@ -13,8 +13,7 @@ const workstationItems = [
 const accessories = [
   { name: "AirPods Pro 2", spec: "In-Ear · Active Noise Cancellation", desc: "Perfect noise isolation when studying or writing code in noisy environments.", icon: "🎧" },
   { name: "Office Lamp", spec: "Warm-light screen bar", desc: "Reduces eye strain during late-night code audits with soft, glare-free monitor illumination.", icon: "💡" },
-  { name: "Hoco W35 Max", spec: "Over-Ear · Bluetooth 5.3", desc: "Incredibly long battery life headphones for casual audiobooks and deep relaxation.", icon: "🎧" },
-  { name: "Transcend 1TB HDD", spec: "USB 3.1 Gen 1 · External Storage", desc: "Secure and robust offline drive for local datasets and full machine snapshots.", icon: "💾" }
+  { name: "Hoco W35 Max", spec: "Over-Ear · Bluetooth 5.3", desc: "Incredibly long battery life headphones for casual audiobooks and deep relaxation.", icon: "🎧" }
 ];
 
 const deskItems = [
